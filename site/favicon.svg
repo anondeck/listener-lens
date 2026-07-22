@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Listener Lens">
+  <title>Listener Lens</title>
+  <g fill="#2743b5">
+    <rect x="10" y="18" width="16" height="30"/>
+    <rect x="34" y="8" width="16" height="40"/>
+    <rect x="58" y="24" width="16" height="24"/>
+    <rect x="82" y="12" width="16" height="36"/>
+  </g>
+  <g fill="#dd4426">
+    <rect x="10" y="52" width="16" height="20"/>
+    <rect x="34" y="52" width="16" height="40"/>
+    <rect x="58" y="52" width="16" height="16"/>
+    <rect x="82" y="52" width="16" height="30"/>
+  </g>
+  <rect x="4" y="46" width="94" height="8" fill="#1d1c1a"/>
+</svg>

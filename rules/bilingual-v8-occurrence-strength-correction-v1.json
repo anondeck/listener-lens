@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-v8-occurrence-strength-correction-v1",
+  "status": "frozen_before_first_candidate_render",
+  "classification_scope": "zero_api_known_failure_occurrence_local_v8_strength_correction",
+  "production_enabled": false,
+  "api_calls_allowed": 0,
+  "parent_evidence": {
+    "protocol_version": "bilingual-v8-composition-unseen-confirmation-v2",
+    "classification": "unseen_v8_composition_automatic_failed_preserve_exact_result",
+    "automatic_pass_count": 2,
+    "fixture_count": 3,
+    "preservation_rule": "The frozen 2/3 unseen result and exact failed measurements remain unchanged regardless of this exploratory correction outcome."
+  },
+  "failed_occurrence_binding": {
+    "fixture_id": "heart_unseen_continuous",
+    "text": "One good cook took books.",
+    "rule_id": "enpt.uh_u",
+    "rule_occurrence_ordinal_zero_based": 2,
+    "global_occurrence_index": 3,
+    "word_index": 3,
+    "source": "ʊ",
+    "target": "u",
+    "failure_mechanism": "target_gain_gate_only"
+  },
+  "intervention": {
+    "candidate_version": "v8-occurrence-strength-v1",
+    "scope": "Scale the neutral-to-lens text-state delta only over every decoder column in the failed occurrence's single-change target word. All other target words retain the frozen v8 strength of 1.0.",
+    "isolation_from_frozen_v8": "The candidate is implemented in a new source module. Hash-frozen baseline v8 and controlled-v2 files are not edited.",
+    "baseline_equivalence_strength": 1.0,
+    "baseline_equivalence_gate": "The new implementation at strength 1.0 must reproduce frozen v8 neutral, identity, and full-lens PCM exactly before alternatives may be evaluated.",
+    "alternative_strength_order": [
+      0.75,
+      1.25,
+      0.5,
+      1.5,
+      2.0
+    ],
+    "selection_rule": "first_complete_composition_gate_pass_under_frozen_order",
+    "maximum_alternative_render_count": 5,
+    "candidate_render_stopping_rule": "Stop immediately at the first complete automatic pass; otherwise stop after all five strengths.",
+    "output_composition": "Extract only the failed occurrence's frozen stress-plus-vowel measurement interval plus 25 ms context from the alternative full-lens decode and replace that same raw window in the frozen baseline full-lens PCM. Then apply unchanged output-domain-splice-v1 over the original complete window set.",
+    "window_independence_gate": "Every occurrence window must be non-overlapping and must equal one original v8 splice window. If the failed occurrence was merged with another target window, stop without a candidate.",
+    "unchanged_controls": [
+      "planner and isolated plan hash",
+      "neutral and identity PCM",
+      "predicted durations, timing, F0, noise, and RNG seed",
+      "all nonfailed occurrence raw full-lens windows",
+      "10 ms raised-cosine taper",
+      "boundary and click thresholds",
+      "80 percent localization threshold",
+      "36-dimensional robust spectral feature family",
+      "three seeded natural source and target anchor pairs",
+      "all direction, movement, endpoint, target-gain, and identity-negative-control thresholds"
+    ]
+  },
+  "automatic_gates": {
+    "baseline_parent_audio_hashes_exact": true,
+    "baseline_parent_acoustic_result_exact": true,
+    "strength_one_equivalence_exact": true,
+    "neutral_and_identity_exact_for_every_attempt": true,
+    "candidate_lens_exactly_matches_parent_lens_outside_failed_window": true,
+    "equal_finite_nonempty_unclipped_audio": true,
+    "neutral_identity_bit_exact": true,
+    "outside_splice_exact_neutral": true,
+    "full_weight_interior_exact_composite_lens": true,
+    "frozen_boundary_metrics_pass": true,
+    "frozen_localization_gate_pass": true,
+    "complete_composition_current_context_acoustic_gate_pass": true,
+    "all_five_occurrences_must_pass": true,
+    "identity_false_positive_count_must_equal": 0
+  },
+  "selection_and_exclusion": {
+    "listening_selection_allowed": false,
+    "manual_review_generated": false,
+    "fixture_replacement_allowed": false,
+    "selective_rerender_allowed": false,
+    "threshold_change_allowed": false,
+    "strength_reordering_allowed": false,
+    "posthoc_best_candidate_selection_allowed": false,
+    "failed_attempts_remain_in_denominator": true
+  },
+  "outcomes": {
+    "first_strength_passes": "known_failure_occurrence_correction_pass_eligible_fresh_unseen_confirmation",
+    "no_strength_passes": "known_failure_occurrence_correction_failed_preserve_parent_failure",
+    "stopping_rule": "This run ends after the first passing alternative or five failed alternatives. It cannot promote production or reinterpret the parent unseen failure.",
+    "interpretation_limit": "A pass shows that a deterministic occurrence-local strength correction can repair the exact known Heart target-gain miss while preserving the other four target windows and all unchanged gates. Because the strength is selected on the known failed fixture, it supports only a mechanism candidate and requires a new preregistered unseen confirmation. It does not establish broad text, voice, vowel, consonant, prosody, listener-profile, naturalness, or production validity."
+  },
+  "bindings": [
+    {
+      "path": "rules/bilingual-v8-composition-unseen-confirmation-v2.json",
+      "sha256": "e73bdc222764753b3b7d1d4691b504823e73ae6951ceb81147396c4ef2f98744"
+    },
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-v8-composition-unseen-confirmation-v2/results.json",
+      "sha256": "6afcd959d5fc95c2668d2232ce3b461db185c83b0f4d238b3969367ba84cf2a3"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_occurrence_strength.py",
+      "sha256": "aa70285a00e92e3636bba8615a437c3db2e8ca17b6e63812039e9f8e1140f21a"
+    },
+    {
+      "path": "scripts/run_bilingual_v8_occurrence_strength_correction_v1.py",
+      "sha256": "97b05f7b9a0f4623c9bfd6a20d7a2b09cf0fd731bb497a359707efc8157d0cac"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_synthesis_v2.py",
+      "sha256": "2fc3aad0cf0c4de8c80e297a8352002f5f2f1ecc5a7cd5314f80de9bf6407dbb"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_candidate_runtime.py",
+      "sha256": "2406703bcf5f8ea5ce3090e1f1a3b67452e19d8355006d2edc3a5088bf04e25b"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_output_domain_splice.py",
+      "sha256": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_typed_diagnostic.py",
+      "sha256": "5063239efa5c4c0c3065269fd0f31b57662b22e17fe64434f4c97fa0b2ab0456"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_replicated_anchors.py",
+      "sha256": "7592528ab532dd1ed0dcbf20c837f0c9889fd1089ee49d869e635cc92865ef2b"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_spectral_category.py",
+      "sha256": "f227a6a32f3506f1561c67254fffc2ae5fb76b76048a8a390bc791a9a0cd8ec7"
+    },
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-candidate-runtime-gate-v1/voice-scalers.json",
+      "sha256": "0309f2ffcf6669fbe225858a0cdaa9c5a2f67b78d125b2f019c34a997fdcac73"
+    },
+    {
+      "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+      "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    }
+  ]
+}

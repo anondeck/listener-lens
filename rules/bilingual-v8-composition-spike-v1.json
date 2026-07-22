@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-v8-composition-spike-v1",
+  "created_on": "2026-07-18",
+  "classification_scope": "exploratory_zero_api_multi_rule_composition",
+  "production_enabled": false,
+  "api_calls_allowed": 0,
+  "bindings": {
+    "candidate_state": {
+      "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+      "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+    },
+    "runtime_gate_protocol": {
+      "path": "rules/bilingual-candidate-runtime-gate-v1.json",
+      "sha256": "cd44b6d56240123ec43f2b4f80953fe3d40412a694a69c9487a29c1b4c4be511"
+    },
+    "voice_scalers": {
+      "path": "artifacts/product-matrix/20260718-bilingual-candidate-runtime-gate-v1/voice-scalers.json",
+      "sha256": "0309f2ffcf6669fbe225858a0cdaa9c5a2f67b78d125b2f019c34a997fdcac73"
+    },
+    "candidate_runtime": {
+      "path": "src/earshift_bakeoff/bilingual_candidate_runtime.py",
+      "sha256": "2406703bcf5f8ea5ce3090e1f1a3b67452e19d8355006d2edc3a5088bf04e25b"
+    },
+    "candidate_isolation": {
+      "path": "src/earshift_bakeoff/bilingual_candidate_isolation.py",
+      "sha256": "1f477c55955690b980d4fe4b03fecf915863cd91ac153c46e0c78ce98ec1cc05"
+    },
+    "runner": {
+      "path": "scripts/run_bilingual_v8_composition_spike_v1.py",
+      "sha256": "c07db016ed1663cee93cfa78ed097ae04cd29077c93e29272c92396fe5d99ece"
+    }
+  },
+  "candidate_constraints": {
+    "candidate_rung": "v8",
+    "minimum_rule_count": 2,
+    "maximum_rule_count": 3,
+    "same_voice_required": true,
+    "one_render_set_per_fixture": true,
+    "replacement_fixtures_allowed": false,
+    "listening_selection_allowed": false,
+    "threshold_changes_allowed": false,
+    "shared_current_context_anchor_decodes_per_fixture": 6,
+    "omitted_rules_must_be_reported": true
+  },
+  "fixtures": [
+    {
+      "fixture_id": "heart_two_v8_rules",
+      "profile_id": "en-US-to-pt-BR-listener-v2",
+      "voice_id": "af_heart",
+      "text": "We once took books.",
+      "selected_rule_occurrences": {
+        "enpt.ah_a": 1,
+        "enpt.uh_u": 2
+      },
+      "expected_omitted_rule_ids": [
+        "enpt.illicit_coda_epenthetic_i"
+      ]
+    },
+    {
+      "fixture_id": "michael_three_v8_rules",
+      "profile_id": "en-US-to-pt-BR-listener-v2",
+      "voice_id": "am_michael",
+      "text": "That cat stopped once.",
+      "selected_rule_occurrences": {
+        "enpt.aa_a": 1,
+        "enpt.ae_eh": 2,
+        "enpt.ah_a": 1
+      },
+      "expected_omitted_rule_ids": [
+        "enpt.eth_d",
+        "enpt.illicit_coda_epenthetic_i"
+      ]
+    },
+    {
+      "fixture_id": "dora_two_v8_rules",
+      "profile_id": "pt-BR-to-en-US-listener-v2",
+      "voice_id": "pf_dora",
+      "text": "O local fica em frente.",
+      "selected_rule_occurrences": {
+        "pten.final_e_i": 1,
+        "pten.o_goat": 1
+      },
+      "expected_omitted_rule_ids": [
+        "pten.final_a_schwa"
+      ]
+    }
+  ],
+  "automatic_pass_criteria": {
+    "exact_selected_rule_and_occurrence_contract": true,
+    "neutral_identity_bit_exact": true,
+    "equal_finite_nonempty_unclipped_audio": true,
+    "outside_splice_exact_neutral": true,
+    "full_weight_interior_exact_lens": true,
+    "boundary_metrics_pass": true,
+    "localization_pass": true,
+    "every_rule_current_context_anchor_validation_pass": true,
+    "every_rule_directional_pass": true,
+    "identity_false_positive_count": 0
+  },
+  "outcomes": {
+    "all_fixtures_pass": "exploratory_v8_composition_pass_eligible_for_disabled_runtime_integration_pending_human_qc",
+    "any_fixture_fails": "exploratory_v8_composition_incomplete_preserve_exact_failure",
+    "interpretation_limit": "A pass supports only composition of independently passing v8 oral-vowel cells under the tested automatic gates. It does not validate mixed candidate rungs, untested rules, naturalness, listener-profile fit, or production."
+  }
+}

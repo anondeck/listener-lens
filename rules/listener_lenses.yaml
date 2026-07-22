@@ -1,0 +1,167 @@
+{
+  "schema_version": 4,
+  "runtime_policy": {
+    "max_characters": 280,
+    "max_words": 40,
+    "max_sentences": 2,
+    "max_estimated_audio_seconds": 40,
+    "max_carrier_characters": 560,
+    "max_live_renders_per_client_per_day": 5,
+    "max_live_renders_per_day": 100,
+    "renderer_status": "endpoint_implemented_pending_live_smoke",
+    "renderer_model": "gpt-audio-1.5",
+    "renderer_contract": "json-flow-v2",
+    "fallback_renderer": "gpt-4o-mini-tts-2025-12-15",
+    "api_renderer_enabled": false,
+    "static_fallback_required": true,
+    "cache_required": true
+  },
+  "weak_carrier_policy": {
+    "version": 1,
+    "classification": "casefolded source function word with zero enabled listener-rule slots",
+    "source_function_words": [
+      "a", "an", "the", "and", "but", "or", "nor", "for", "so", "yet",
+      "as", "at", "by", "from", "in", "of", "on", "per", "than", "to", "with",
+      "am", "are", "be", "been", "being", "is", "was", "were",
+      "do", "does", "did", "have", "has", "had",
+      "can", "could", "may", "might", "must", "shall", "should", "will", "would",
+      "he", "her", "him", "his", "i", "it", "its", "me", "my", "our", "she",
+      "their", "them", "they", "us", "we", "you", "your",
+      "some", "any", "this", "that", "these", "those"
+    ],
+    "candidate_inventory": [
+      {"surface": "zih", "syllables": 1},
+      {"surface": "bihm", "syllables": 1},
+      {"surface": "dihn", "syllables": 1},
+      {"surface": "fihv", "syllables": 1},
+      {"surface": "lihm", "syllables": 1},
+      {"surface": "mihn", "syllables": 1},
+      {"surface": "nihv", "syllables": 1},
+      {"surface": "pihm", "syllables": 1},
+      {"surface": "rihn", "syllables": 1},
+      {"surface": "sihv", "syllables": 1},
+      {"surface": "tihm", "syllables": 1},
+      {"surface": "vihn", "syllables": 1},
+      {"surface": "zihm", "syllables": 1},
+      {"surface": "brih", "syllables": 1},
+      {"surface": "drih", "syllables": 1},
+      {"surface": "frih", "syllables": 1},
+      {"surface": "grih", "syllables": 1},
+      {"surface": "plih", "syllables": 1},
+      {"surface": "prih", "syllables": 1},
+      {"surface": "trih", "syllables": 1},
+      {"surface": "vrih", "syllables": 1},
+      {"surface": "zihdihn", "syllables": 2},
+      {"surface": "bihmmihn", "syllables": 2},
+      {"surface": "dihnfihv", "syllables": 2},
+      {"surface": "fihvlihm", "syllables": 2},
+      {"surface": "lihmmihn", "syllables": 2},
+      {"surface": "mihnnihv", "syllables": 2},
+      {"surface": "nihvpihm", "syllables": 2},
+      {"surface": "pihmrihn", "syllables": 2},
+      {"surface": "rihnsihv", "syllables": 2},
+      {"surface": "sihvtihm", "syllables": 2},
+      {"surface": "tihmvihn", "syllables": 2},
+      {"surface": "vihnzihm", "syllables": 2}
+    ]
+  },
+  "profiles": [
+    {
+      "id": "en-to-pt-BR-vowel-lens",
+      "display_name": "English through a Brazilian Portuguese vowel-category lens",
+      "source_language": "en",
+      "listener_language": "pt-BR",
+      "source_espeak_voice": "en-us",
+      "listener_espeak_voice": "pt-br",
+      "claim_label": "Evidence-informed, language-shaped approximation using selected cited sound-category substitutions",
+      "transformations": [
+        {
+          "id": "ptbr.vowel.ih_to_i",
+          "source": "ɪ",
+          "target": "i",
+          "enabled": false,
+          "neutral_grapheme": "ih",
+          "lens_grapheme": "ee",
+          "carrier_shells": [
+            {"id": "z_V_f", "onset": "z", "coda": "f"},
+            {"id": "b_V_vd", "onset": "b", "coda": "vd"},
+            {"id": "v_V_p", "onset": "v", "coda": "p"}
+          ],
+          "kind": "derived_engineering_rule",
+          "confidence": "disabled-after-confirmatory-failure",
+          "description": "Disabled after the final amended confirmation: the replacement shell supplied no eligible lens centroid, so the unchanged three-shell aggregate could not be computed.",
+          "calibration": {
+            "outcome": "fail",
+            "run_id": "20260715-calibration-v3-amended-confirmation",
+            "protocol_sha256": "3c55d9d2c5d30a399829b7b0559f00ec2c9eadb62b59293d44f950d75a3a1814"
+          },
+          "source_ids": ["rauber2006"]
+        },
+        {
+          "id": "ptbr.vowel.ae_to_eh",
+          "source": "æ",
+          "target": "ɛ",
+          "enabled": true,
+          "neutral_grapheme": "a",
+          "lens_grapheme": "eh",
+          "carrier_shells": [
+            {"id": "z_V_f", "onset": "z", "coda": "f"},
+            {"id": "b_V_vd", "onset": "b", "coda": "vd"},
+            {"id": "v_V_p", "onset": "v", "coda": "p"}
+          ],
+          "kind": "derived_engineering_rule",
+          "confidence": "passed-frozen-exact-category-acoustic-gates",
+          "description": "Shift the English TRAP carrier vowel toward the Brazilian Portuguese open-mid front category; the bounded three-shell carrier passed the frozen exact-category acoustic gates.",
+          "calibration": {
+            "outcome": "exact-category pass",
+            "run_id": "20260715-calibration-v3-amended-confirmation",
+            "protocol_sha256": "3c55d9d2c5d30a399829b7b0559f00ec2c9eadb62b59293d44f950d75a3a1814"
+          },
+          "source_ids": ["rauber2006"]
+        },
+        {
+          "id": "ptbr.vowel.uh_to_u",
+          "source": "ʊ",
+          "target": "u",
+          "enabled": false,
+          "neutral_grapheme": "uu",
+          "lens_grapheme": "oo",
+          "kind": "derived_engineering_rule",
+          "confidence": "excluded-after-contrast-erasure",
+          "description": "Excluded because the calibrated carrier spelling erased the intended FOOT-to-high-back contrast; directional-only status was not earned.",
+          "calibration": {
+            "outcome": "excluded",
+            "run_id": "20260715-calibration-v3-amended-confirmation",
+            "protocol_sha256": "3c55d9d2c5d30a399829b7b0559f00ec2c9eadb62b59293d44f950d75a3a1814"
+          },
+          "source_ids": ["rauber2006"]
+        }
+      ],
+      "carrier_inventory": {
+        "onsets": ["b", "d", "f", "g", "l", "m", "n", "p", "r", "s", "t", "v", "z", "br", "dr", "fr", "gr", "pl", "pr", "tr", "vr"],
+        "nuclei": ["a", "e", "i", "o", "u", "ay", "oh", "ee", "oo", "uh"],
+        "codas": ["", "", "", "m", "n", "l", "r", "s", "t", "k"]
+      },
+      "scope_exclusions": [
+        "The KIT-to-high-front rule is disabled after the final amended confirmation failed the unchanged three-shell aggregate.",
+        "The FOOT-to-high-back rule is excluded because the tested carrier erased the intended contrast; directional-only status was not earned.",
+        "Runtime audio is exact-transcript and integrity verified but is not acoustically classified for each arbitrary sentence.",
+        "This table does not yet model consonant assimilation, epenthesis, prosody, lexical restoration, proficiency differences, or dialect differences.",
+        "The respelling is an engineering carrier for a renderer, not a phonetic transcription and not a claim about conscious experience.",
+        "The output is an evidence-informed approximation, not a recording of an individual listener's private perceptual experience."
+      ],
+      "sources": [
+        {
+          "id": "rauber2006",
+          "title": "Perception and production of English vowels by Brazilian EFL speakers",
+          "url": "https://repositorio.ufsc.br/handle/123456789/88701"
+        },
+        {
+          "id": "flegebohn2021",
+          "title": "The Revised Speech Learning Model (SLM-r)",
+          "url": "https://doi.org/10.1017/9781108886901"
+        }
+      ]
+    }
+  ]
+}

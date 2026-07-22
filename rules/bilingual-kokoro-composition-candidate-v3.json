@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "candidate_id": "bilingual-kokoro-vowel-composition-candidate-v3",
+  "feature_flag": "KOKORO_BILINGUAL_CANDIDATE_ENABLED",
+  "enabled_by_default": false,
+  "production_enabled": false,
+  "service_contract_version": "bilingual-kokoro-controlled-pair-service-v4",
+  "base_candidate_state": {
+    "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+    "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+  },
+  "prior_composition_state": {
+    "path": "rules/bilingual-kokoro-composition-candidate-v2.json",
+    "sha256": "d74f4bc22db405390b7aa2d1320100adab7c15ae1e15bb6dc1bddd683de725ab"
+  },
+  "rule_display": {
+    "path": "rules/bilingual-rule-display-v1.json",
+    "sha256": "c1ca4651ac9efef22a37605f1e96d7e8eaec945551705cf876b008d55af1113e"
+  },
+  "evidence": {
+    "prior_unseen_result_path": "artifacts/product-matrix/20260718-bilingual-v8-composition-unseen-confirmation-v2/results.json",
+    "prior_unseen_result_sha256": "6afcd959d5fc95c2668d2232ce3b461db185c83b0f4d238b3969367ba84cf2a3",
+    "prior_unseen_result_record_sha256": "4ee292c546702f4cb016eb8248f57c97b08fbd997561ebb47c89a45543c72a3b",
+    "prior_unseen_classification": "unseen_v8_composition_automatic_failed_preserve_exact_result",
+    "known_correction_result_path": "artifacts/product-matrix/20260718-bilingual-v8-carrier-retry-correction-v1/results.json",
+    "known_correction_result_sha256": "e1aebcac898e70cccf9bb6d77ae8800b0338b4688abddf75b5963c427bd88ee7",
+    "known_correction_result_record_sha256": "d032d8466663b19bde8640739741ca00f7221b7723b78e8e35cb39a22e936ea4",
+    "known_correction_classification": "known_failure_carrier_retry_pass_eligible_fresh_unseen_confirmation",
+    "adaptive_unseen_result_path": "artifacts/product-matrix/20260718-bilingual-v8-carrier-retry-unseen-confirmation-v1/results.json",
+    "adaptive_unseen_result_sha256": "c61ef59c2ef64f71485cf336cef98f190425c1fd406c596c841d0667718f8af0",
+    "adaptive_unseen_result_record_sha256": "f359dd474aefe47fe1767809d9a53949a05cabc3275308dbb85db5dbfcbf611d",
+    "adaptive_unseen_classification": "unseen_carrier_retry_algorithm_automatic_pass_pending_human_qc",
+    "adaptive_unseen_pass_count": 3,
+    "adaptive_unseen_fixture_count": 3,
+    "adaptive_unseen_rescued_fixture_count": 2,
+    "adaptive_unseen_total_attempt_count": 5,
+    "unseen_composition_status": "adaptive_algorithm_automatic_pass_3_of_3_two_rescues",
+    "human_status": "pending",
+    "production_promotion": false
+  },
+  "runtime_policy": {
+    "single_rule_path_unchanged": true,
+    "composition_synthesis": "combined_v8_with_deterministic_adaptive_carrier_retry",
+    "minimum_composed_rule_count": 2,
+    "maximum_composed_rule_count": 3,
+    "candidate_rung_required": "v8",
+    "mixed_rungs_allowed": false,
+    "maximum_carrier_retry_rounds": 5,
+    "retryable_failure_requires_integrity_pass": true,
+    "retryable_failure_requires_zero_identity_false_positives": true,
+    "retryable_failure_segment_type": "vowel",
+    "repeated_source_mapping_advanced_as_one_unit": true,
+    "global_adjacency_reresolution_required": true,
+    "all_selected_rules_must_have_independent_automatic_evidence": true,
+    "all_current_context_occurrences_must_pass_frozen_acoustic_gate": true,
+    "failed_or_exhausted_contexts_fail_closed": true,
+    "omitted_rules_must_be_reported": true,
+    "human_composition_qc_eligible": true,
+    "production_promotion_allowed": false
+  },
+  "interpretation_limit": "This disabled candidate binds a 3/3 unseen automatic confirmation in which deterministic carrier retry rescued two initially failing fixtures across both language directions. A returned pair has passed every current-request integrity and acoustic gate. Human naturalness and listener-profile QC remain pending. The evidence does not establish arbitrary-text reliability, all vowels, consonants, validated prosody, semantic-opacity perception, or production readiness."
+}

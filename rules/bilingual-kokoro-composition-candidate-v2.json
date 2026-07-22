@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "candidate_id": "bilingual-kokoro-vowel-composition-candidate-v2",
+  "feature_flag": "KOKORO_BILINGUAL_CANDIDATE_ENABLED",
+  "enabled_by_default": false,
+  "production_enabled": false,
+  "service_contract_version": "bilingual-kokoro-controlled-pair-service-v3",
+  "base_candidate_state": {
+    "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+    "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+  },
+  "prior_composition_state": {
+    "path": "rules/bilingual-kokoro-composition-candidate-v1.json",
+    "sha256": "eb37f63da7e27357ea1f3032af0f92bad207809c214809de743d0e2f5b83ed12"
+  },
+  "rule_display": {
+    "path": "rules/bilingual-rule-display-v1.json",
+    "sha256": "c1ca4651ac9efef22a37605f1e96d7e8eaec945551705cf876b008d55af1113e"
+  },
+  "evidence": {
+    "known_composition_result_path": "artifacts/product-matrix/20260718-bilingual-v8-composition-spike-v1/results.json",
+    "known_composition_result_sha256": "020f086da838c948312d3b88be0f59b09bf78e32a6b6e8f3b89f5cdf8e28d7d6",
+    "known_composition_classification": "exploratory_v8_composition_incomplete_preserve_exact_failure",
+    "known_composition_pass_count": 2,
+    "known_composition_fixture_count": 3,
+    "unseen_composition_result_path": "artifacts/product-matrix/20260718-bilingual-v8-composition-unseen-confirmation-v2/results.json",
+    "unseen_composition_result_sha256": "6afcd959d5fc95c2668d2232ce3b461db185c83b0f4d238b3969367ba84cf2a3",
+    "unseen_composition_result_record_sha256": "4ee292c546702f4cb016eb8248f57c97b08fbd997561ebb47c89a45543c72a3b",
+    "unseen_composition_classification": "unseen_v8_composition_automatic_failed_preserve_exact_result",
+    "unseen_composition_pass_count": 2,
+    "unseen_composition_fixture_count": 3,
+    "unseen_composition_status": "automatic_failed_2_of_3",
+    "human_status": "not_eligible_after_unseen_aggregate_failure",
+    "failure_summary": "Heart /ʊ/→/u/ missed target gain in one of four occurrences; Michael and Dora fixtures passed. All request-time engineering and identity gates remained intact.",
+    "production_promotion": false
+  },
+  "runtime_policy": {
+    "single_rule_path_unchanged": true,
+    "composition_synthesis": "combined_v8_one_decode",
+    "minimum_composed_rule_count": 2,
+    "maximum_composed_rule_count": 3,
+    "candidate_rung_required": "v8",
+    "mixed_rungs_allowed": false,
+    "all_selected_rules_must_have_independent_automatic_evidence": true,
+    "all_current_context_occurrences_must_pass_frozen_acoustic_gate": true,
+    "failed_contexts_fail_closed": true,
+    "omitted_rules_must_be_reported": true,
+    "automatic_unseen_aggregate_required_before_human_composition_qc": true,
+    "human_composition_qc_eligible": false,
+    "production_promotion_allowed": false
+  },
+  "interpretation_limit": "This state preserves a disabled, request-time coverage-gated engineering path after the frozen unseen aggregate failed 2/3. A returned pair proves only that its own occurrences passed the automatic gate. It does not promote composition, naturalness, listener-profile fit, arbitrary sentences, consonants, prosody, insertions, nasal vowels, or production."
+}

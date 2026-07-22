@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listener Lens Lab — local prototype</title>
+  <style>
+    :root {
+      --paper: #f4efdf;
+      --ink: #17211c;
+      --muted: #637067;
+      --line: #b8b9a9;
+      --forest: #153f32;
+      --orange: #ee6d36;
+      --acid: #d7e36c;
+      --panel: rgba(255, 253, 244, .78);
+      --shadow: 0 24px 70px rgba(25, 39, 31, .13);
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Avenir Next", "Gill Sans", sans-serif;
+      background:
+        linear-gradient(90deg, transparent 0 49.9%, rgba(21,63,50,.06) 50%, transparent 50.1%),
+        radial-gradient(circle at 82% 12%, rgba(215,227,108,.58), transparent 25rem),
+        var(--paper);
+    }
+    button, textarea, select { font: inherit; }
+    button:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+    }
+    .shell { width: min(1180px, calc(100% - 34px)); margin: 0 auto; padding: 28px 0 64px; }
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--orange); margin-right:8px; }
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
+      gap: 56px;
+      align-items: end;
+      padding: 66px 0 44px;
+    }
+    .eyebrow { color:var(--orange); font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+    h1, h2, h3 { font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-weight: 600; }
+    h1 { margin:10px 0 0; max-width:800px; font-size:clamp(56px,9vw,116px); line-height:.78; letter-spacing:-.065em; }
+    h1 em { color:var(--forest); font-weight:400; }
+    .lede { font-family:"Iowan Old Style", Baskerville, Georgia, serif; font-size:clamp(19px,2.2vw,27px); line-height:1.25; margin:0 0 8px; }
+    .fine { color:var(--muted); font-size:13px; line-height:1.45; }
+    .lab {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--ink);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .lab::after { content:"01"; position:absolute; right:20px; top:-25px; color:var(--orange); font:700 64px/1 "Iowan Old Style",serif; }
+    .form-grid { display:grid; grid-template-columns: 1fr 1.7fr; gap:24px; align-items:start; }
+    label { display:block; margin-bottom:8px; font-size:11px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    select, textarea {
+      width:100%; border:0; border-bottom:2px solid var(--ink); border-radius:0; background:rgba(255,255,255,.38); color:var(--ink); padding:15px 14px;
+    }
+    textarea { min-height:132px; resize:vertical; font-family:"Iowan Old Style",Baskerville,serif; font-size:22px; line-height:1.35; }
+    .counter { text-align:right; color:var(--muted); font-size:11px; margin-top:7px; }
+    .actions { display:flex; gap:12px; align-items:center; margin-top:22px; flex-wrap:wrap; }
+    .primary, .play {
+      border:1px solid var(--ink); cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .primary { background:var(--forest); color:#fffdf4; padding:14px 22px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; box-shadow:5px 5px 0 var(--orange); }
+    .primary:hover { transform:translate(-2px,-2px); box-shadow:8px 8px 0 var(--orange); }
+    .primary:disabled { opacity:.5; cursor:wait; transform:none; }
+    .zero { font-size:12px; color:var(--muted); }
+    .zero strong { color:var(--forest); }
+    .error { display:none; margin-top:18px; padding:13px 15px; border-left:4px solid var(--orange); background:#fff2e9; }
+    .results { display:none; margin-top:42px; }
+    .result-head { display:flex; justify-content:space-between; gap:20px; align-items:end; border-bottom:1px solid var(--ink); padding-bottom:12px; }
+    .result-head h2 { margin:0; font-size:clamp(34px,5vw,58px); letter-spacing:-.04em; }
+    .result-head span { color:var(--muted); font-size:12px; text-align:right; }
+    .takes { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--ink); border-top:0; }
+    .take { min-height:310px; padding:24px; border-right:1px solid var(--ink); display:flex; flex-direction:column; animation:rise .55s both; }
+    .take:nth-child(2) { animation-delay:.08s; background:rgba(215,227,108,.18); }
+    .take:nth-child(3) { animation-delay:.16s; border-right:0; background:var(--forest); color:#fffdf4; }
+    .take-label { display:flex; justify-content:space-between; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.15em; }
+    .take-label b { color:var(--orange); }
+    .take blockquote { margin:48px 0 28px; font:400 clamp(24px,2.6vw,36px)/1.18 "Iowan Old Style",Baskerville,serif; overflow-wrap:anywhere; }
+    .play { margin-top:auto; align-self:flex-start; background:transparent; color:inherit; padding:9px 13px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+    .play:hover { background:var(--orange); color:var(--ink); }
+    .play:disabled { opacity:.45; cursor:not-allowed; }
+    .take mark { background:var(--acid); color:var(--ink); padding:0 .08em; }
+    .evidence { margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .evidence-panel { border-top:5px solid var(--orange); padding:20px 0; }
+    .evidence-panel h3 { margin:0 0 14px; font-size:28px; }
+    .rules { display:flex; flex-wrap:wrap; gap:8px; }
+    .rule { border:1px solid var(--line); padding:8px 10px; background:rgba(255,255,255,.4); font-size:13px; }
+    .rule strong { font-family:"Iowan Old Style",serif; font-size:19px; margin-right:7px; }
+    .warning { color:var(--muted); font-size:13px; line-height:1.5; }
+    .warning strong { color:var(--ink); }
+    .runtime {
+      margin-top:30px; padding:16px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; background:var(--ink); color:var(--paper); font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    }
+    .runtime b { display:block; color:var(--acid); font-size:14px; margin-top:4px; letter-spacing:0; text-transform:none; }
+    footer { margin-top:40px; display:flex; justify-content:space-between; gap:30px; font-size:11px; color:var(--muted); }
+    @keyframes rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+    @media (max-width: 800px) {
+      header, .form-grid, .evidence { grid-template-columns:1fr; gap:24px; }
+      header { padding-top:44px; }
+      .takes { grid-template-columns:1fr; }
+      .take { border-right:0; border-bottom:1px solid var(--ink); min-height:250px; }
+      .take:last-child { border-bottom:0; }
+      .runtime { grid-template-columns:1fr 1fr; }
+      footer { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topline"><span>Listener Lens Lab / local build</span><span><i class="status-dot"></i>Pair validation pending</span></div>
+    <header>
+      <div><div class="eyebrow">Semantic opacity × perceptual recategorization</div><h1>Hear past <em>meaning.</em></h1></div>
+      <div><p class="lede">Turn a familiar sentence into one controlled pseudoword pair.</p><p class="fine">Both carrier versions share every word shell and differ only at highlighted vowel slots. The play buttons use your browser’s speech synthesizer as a disposable mock—not evaluation or shipping audio.</p></div>
+    </header>
+
+    <section class="lab" aria-labelledby="lab-title">
+      <div class="form-grid">
+        <div>
+          <label id="lab-title" for="profile">Listener profile</label>
+          <select id="profile"><option value="en-to-pt-BR-vowel-lens">English through a Brazilian Portuguese vowel-category lens</option></select>
+          <p class="fine">Population-level approximation. Dialect, proficiency, and individual differences are not modeled yet.</p>
+        </div>
+        <div>
+          <label for="input">One or two English sentences</label>
+          <textarea id="input" maxlength="280">The black cat sat on the wooden bench.</textarea>
+          <div class="counter"><span id="count">43</span> / 280</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="primary" id="transform">Build listening versions</button>
+        <span class="zero">Transformation cost: <strong>$0.00</strong> · OpenAI calls: <strong>0</strong></span>
+      </div>
+      <div class="error" id="error" role="alert"></div>
+    </section>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="result-head"><h2>One carrier, two lenses</h2><span id="claim"></span></div>
+      <div class="takes">
+        <article class="take">
+          <div class="take-label"><span>Take 01</span><b>Reference</b></div>
+          <blockquote id="original"></blockquote>
+          <button class="play" data-target="original">▶ Play browser mock</button>
+        </article>
+        <article class="take">
+          <div class="take-label"><span>Take 02</span><b>Neutral carrier</b></div>
+          <blockquote id="neutral"></blockquote>
+          <button class="play carrier-play" data-target="neutral">▶ Play browser mock</button>
+        </article>
+        <article class="take">
+          <div class="take-label"><span>Take 03</span><b>Vowel slots shifted</b></div>
+          <blockquote id="lens"></blockquote>
+          <button class="play carrier-play" data-target="lens">▶ Play browser mock</button>
+        </article>
+      </div>
+      <div class="evidence">
+        <div class="evidence-panel"><h3>What changed</h3><div class="rules" id="rules"></div></div>
+        <div class="evidence-panel"><h3>What this does not claim</h3><p class="warning"><strong>Not an exact simulation.</strong> This version enables one bounded vowel-category carrier rule: `/æ/→/ɛ/` passed the frozen exact-category acoustic gates, while the KIT and FOOT rules are disabled. A gate pass is not a universal exact-phoneme guarantee. This does not yet model consonants, epenthesis, prosody, lexical restoration, proficiency, dialect, or an individual listener.</p></div>
+      </div>
+      <div class="runtime">
+        <span>Transform cache<b id="cache">—</b></span>
+        <span>Nonce gates<b id="gate">—</b></span>
+        <span>API calls<b>0</b></span>
+        <span>Audio renderer<b>Browser mock only</b></span>
+      </div>
+    </section>
+    <footer><span>Prototype label only. No final product name has been selected.</span><span>GPT Audio and one vowel carrier rule are selected; matched-pair and release gates remain before live audio.</span></footer>
+  </main>
+  <script>
+    const input = document.getElementById('input');
+    const count = document.getElementById('count');
+    const button = document.getElementById('transform');
+    const error = document.getElementById('error');
+    let current = null;
+    const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+    const highlightWord = (word, side) => {
+      const surface = side === 'neutral' ? word.neutral_surface : word.lens_surface;
+      if (!word.slots.length) return escapeHtml(surface);
+      let cursor = 0;
+      return word.slots.map(slot => {
+        const [start, end] = side === 'neutral'
+          ? slot.neutral_character_span
+          : slot.lens_character_span;
+        const before = escapeHtml(surface.slice(cursor, start));
+        const marked = `<mark title="${escapeHtml(slot.rule_id)}">${escapeHtml(surface.slice(start, end))}</mark>`;
+        cursor = end;
+        return before + marked;
+      }).join('') + escapeHtml(surface.slice(cursor));
+    };
+    const carrierHtml = (script, words, side) => {
+      let index = 0;
+      let cursor = 0;
+      let rendered = '';
+      for (const match of script.matchAll(/[A-Za-z]+/g)) {
+        rendered += escapeHtml(script.slice(cursor, match.index));
+        rendered += highlightWord(words[index++], side);
+        cursor = match.index + match[0].length;
+      }
+      return rendered + escapeHtml(script.slice(cursor));
+    };
+    count.textContent = input.value.length;
+    input.addEventListener('input', () => count.textContent = input.value.length);
+
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      button.textContent = 'Analyzing sound…';
+      error.style.display = 'none';
+      try {
+        const response = await fetch('/api/transform', {
+          method: 'POST', headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({text: input.value, profile_id: document.getElementById('profile').value})
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || data.error || 'Transformation failed');
+        current = data;
+        document.getElementById('original').textContent = data.original_text;
+        document.getElementById('neutral').innerHTML = carrierHtml(data.neutral_script, data.words, 'neutral');
+        document.getElementById('lens').innerHTML = carrierHtml(data.lens_script, data.words, 'lens');
+        document.getElementById('claim').textContent = data.claim_label;
+        document.getElementById('cache').textContent = data.runtime.cache_hit ? 'Hit' : 'New entry';
+        document.getElementById('gate').textContent = data.nonce_gate_enabled ? 'Dictionary + G2P' : 'Unavailable / do not ship';
+        const sources = Object.fromEntries(data.sources.map(s => [s.id, s]));
+        document.getElementById('rules').innerHTML = data.applied_rules.length
+          ? data.applied_rules.map(r => `<span class="rule"><strong>${r.source} → ${r.target}</strong>${r.occurrences}× · ${r.confidence} · <a href="${sources[r.source_ids[0]]?.url || '#'}" target="_blank" rel="noreferrer">source</a></span>`).join('')
+          : '<span class="warning"><strong>No supported contrast appeared.</strong> Carrier playback is disabled because the two versions would be identical.</span>';
+        document.querySelectorAll('.carrier-play').forEach(play => play.disabled = !data.comparison_available);
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+      } catch (cause) {
+        error.textContent = cause.message;
+        error.style.display = 'block';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Build listening versions';
+      }
+    });
+
+    document.querySelectorAll('.play').forEach(play => play.addEventListener('click', () => {
+      if (!current || !('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const key = play.dataset.target;
+      if (key !== 'original' && !current.comparison_available) return;
+      const text = key === 'original' ? current.original_text : key === 'neutral' ? current.neutral_script : current.lens_script;
+      const utterance = new SpeechSynthesisUtterance(text);
+      const voice = speechSynthesis.getVoices().find(v => v.lang.toLowerCase().startsWith('en-us'));
+      if (voice) utterance.voice = voice;
+      utterance.rate = 0.96;
+      speechSynthesis.speak(utterance);
+    }));
+  </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-full-context-screen-v1",
+  "status": "frozen_before_first_full_context_matrix_render",
+  "production_enabled": false,
+  "parent_bindings": {
+    "matrix_sha256": "171ba086e2641542a57895805dac84fadb967a4d8ab357c9d961873e20057ac5",
+    "v8_manifest_sha256": "d86cc342271e4baae8a645ed98e2fb8878a2a0b5f1b93b65931755a414780aa6",
+    "v8_manifest_record_sha256": "d091875d00cc31dadd39bf37196581a8050d67c02a5f823b7a993add74ad8409",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2",
+    "v8_result_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "word_protocol_sha256": "c4b9ed3d3cb5ab745a772c455e254be4fffe8cefebd83fe96eaec1bd83d69196",
+    "word_result_sha256": "138a43f2f08605a70fdd8c120b9d24ddd30841a8ed2f429d86bd5500f5bdebd2",
+    "word_result_record_sha256": "d683e261b4c574d20899a5e1b3e5d8bbef84a81b0ce776cde1c3b0f7dfe031f8",
+    "posthoc_mechanism_correction_sha256": "0dc9189dc43691a68502008d57f3d88deab7760e2a01f3b9470adf4079518cc6"
+  },
+  "selection_basis": {
+    "status_required": "word-context candidate cell classification is fail",
+    "parent_cell_count": 16,
+    "parent_rescued_cell_count": 3,
+    "selected_failed_cell_count": 13,
+    "selection_uses_no_full_context_audio_or_listening": true,
+    "v8_anchor_adequacy_inherited": true
+  },
+  "scope": {
+    "family": "vowel",
+    "voice_rule_cell_count": 13,
+    "logical_slot_count": 39,
+    "candidate_render_set_count": 39,
+    "contexts_per_cell": [
+      "phrase_medial_continuous_speech",
+      "phrase_final_new_context",
+      "repeated_multi_target"
+    ],
+    "required_occurrences_per_cell": 4,
+    "cell_ids_in_order": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.back_mid_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.front_rounded_e",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_i_i",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.central_high_kit",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.front_open_rounded_eh",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_e_ih",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.central_high_kit"
+    ],
+    "evidence_transfer_between_voices": false,
+    "evidence_transfer_between_rules": false,
+    "evidence_transfer_between_contexts": false
+  },
+  "candidate_intervention": {
+    "version": "vowel-full-context-neutral-excitation-v1",
+    "controlled_version": "controlled-vowel-full-context-v1",
+    "input_delta": "the unchanged isolated v8 neutral/lens phoneme plan",
+    "text_state": "decode every column of the complete lens-conditioned text-encoder state",
+    "duration_and_alignment": "unchanged source-derived neutral duration and alignment",
+    "f0_and_noise": "unchanged neutral-conditioned F0 and noise across the complete utterance",
+    "random_excitation": "the same reset common RNG seed for neutral, identity, and lens",
+    "output_domain_splice": "unchanged v8 stress-plus-vowel interval plus 25 ms context and 10 ms taper",
+    "neutral": "must remain PCM-identical to the frozen v8 neutral",
+    "identity": "must remain bit-identical to neutral",
+    "candidate_order": [
+      "complete_context_state_neutral_excitation"
+    ],
+    "first_complete_pass_wins": true,
+    "selective_rerender_allowed": false,
+    "replacement_slots_allowed": false,
+    "api_calls_allowed": 0
+  },
+  "instrument_and_gates": {
+    "inheritance": "Reuse every frozen v8 source-anchor, target-anchor, neutral measurement, interval, formant ceiling, retention rule, threshold, endpoint rule, and aggregation rule unchanged; measure only the new full-context lens.",
+    "praat_version": "6.6.30",
+    "praat_sha256": "b0311abb9ae606a5204715b0ab861d4ab863b932cbe3f0faecb7cce80b609d8d",
+    "praat_script_sha256": "114a91d4415d538041da6e0d28d35fc010d36e9f8b89c84e5e893b99bce4abfe",
+    "formant_ceilings_hz": [
+      5500,
+      5750,
+      6000
+    ],
+    "minimum_valid_frames_per_bin": 3,
+    "minimum_valid_frame_fraction": 0.6,
+    "base_minimum_anchor_separation_bark_rms": 0.18,
+    "base_minimum_controlled_movement_bark_rms": 0.18,
+    "minimum_controlled_movement_fraction_of_anchor_for_exact": 0.5,
+    "minimum_direction_cosine": 0.5,
+    "universal_integrity_required": true,
+    "all_three_ceilings_required": true
+  },
+  "aggregation_policy": {
+    "slot_requires_every_occurrence_across_every_ceiling": true,
+    "cell_requires_all_three_slots_and_four_occurrences": true,
+    "missing_or_excluded_measurement_fails_the_cell": true,
+    "nasal_vowel_cell_remains_ineligible_without_nasality_gate": true,
+    "automatic_pass_only_queues_blind_human_qc": true,
+    "product_promotion_allowed": false
+  },
+  "claim_limits": {
+    "candidate_pass": "A pass establishes the inherited automatic vowel gate only on the three known matrix fixtures for that exact voice and rule.",
+    "contextual_state": "Full text-state use is permitted because the shipped WAV remains exact neutral outside the frozen output windows; it does not imply that the latent difference itself is local.",
+    "generalization": "Unseen words, arbitrary sentences, naturalness, and listener-profile fit still require separate evidence.",
+    "anchor_limited_cells": "The candidate is not evaluated on cells whose natural source/target anchor family failed or was unmeasurable.",
+    "other_families": "Consonants, insertion, nasality, and prosody remain separate unsolved validation families."
+  },
+  "stopping_rule": "Render the one full-context candidate exactly once for each of the 39 selected slots, preserve every error and exclusion, retain the earlier first-passing candidate for already rescued cells, and do not add another candidate, replace a fixture, rerender a slot, change a threshold, or promote a product cell in this run.",
+  "source_bindings": [
+    {
+      "path": "scripts/run_bilingual_vowel_full_context_screen_v1.py",
+      "sha256": "9fcc8d2da5044025cfd4a9d5c83a04f21e4f676a7f017188e02baa329c12dd40"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_full_context.py",
+      "sha256": "70c0bfaeb3ee8436152f1805d683f712c0970705d76a6d5381944697a40b9993"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_full_context.py",
+      "sha256": "b025bf21a49bb9f4873c03dc9d7b50b44e33c6491edec3a4ede669ba67489219"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_word_context_screen_v1.py",
+      "sha256": "04f54a3c1053b8d8536f33789addcf9e40da195fc834e65f4adb2b704bb9b62f"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_word_context.py",
+      "sha256": "03c11a14cee3f338cad27ec894650ad7874539fe68df167cae1bbd7bb192fefa"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_acoustics_v2.py",
+      "sha256": "0d4e6071c632078fda0fe5afb8d08dadc73214d8044f87c42840b03246eb5a03"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_synthesis.py",
+      "sha256": "177a16723def39e6e2179fba88dd3ac8c823ec40df02b61e2c44f230380bd07d"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_output_domain_splice.py",
+      "sha256": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "listener-lens-build-week",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:local": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/dev-local.mjs",
+    "test:worker": "node --test tests/worker.test.mjs",
+    "deploy:check": "wrangler deploy --dry-run --config wrangler.runtime-v2.jsonc",
+    "dev": "wrangler dev --config wrangler.runtime-v2.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "4.111.0"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "0.3.7"
+  }
+}

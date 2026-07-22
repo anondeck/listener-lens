@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "display_version": "bilingual-rule-display-v1",
+  "notation": "user_facing_ipa_or_explicit_renderer_projection",
+  "rules": [
+    {
+      "rule_id": "enpt.aa_a",
+      "renderer_source": "ɑ",
+      "renderer_target": "a",
+      "display_source": "ɑ",
+      "display_target": "a",
+      "display_label": "/ɑ/ → /a/"
+    },
+    {
+      "rule_id": "enpt.ae_eh",
+      "renderer_source": "æ",
+      "renderer_target": "ɛ",
+      "display_source": "æ",
+      "display_target": "ɛ",
+      "display_label": "/æ/ → /ɛ/"
+    },
+    {
+      "rule_id": "enpt.ah_a",
+      "renderer_source": "ʌ",
+      "renderer_target": "a",
+      "display_source": "ʌ",
+      "display_target": "a",
+      "display_label": "/ʌ/ → /a/"
+    },
+    {
+      "rule_id": "enpt.goat_o",
+      "renderer_source": "O",
+      "renderer_target": "o",
+      "display_source": "oʊ",
+      "display_target": "o",
+      "display_label": "/oʊ/ → /o/"
+    },
+    {
+      "rule_id": "enpt.ih_i",
+      "renderer_source": "ɪ",
+      "renderer_target": "i",
+      "display_source": "ɪ",
+      "display_target": "i",
+      "display_label": "/ɪ/ → /i/"
+    },
+    {
+      "rule_id": "enpt.nurse_eh",
+      "renderer_source": "ɜ",
+      "renderer_target": "ɛ",
+      "display_source": "ɜ",
+      "display_target": "ɛ",
+      "display_label": "/ɜ/ → /ɛ/"
+    },
+    {
+      "rule_id": "enpt.reduced_i_i",
+      "renderer_source": "ᵻ",
+      "renderer_target": "i",
+      "display_source": "ᵻ",
+      "display_target": "i",
+      "display_label": "reduced /ᵻ/ → /i/"
+    },
+    {
+      "rule_id": "enpt.reduced_schwa_a",
+      "renderer_source": "ᵊ",
+      "renderer_target": "ɐ",
+      "display_source": "ə",
+      "display_target": "ɐ",
+      "display_label": "reduced /ə/ → /ɐ/"
+    },
+    {
+      "rule_id": "enpt.uh_u",
+      "renderer_source": "ʊ",
+      "renderer_target": "u",
+      "display_source": "ʊ",
+      "display_target": "u",
+      "display_label": "/ʊ/ → /u/"
+    },
+    {
+      "rule_id": "pten.ao_aa",
+      "renderer_source": "ɔ",
+      "renderer_target": "ɑ",
+      "display_source": "ɔ",
+      "display_target": "ɑ",
+      "display_label": "/ɔ/ → /ɑ/"
+    },
+    {
+      "rule_id": "pten.e_ih",
+      "renderer_source": "e",
+      "renderer_target": "ɪ",
+      "display_source": "e",
+      "display_target": "ɪ",
+      "display_label": "/e/ → /ɪ/"
+    },
+    {
+      "rule_id": "pten.final_e_i",
+      "renderer_source": "y",
+      "renderer_target": "i",
+      "display_source": "e",
+      "display_target": "i",
+      "display_label": "word-final /e/ → /i/ (renderer projection)"
+    },
+    {
+      "rule_id": "pten.o_goat",
+      "renderer_source": "o",
+      "renderer_target": "O",
+      "display_source": "o",
+      "display_target": "oʊ",
+      "display_label": "/o/ → /oʊ/"
+    }
+  ]
+}

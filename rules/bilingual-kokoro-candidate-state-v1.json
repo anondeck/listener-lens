@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "candidate_id": "bilingual-kokoro-vowel-candidate-v1",
+  "feature_flag": "KOKORO_BILINGUAL_CANDIDATE_ENABLED",
+  "enabled_by_default": false,
+  "production_enabled": false,
+  "service_contract_version": "bilingual-kokoro-controlled-pair-service-v1",
+  "evidence": {
+    "protocol_path": "rules/bilingual-vowel-unseen-typed-confirmation-v1.json",
+    "protocol_sha256": "7e2433ac9e6b5430739534d836632614f4a1e8d37cd1e9950292b139dae7e68a",
+    "result_path": "artifacts/product-matrix/20260718-bilingual-vowel-unseen-typed-confirmation-v1/results.json",
+    "result_sha256": "13f2b76870f4055889d612013add7a2ea00c102a42def9e4e13aeae88a755259",
+    "result_record_sha256": "14add28fe961d14ba2541bb20dc143d26f7fb9e93d0aa149a3bdf2a0a0c328a4",
+    "runtime_gate_protocol_path": "rules/bilingual-candidate-runtime-gate-v1.json",
+    "runtime_gate_protocol_sha256": "cd44b6d56240123ec43f2b4f80953fe3d40412a694a69c9487a29c1b4c4be511",
+    "runtime_gate_result_path": "artifacts/product-matrix/20260718-bilingual-candidate-runtime-gate-v1/results.json",
+    "runtime_gate_result_sha256": "521023b471e397c6c685b311914ac54d05e0ab9aeb679806de5b6d3a3d38b475",
+    "runtime_gate_result_record_sha256": "d53f4f2172c443d82834524d3621f1cfec48c72af8b0d6b0fbe4b82a268f8964",
+    "runtime_gate_scaler_path": "artifacts/product-matrix/20260718-bilingual-candidate-runtime-gate-v1/voice-scalers.json",
+    "runtime_gate_scaler_sha256": "0309f2ffcf6669fbe225858a0cdaa9c5a2f67b78d125b2f019c34a997fdcac73",
+    "runtime_gate_scaler_record_sha256": "7df4dc771a343d16e4d00f30e3e05d044a4ea017339fc4b5f049e919720bd9a2",
+    "classification": "unseen_typed_confirmation_complete_no_product_promotion",
+    "practical_core_cell_count": 36,
+    "oral_confirmed_cell_count": 28,
+    "unseen_automatic_pass_count": 18,
+    "runtime_gate_pass_count": 18,
+    "runtime_gate_pass_rule_ids_by_voice": {
+      "af_heart": [
+        "enpt.aa_a",
+        "enpt.ae_eh",
+        "enpt.ah_a",
+        "enpt.goat_o",
+        "enpt.nurse_eh",
+        "enpt.uh_u"
+      ],
+      "am_michael": [
+        "enpt.aa_a",
+        "enpt.ae_eh",
+        "enpt.ah_a",
+        "enpt.ih_i",
+        "enpt.nurse_eh",
+        "enpt.reduced_i_i",
+        "enpt.reduced_schwa_a",
+        "enpt.uh_u"
+      ],
+      "pf_dora": [
+        "pten.final_e_i",
+        "pten.o_goat"
+      ],
+      "pm_alex": [
+        "pten.ao_aa",
+        "pten.e_ih"
+      ]
+    },
+    "unseen_automatic_nonpass_count": 10,
+    "nasal_pending_cell_count": 3,
+    "earlier_blocked_cell_count": 5,
+    "human_status": "pending",
+    "production_promotion": false
+  },
+  "runtime_policy": {
+    "family": "vowel",
+    "isolate_one_changed_rule": true,
+    "multiple_occurrences_of_same_rule_allowed": true,
+    "multiple_changed_rules_allowed": false,
+    "source_plan_may_contain_omitted_unvalidated_rules": true,
+    "omitted_rules_must_be_reported": true,
+    "consonants_enabled": false,
+    "insertions_enabled": false,
+    "prosody_enabled": false,
+    "nasal_vowels_enabled": false,
+    "arbitrary_text_acoustic_gate": "frozen_runtime_instrument_required_before_audio_response",
+    "human_qc_required_before_product_promotion": true
+  }
+}

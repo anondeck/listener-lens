@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "candidate_id": "bilingual-kokoro-vowel-composition-candidate-v1",
+  "feature_flag": "KOKORO_BILINGUAL_CANDIDATE_ENABLED",
+  "enabled_by_default": false,
+  "production_enabled": false,
+  "service_contract_version": "bilingual-kokoro-controlled-pair-service-v2",
+  "base_candidate_state": {
+    "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+    "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+  },
+  "evidence": {
+    "composition_v1_result_path": "artifacts/product-matrix/20260718-bilingual-v8-composition-spike-v1/results.json",
+    "composition_v1_result_sha256": "020f086da838c948312d3b88be0f59b09bf78e32a6b6e8f3b89f5cdf8e28d7d6",
+    "composition_v1_classification": "exploratory_v8_composition_incomplete_preserve_exact_failure",
+    "composition_v1_fixture_count": 3,
+    "composition_v1_pass_count": 2,
+    "separated_decoder_v3_result_path": "artifacts/product-matrix/20260718-bilingual-v8-separated-decode-composition-v3/results.json",
+    "separated_decoder_v3_result_sha256": "a0baa8107ed0799f93a31d30f29c09a08595892e08d66fb2818170b99c65e5ba",
+    "separated_decoder_v3_classification": "separated_decode_composition_incomplete_preserve_exact_failure",
+    "failure_diagnosis": "The Dora o→GOAT failure survives rule-isolated text state and independent per-rule decoding; it is a current-carrier realization failure caught by the acoustic gate, not demonstrated cross-rule interaction.",
+    "human_status": "pending",
+    "unseen_composition_status": "pending",
+    "production_promotion": false
+  },
+  "runtime_policy": {
+    "single_rule_path_unchanged": true,
+    "composition_synthesis": "combined_v8_one_decode",
+    "minimum_composed_rule_count": 2,
+    "maximum_composed_rule_count": 3,
+    "candidate_rung_required": "v8",
+    "mixed_rungs_allowed": false,
+    "all_selected_rules_must_have_independent_automatic_evidence": true,
+    "all_current_context_occurrences_must_pass_frozen_acoustic_gate": true,
+    "failed_contexts_fail_closed": true,
+    "omitted_rules_must_be_reported": true,
+    "human_qc_required_before_product_promotion": true,
+    "unseen_composition_confirmation_required_before_product_promotion": true
+  },
+  "interpretation_limit": "This state authorizes disabled, request-time coverage-gated composition engineering. It does not promote multi-rule composition, naturalness, listener-profile fit, arbitrary sentences, consonants, prosody, insertions, nasal vowels, or production."
+}

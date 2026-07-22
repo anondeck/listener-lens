@@ -1,0 +1,102 @@
+{
+  "gates": {
+    "acoustic": "unchanged v8 endpoint thresholds at the calibrated ceiling",
+    "aggregation": "all four occurrences in all three contexts per cell",
+    "engineering": "unchanged spectral-v1 waveform-integrity gates"
+  },
+  "intervention": {
+    "editor": "spectral-envelope-warp-v1",
+    "selection": "first exact-category strength per occurrence in frozen order, otherwise first directional-only; no listening selection",
+    "source_endpoint": "actual controlled-neutral F1/F2 at the calibrated ceiling",
+    "target_endpoint": "actual neutral Bark point plus the frozen cell-level natural-anchor target-minus-source displacement"
+  },
+  "parents": {
+    "calibration_record_sha256": "bee30b1251efde2096cac38ee4d6ba8161edc31416fdc8a0f63b6f9a4f84e779",
+    "calibration_sha256": "95b4d4e6f0b10b859d05e504be37d70defc2a0e12b4b4a036bb0acb726d7ef2e",
+    "v8_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2"
+  },
+  "protocol_sha256": "e6cea23c8727d26073050bc51db98b336b8cf7405107769dd8db636c65931ab8",
+  "purpose": "Test one context-local identity-preserving category-control mechanism across every calibrated oral-monophthong cell in both directions.",
+  "run_id": "20260718-broad-oral-monophthong-contextual-warp-v1",
+  "schema_version": 1,
+  "scope": {
+    "candidate_count": 810,
+    "cell_count": 45,
+    "cell_ids": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ah_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.back_mid_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.back_unrounded_u",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.central_high_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.front_open_rounded_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.front_rounded_e",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.front_rounded_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.open_back_symbol_ao",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_i_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.uh_u",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ah_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.back_mid_o",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.back_unrounded_u",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.central_high_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.front_open_rounded_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.front_rounded_e",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.front_rounded_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.open_back_symbol_ao",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_i_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.uh_u",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.back_unrounded_u",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.central_high_kit",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.e_ih",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.front_open_rounded_eh",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.open_back_low_back",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.open_back_symbol_low_back",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.a_ae",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.back_unrounded_u",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.central_high_kit",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_e_i",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.front_open_rounded_eh",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.open_back_low_back",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.open_back_symbol_low_back"
+    ],
+    "excluded": "diphthongs, rhotics, nasals, and uncalibrated cells",
+    "included": "calibrated nonrhotic, nonnasal oral monophthongs",
+    "logical_slot_count": 135,
+    "strength_order": [
+      1.0,
+      0.75,
+      1.25,
+      0.5,
+      1.5,
+      2.0
+    ],
+    "target_occurrence_count": 180
+  },
+  "scope_controls": {
+    "api_calls": 0,
+    "deployment": false,
+    "kokoro_renders": 0,
+    "paid_calls": 0,
+    "production_enabled": false
+  },
+  "source_bindings": {
+    "scripts/run_bilingual_vowel_adaptive_strength_screen_v1.py": "7a8ff8291f4a3c530e699c0a4bcff5996c0bb3b6f6b4e857b22fce71fc9c2a12",
+    "scripts/run_broad_oral_monophthong_contextual_warp_v1.py": "1a74dce867c82172715a60cddee8621617216f84772b16e013cb3ae00139091a",
+    "scripts/run_english_central_vowel_spectral_correction_v1.py": "ae7dc49ba8c87f27a751503eef21b7273cdad9d72c2ade07e6be0a8cb70d6f1f",
+    "src/earshift_bakeoff/spectral_envelope_warp.py": "e9afa15d7c4d86b48353f20cd71c533c0891f39d86659e4d12bc3942b18f16f8"
+  },
+  "status": "frozen_before_candidate_processing",
+  "stopping_rule": "Process all candidates once without replacement. Known-fixture passes permit unseen confirmation only.",
+  "version": "broad-oral-monophthong-contextual-warp-v1"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "state_version": "bilingual-product-structural-state-v1",
+  "matrix_version": "bilingual-product-matrix-v1",
+  "matrix_config_sha256": "380b704fd00bc4fa5a79e87958900573e607eb905f53cc0043cca90f1c0383de",
+  "matrix_sha256": "171ba086e2641542a57895805dac84fadb967a4d8ab357c9d961873e20057ac5",
+  "result_binding": {
+    "path": "artifacts/product-matrix/20260717-bilingual-product-structural-matrix-v1/results.json",
+    "sha256": "5126aa2a08b83ebc1e9df5b5fbd1f20880da554ac8acd4367be7ef5f4352305c",
+    "record_sha256": "cd5343830257f8776b66717e9920b39e43bbbbe5672635940fde1359faf506f1"
+  },
+  "classification": "all_structural_slots_pass",
+  "planner_slot_count": 280,
+  "planner_pass_count": 280,
+  "planner_fail_count": 0,
+  "planner_gate_yield": 1.0,
+  "api_calls_made": 0,
+  "audio_renders_made": 0,
+  "audio_validation_status": "pending",
+  "production_enabled": false
+}

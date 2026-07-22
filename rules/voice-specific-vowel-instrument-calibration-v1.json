@@ -1,0 +1,103 @@
+{
+  "instrument": {
+    "ceiling_order_by_voice": {
+      "af_heart": [
+        5500,
+        5250,
+        5750,
+        5000,
+        6000,
+        4750,
+        4500
+      ],
+      "am_michael": [
+        5000,
+        4750,
+        5250,
+        4500,
+        5500,
+        5750,
+        6000
+      ],
+      "pf_dora": [
+        5500,
+        5250,
+        5750,
+        5000,
+        6000,
+        4750,
+        4500
+      ],
+      "pm_alex": [
+        5000,
+        4750,
+        5250,
+        4500,
+        5500,
+        5750,
+        6000
+      ]
+    },
+    "maximum_formant_count": 5,
+    "name": "Praat Burg",
+    "praat_binary_sha256": "b0311abb9ae606a5204715b0ab861d4ab863b932cbe3f0faecb7cce80b609d8d",
+    "praat_script_sha256": "114a91d4415d538041da6e0d28d35fc010d36e9f8b89c84e5e893b99bce4abfe",
+    "pre_emphasis_from_hz": 50,
+    "time_step_s": 0.005,
+    "window_length_s": 0.025
+  },
+  "protocol_sha256": "bff93beabfed0f706897a72c1b34e4e85fc0e82830ae72de6670e8593dcfb1e5",
+  "purpose": "Select a voice- and rule-specific Praat ceiling and displacement prototype from natural anchors only, before any controlled candidate audio is inspected.",
+  "run_id": "20260718-voice-specific-vowel-instrument-calibration-v1",
+  "schema_version": 1,
+  "scope": {
+    "expected_occurrences_per_cell": 4,
+    "logical_slot_count": 240,
+    "natural_anchor_wav_count": 480,
+    "voice_rule_cell_count": 80,
+    "voices": [
+      "af_heart",
+      "am_michael",
+      "pm_alex",
+      "pf_dora"
+    ]
+  },
+  "scope_controls": {
+    "api_calls": 0,
+    "audio_renders": 0,
+    "candidate_audio_read": false,
+    "deployment": false,
+    "paid_calls": 0,
+    "production_enabled": false
+  },
+  "selection": {
+    "candidate_audio_excluded": true,
+    "candidate_data": "natural source and target anchors only",
+    "cell_gates": {
+      "all_occurrences_must_pass": true,
+      "minimum_direction_cosine_to_cell_median": 0.5,
+      "required_occurrence_count": 4
+    },
+    "per_occurrence_gates": {
+      "both_endpoints_measurable": true,
+      "minimum_anchor_separation_bark_rms": 0.18
+    },
+    "prototype": "Median Bark F1/F2 target-minus-source displacement across all four passing natural-anchor occurrences at the selected ceiling.",
+    "rule": "Select the first ceiling in the frozen voice-specific order at which all four occurrences pass. If none passes, leave the cell uncalibrated; do not choose a best-looking partial setting."
+  },
+  "source_bindings": {
+    "files": {
+      "scripts/praat_bilingual_vowel_trajectory_v1.praat": "114a91d4415d538041da6e0d28d35fc010d36e9f8b89c84e5e893b99bce4abfe",
+      "scripts/run_voice_specific_vowel_instrument_calibration_v1.py": "d499e994ba91849095c80b03a13b8280b7a19cfda4df5fac99a56ac66fea5813",
+      "src/earshift_bakeoff/bilingual_vowel_acoustics.py": "ad10321e17fccbf84defc6ca436d0ed5e9097181487cde9dc5d35eb301548c64",
+      "src/earshift_bakeoff/bilingual_vowel_acoustics_v2.py": "0d4e6071c632078fda0fe5afb8d08dadc73214d8044f87c42840b03246eb5a03"
+    },
+    "v1_record_sha256": "9e4b2f88ae37fc7e46d8ea55921c8d339c0b4b4016effb0c37c9344bd0b688a5",
+    "v1_result_sha256": "1c993e7a58b5e6f4f048c44e5bcf489a4dbc7776e6d5fc3818ffc375314a2306",
+    "v8_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2"
+  },
+  "status": "frozen_before_anchor_remeasurement",
+  "stopping_rule": "Measure every frozen anchor at every listed ceiling once. This run may publish a calibration catalog but cannot promote a renderer candidate.",
+  "version": "voice-specific-vowel-instrument-calibration-v1"
+}

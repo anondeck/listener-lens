@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-unseen-typed-confirmation-v1",
+  "status": "frozen_before_first_unseen_audio_render",
+  "production_enabled": false,
+  "purpose": {
+    "question": "Do the 28 oral vowel candidates retain their claimed direction on three deterministic real-G2P typed fixtures that were selected without rendering or listening?",
+    "relationship_to_prior_evidence": "Known-carrier classifications remain frozen. This is the first lexical/context generalization test for the broad typed-vowel candidate ledger.",
+    "scientific_boundary": "A pass advances one voice-bound rule to blind human QC. It does not validate arbitrary words, multi-rule composition, naturalness, a listener population, consonants, nasality, prosody, or product support."
+  },
+  "parent_bindings": {
+    "manifest_path": "artifacts/product-matrix/20260718-bilingual-vowel-unseen-typed-manifest-v1/manifest.json",
+    "manifest_sha256": "36a3a15acf70469ce21d408705fee00165f0364a5284d9a7fd48fec4a9cac6e1",
+    "manifest_record_sha256": "633c8d720b0af2a678532de455b3abf751cc811d2d08c063e072a807f989ba1d",
+    "calibration_path": "artifacts/product-matrix/20260717-bilingual-vowel-replicated-anchor-calibration-v1/results.json",
+    "calibration_sha256": "d3cdc4f9d6f821492748ac78f958c3463bd6be030f1de962b4e3ecb69186985e",
+    "calibration_record_sha256": "b3ac8cf1bfd7525e848c969b7c034c36fec35ffffffbdd77805b5954996a39f0",
+    "failure_path": "artifacts/product-matrix/20260718-bilingual-vowel-replicated-anchor-failure-screen-v1/results.json",
+    "failure_sha256": "52896515a9499661988bd0d637f28a6343655e5eb6d6f692e22cef4cfd317c1d",
+    "failure_record_sha256": "2e29556abf023b6133cf2a3f79caa6759f63e73319c93cfe6600c4f1f133948b"
+  },
+  "scope": {
+    "oral_candidate_cell_count": 28,
+    "rule_group_count": 15,
+    "logical_slot_count": 84,
+    "target_occurrence_count": 112,
+    "contexts_per_cell": [
+      "real_g2p_phrase_medial",
+      "real_g2p_phrase_final",
+      "real_g2p_repeated_target"
+    ],
+    "candidate_rung_counts": {
+      "adaptive_strength": 6,
+      "full_context": 1,
+      "v8": 20,
+      "word_context": 1
+    },
+    "exclusions": "Nasal candidates, the five unresolved typed-vowel cells, consonants, insertion, prosody, and full-profile multi-rule composition remain out of scope."
+  },
+  "rendering": {
+    "renderer": "Kokoro 0.9.4 with pinned model and Heart, Michael, Alex, and Dora voice hashes",
+    "api_calls_allowed": 0,
+    "baseline_seed": 20260716,
+    "training_seeds_in_order": [
+      202607171,
+      202607172,
+      202607173
+    ],
+    "natural_conditions_per_slot": 2,
+    "natural_anchor_decoder_render_count": 672,
+    "candidate_render_set_count": 174,
+    "candidate_render_set_breakdown": {
+      "adaptive_strength": 108,
+      "full_context": 3,
+      "v8": 60,
+      "word_context": 3
+    },
+    "candidate_render_set_definition": "One invocation of the frozen controlled neutral/identity/lens runtime. This count does not relabel its internal decoder operations as one decoder call.",
+    "candidate_hierarchy": "Use the candidate rung frozen in the manifest. V8, word-context, and full-context get one render set per slot. Adaptive-strength gets exactly six in frozen order.",
+    "adaptive_strength_order": [
+      1.0,
+      0.75,
+      1.25,
+      0.5,
+      1.5,
+      2.0
+    ],
+    "adaptive_selection": "Per occurrence, choose the first exact-category strength; otherwise the first directional-only strength; otherwise unresolved. Recompose non-overlapping already-tapered occurrence windows, remeasure the completed composite, and fail the complete slot if any occurrence is unresolved.",
+    "retention": "Retain one neutral WAV per slot and one candidate WAV for every completed slot. Identity is verified bit-identical and need not duplicate the neutral file. Do not retain natural-anchor or unselected strength WAVs."
+  },
+  "instrument_and_gates": {
+    "replicated_anchor_version": "bilingual-vowel-replicated-anchors-v1",
+    "spectral_feature_version": "bilingual-vowel-spectral-category-v1",
+    "feature_config": {
+      "sample_rate_hz": 24000,
+      "frame_length_samples": 600,
+      "hop_length_samples": 240,
+      "fft_size": 1024,
+      "mel_filter_count": 32,
+      "minimum_frequency_hz": 80.0,
+      "maximum_frequency_hz": 7600.0,
+      "cepstral_coefficient_count": 12,
+      "temporal_sample_fractions": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "log_power_floor": 1e-08,
+      "robust_scale_floor": 0.05
+    },
+    "context_matching": "Each independently seeded source/target anchor uses the exact unseen voice, sentence, carrier plan, occurrence, and target position. Source and target receive their own predicted-duration alignments.",
+    "scaler": "For each occurrence, robust scaling uses only the same voice's three-seed natural source/target features from other complete unseen logical slots. The current slot and all candidates are excluded.",
+    "measurement_exclusion": "A too-short, silent, nonfinite, or otherwise unmeasurable natural or candidate interval fails that occurrence and its cell without replacement. Every occurrence in that logical slot is excluded from the scaler pool, while its diagnostics remain in the result.",
+    "natural_anchor_cross_validation": "Each heldout seed pair is classified against centroids from the other two seeds. At least two of three must be exact-category and no pair may have negative direction cosine.",
+    "minimum_anchor_separation_scaled_rms": 0.25,
+    "minimum_direction_cosine": 0.5,
+    "minimum_directional_movement_fraction": 0.25,
+    "minimum_exact_movement_fraction": 0.5,
+    "candidate_endpoint_gates": "Directional additionally requires target-distance gain and source-distance departure. Exact additionally requires the 50% movement gate and target-side endpoint crossing.",
+    "identity_gate": "All 112 neutral-versus-itself classifications must remain non-directional. Any false positive invalidates candidate acceptance for the complete run.",
+    "integrity_gate": "Every completed candidate must retain bit-identical neutral/identity PCM, finite equal nonempty unclipped audio, exact neutral outside splice windows, exact lens in full-weight interiors, frozen boundary metrics, positive localization, and the rung's prosody-control requirements.",
+    "occurrence_gate": "Every returned target occurrence must have a valid natural anchor and earn at least directional movement under the unchanged instrument.",
+    "cell_gate": "All four target occurrences across the medial, final, and repeated contexts must pass for a directional cell; all four must be exact for an exact cell. One invalid anchor, unresolved strength, integrity failure, or acoustic failure fails the cell."
+  },
+  "outcomes": {
+    "exact_category_pass": "All four unseen occurrences are exact-category and every structural/integrity/sanity gate passes.",
+    "directional_only_pass": "All four unseen occurrences are at least directional, one or more is not exact, and every structural/integrity/sanity gate passes.",
+    "fail": "At least one occurrence or slot fails while the instrument sanity gate remains intact.",
+    "instrument_sanity_fail": "Any identity false positive prevents candidate acceptance without rewriting per-occurrence diagnostics.",
+    "next_if_pass": "Queue only passing cells for condition-blind naturalness, direction, strength, artifact, semantic-opacity, and unrelated-interference QC using these retained WAVs."
+  },
+  "claim_limits": {
+    "lexical": "Three frequency-ordered real-G2P words per rule are evidence of bounded lexical/context transfer, not all-word coverage.",
+    "profile": "Rule-isolated candidates test acoustic attribution. Full-profile composition remains untested.",
+    "listener": "Automatic spectral direction is not proof of what Brazilian-Portuguese or American-English listeners perceive.",
+    "naturalness": "No automatic pass establishes sentence-like delivery or freedom from artifacts; blind human QC is mandatory.",
+    "product": "No cell, profile, voice, route, flag, service, or deployment is enabled by this run."
+  },
+  "stopping_rule": {
+    "runs_allowed": 1,
+    "api_calls_allowed": 0,
+    "replacement_text_word_slot_seed_or_strength_allowed": false,
+    "selective_rerender_allowed": false,
+    "post_result_threshold_feature_scaler_or_rung_change_allowed": false,
+    "product_promotion_allowed": false,
+    "instruction": "Render and evaluate all 84 frozen slots once, preserve every result, and stop before human review or integration."
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/run_bilingual_vowel_unseen_typed_confirmation_v1.py",
+      "sha256": "55809f2454f78319962166509cabc355fabee62b0a18a46ccae94777fa5e6dae"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_replicated_anchor_calibration_v1.py",
+      "sha256": "32b79b77d854836c1ec06f8f651c6cdadb92e31077876ae1bc5286c7a836389b"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_replicated_anchor_failure_screen_v1.py",
+      "sha256": "06b03c705fb76c57c980b24bc928be0a727e1536b4111ab4c93559ab56ad3aff"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_adaptive_strength_screen_v1.py",
+      "sha256": "7a8ff8291f4a3c530e699c0a4bcff5996c0bb3b6f6b4e857b22fce71fc9c2a12"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_replicated_anchors.py",
+      "sha256": "7592528ab532dd1ed0dcbf20c837f0c9889fd1089ee49d869e635cc92865ef2b"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_spectral_category.py",
+      "sha256": "f227a6a32f3506f1561c67254fffc2ae5fb76b76048a8a390bc791a9a0cd8ec7"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_state_strength.py",
+      "sha256": "1446b4de06dfb3a23427e060631eef39386eac9b279a614a6e5575a9549004c8"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_word_context.py",
+      "sha256": "03c11a14cee3f338cad27ec894650ad7874539fe68df167cae1bbd7bb192fefa"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_full_context.py",
+      "sha256": "b025bf21a49bb9f4873c03dc9d7b50b44e33c6491edec3a4ede669ba67489219"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_output_domain_splice.py",
+      "sha256": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_synthesis_v2.py",
+      "sha256": "2fc3aad0cf0c4de8c80e297a8352002f5f2f1ecc5a7cd5314f80de9bf6407dbb"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_state_strength.py",
+      "sha256": "bf58681f0f9a46b3be5dabea645af0925560ffd98f0d7ad8df1558f164e3d225"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_full_context.py",
+      "sha256": "70c0bfaeb3ee8436152f1805d683f712c0970705d76a6d5381944697a40b9993"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_listener_synthesis.py",
+      "sha256": "3807acba3bf10f5a52477c321681c1b3ca2ec60ee7b55f8b950b5b768833b0de"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_synthesis.py",
+      "sha256": "177a16723def39e6e2179fba88dd3ac8c823ec40df02b61e2c44f230380bd07d"
+    }
+  ]
+}

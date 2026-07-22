@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-v8-carrier-retry-unseen-confirmation-v1",
+  "status": "frozen_before_first_unseen_audio",
+  "classification_scope": "zero_api_unseen_adaptive_carrier_algorithm_confirmation",
+  "candidate_version": "v8-adaptive-carrier-v1",
+  "production_enabled": false,
+  "api_calls_allowed": 0,
+  "maximum_retry_rounds_per_fixture": 5,
+  "novelty_freeze": {
+    "parent_commit": "38e73e6",
+    "all_nine_candidate_texts_absent_from_parent_tree": true,
+    "selection_used_audio": false,
+    "selection_used_acoustic_outcomes": false,
+    "selection_rule": "first_planner_gate_clean_candidate_under_written_order"
+  },
+  "algorithm": {
+    "initial_attempt": "Render the frozen first planner-clean combined-v8 plan and run every unchanged integrity and current-context acoustic gate.",
+    "retryable_failure": "Only an integrity-clean, identity-negative-control-clean result with one or more failed vowel occurrences is retryable.",
+    "failed_mapping_resolution": "Map every failed occurrence to its utterance-local MappingKey of casefolded source word, source pronunciation, carrier role, and profile. Repeated occurrences of one source mapping collapse to one retry key.",
+    "advance_rule": "For each failed key, set its minimum candidate attempt to one more than the currently selected attempt. Preserve every prior minimum, then rerun the unchanged bounded isolated and global adjacency resolver from the base planner.",
+    "selection_rule": "Stop at the first attempt on which every selected occurrence and every engineering gate passes.",
+    "nonretryable_failures": [
+      "PCM integrity or boundary failure",
+      "identity negative-control false positive",
+      "missing or non-vowel failed occurrence alignment",
+      "selected rule or occurrence-count drift",
+      "execution error"
+    ],
+    "maximum_attempts_per_fixture": 6,
+    "no_threshold_or_renderer_change": true,
+    "no_listening_selection": true,
+    "no_fixture_replacement": true
+  },
+  "fixture_groups": [
+    {
+      "fixture_id": "heart_adaptive_unseen",
+      "profile_id": "en-US-to-pt-BR-listener-v2",
+      "voice_id": "af_heart",
+      "candidate_inventory": [
+        "Some young cooks took good books.",
+        "Young cooks took some good books.",
+        "Some cooks took good books home."
+      ],
+      "selected_fixture": {
+        "text": "Some young cooks took good books.",
+        "selected_rule_ids": [
+          "enpt.ah_a",
+          "enpt.uh_u"
+        ],
+        "selected_rule_occurrences": {
+          "enpt.ah_a": 2,
+          "enpt.uh_u": 4
+        },
+        "omitted_rule_ids": [
+          "enpt.illicit_coda_epenthetic_i"
+        ],
+        "initial_plan_receipt": {
+          "plan_sha256": "8912cf8437a35a5d96a9e82a1f8037b0b3f2f4cc141aefcd19ad18a24b0f3ed9",
+          "neutral_script": "thuhngb yuhnt puutsh kuutv duugs guupf.",
+          "lens_script": "thahngb yahnt pootsh kootv doogs goopf.",
+          "gates": {
+            "isolated_pairs_checked": 6,
+            "adjacency_pairs_checked": 5,
+            "candidate_attempts": 9,
+            "candidate_rejection_counts": {
+              "lens_phone_index_0_predicted_homophone": 1,
+              "lens_phone_index_1_predicted_homophone": 1,
+              "lens_written_espeak_predicted_homophone": 2,
+              "neutral_written_espeak_predicted_homophone": 2
+            },
+            "written_and_espeak_gate_pass": true,
+            "supplemental_phone_gates_pass": true,
+            "model_representable": true,
+            "punctuation_preserved": true,
+            "repeated_word_invariant_pass": true
+          },
+          "word_mapping_sha256": "d24c45f4543e8f8f4c6d2a6c1be5fc156921cf94486a90e9450eef9723d4a231",
+          "word_candidate_attempts": [0, 0, 0, 3, 0, 0]
+        }
+      }
+    },
+    {
+      "fixture_id": "michael_adaptive_unseen",
+      "profile_id": "en-US-to-pt-BR-listener-v2",
+      "voice_id": "am_michael",
+      "candidate_inventory": [
+        "Black ducks got one cup, then ducks ran.",
+        "That black duck got one cup and ran.",
+        "Black ducks got one cup."
+      ],
+      "selected_fixture": {
+        "text": "Black ducks got one cup, then ducks ran.",
+        "selected_rule_ids": [
+          "enpt.aa_a",
+          "enpt.ae_eh",
+          "enpt.ah_a"
+        ],
+        "selected_rule_occurrences": {
+          "enpt.aa_a": 1,
+          "enpt.ae_eh": 2,
+          "enpt.ah_a": 4
+        },
+        "omitted_rule_ids": [
+          "enpt.eth_d",
+          "enpt.illicit_coda_epenthetic_i"
+        ],
+        "initial_plan_receipt": {
+          "plan_sha256": "cfe24d7902311159df08323c0fbc624f0ea3f3b8303f561fc7457a89bc8b6b06",
+          "neutral_script": "dlat guhpth bahpf wuhngsh puhtf, dhehngl guhpth ramt.",
+          "lens_script": "dleht gahpth bahpf wahngsh pahtf, dhehngl gahpth rehmt.",
+          "gates": {
+            "isolated_pairs_checked": 7,
+            "adjacency_pairs_checked": 7,
+            "candidate_attempts": 8,
+            "candidate_rejection_counts": {
+              "lens_phone_index_1_predicted_homophone": 1
+            },
+            "written_and_espeak_gate_pass": true,
+            "supplemental_phone_gates_pass": true,
+            "model_representable": true,
+            "punctuation_preserved": true,
+            "repeated_word_invariant_pass": true
+          },
+          "word_mapping_sha256": "10778920333713c87944e2f70af48e7e454f608c48fdb262da536781b238d96c",
+          "word_candidate_attempts": [0, 1, 0, 0, 0, 0, 1, 0]
+        }
+      }
+    },
+    {
+      "fixture_id": "dora_adaptive_unseen",
+      "profile_id": "pt-BR-to-en-US-listener-v2",
+      "voice_id": "pf_dora",
+      "candidate_inventory": [
+        "O povo todo segue leve.",
+        "O jogo novo segue leve.",
+        "O povo novo segue firme."
+      ],
+      "selected_fixture": {
+        "text": "O povo todo segue leve.",
+        "selected_rule_ids": [
+          "pten.final_e_i",
+          "pten.o_goat"
+        ],
+        "selected_rule_occurrences": {
+          "pten.final_e_i": 2,
+          "pten.o_goat": 2
+        },
+        "omitted_rule_ids": [],
+        "initial_plan_receipt": {
+          "plan_sha256": "2dd8dfe30756c980c609847167484a3afe9bdfa646eb5c1da89e8f84d1da6be4",
+          "neutral_script": "muumk tohzuus kohguu khehdee lyehzhee.",
+          "lens_script": "muumk tohzuus kohguu khehdee lyehzhee.",
+          "gates": {
+            "isolated_pairs_checked": 5,
+            "adjacency_pairs_checked": 4,
+            "candidate_attempts": 37,
+            "candidate_rejection_counts": {
+              "neutral_phone_index_1_predicted_homophone": 32
+            },
+            "written_and_espeak_gate_pass": true,
+            "supplemental_phone_gates_pass": true,
+            "model_representable": true,
+            "punctuation_preserved": true,
+            "repeated_word_invariant_pass": true
+          },
+          "word_mapping_sha256": "eb8c5134a30f8d1883691655265437cb56669fa4ec8e7bb1fa8201730312bc65",
+          "word_candidate_attempts": [0, 32, 0, 0, 0]
+        }
+      }
+    }
+  ],
+  "automatic_gates": {
+    "exact_frozen_initial_plan_receipt": true,
+    "selected_rule_and_occurrence_denominator_invariant": true,
+    "written_word_predicted_homophone_model_and_adjacency_gates": true,
+    "source_word_repetition_and_punctuation_invariants": true,
+    "combined_v8_integrity_boundary_and_localization_gates": true,
+    "complete_current_context_anchor_direction_endpoint_and_target_gain_gates": true,
+    "identity_false_positive_count_zero": true,
+    "every_selected_occurrence_must_pass_on_selected_attempt": true
+  },
+  "outcomes": {
+    "all_pass_with_at_least_one_rescue": "unseen_carrier_retry_algorithm_automatic_pass_pending_human_qc",
+    "all_initial_attempts_pass": "unseen_composition_pass_carrier_retry_mechanism_unexercised",
+    "any_fixture_fails": "unseen_carrier_retry_algorithm_failed_preserve_exact_result",
+    "stopping_rule": "Execute each frozen fixture once under the bounded algorithm. Do not replace fixtures, rerun, listen-select, change thresholds, or promote production.",
+    "interpretation_limit": "An all-pass result with at least one rescue supports the deterministic retry algorithm on these three fresh fixtures, voices, rules, and contexts. It does not establish arbitrary-text reliability, all vowels, all words, consonant recategorization, prosody, semantic-opacity perception, naturalness, Brazilian-Portuguese profile fit, or production readiness. Human QC remains separately required for a product claim."
+  },
+  "bindings": [
+    {
+      "path": "rules/bilingual-v8-carrier-retry-correction-v1.json",
+      "sha256": "9f52704e8ab82ad5fecde75fa64d5162a15531a0d0da495b61d6f9e1ae19bb02"
+    },
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-v8-carrier-retry-correction-v1/results.json",
+      "sha256": "e1aebcac898e70cccf9bb6d77ae8800b0338b4688abddf75b5963c427bd88ee7"
+    },
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-v8-composition-unseen-confirmation-v2/results.json",
+      "sha256": "6afcd959d5fc95c2668d2232ce3b461db185c83b0f4d238b3969367ba84cf2a3"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_v8_adaptive_carrier.py",
+      "sha256": "8e04c60d47ef8e1dbc9bd5d91d1d8a1570c556ba01498686c61bcb33bbf413fb"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_v8_carrier_retry.py",
+      "sha256": "23637fd8c8d11cc173974e92c42857b6dc88575d84a2db2ea00c7abe8aaeafe2"
+    },
+    {
+      "path": "scripts/run_bilingual_v8_carrier_retry_unseen_confirmation_v1.py",
+      "sha256": "49750f43ef96be19ee509f7be79d591e43e5513fe43bfba0729b173d75700264"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_candidate_runtime.py",
+      "sha256": "2406703bcf5f8ea5ce3090e1f1a3b67452e19d8355006d2edc3a5088bf04e25b"
+    },
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-candidate-runtime-gate-v1/voice-scalers.json",
+      "sha256": "0309f2ffcf6669fbe225858a0cdaa9c5a2f67b78d125b2f019c34a997fdcac73"
+    },
+    {
+      "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+      "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    }
+  ]
+}

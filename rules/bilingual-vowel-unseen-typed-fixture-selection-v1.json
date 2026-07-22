@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-unseen-typed-fixture-selection-v1",
+  "status": "frozen_before_first_unseen_fixture_selection",
+  "production_enabled": false,
+  "purpose": {
+    "question": "Can the 28 oral typed-core vowel candidates be exercised on deterministic, previously unrendered real-G2P words and sentence frames before an acoustic confirmation run?",
+    "boundary": "Fixture selection is structural and gate-based only. It makes no audio, acoustic, naturalness, listener, arbitrary-sentence, or product-support claim."
+  },
+  "parent_bindings": {
+    "calibration_result_path": "artifacts/product-matrix/20260717-bilingual-vowel-replicated-anchor-calibration-v1/results.json",
+    "calibration_result_sha256": "d3cdc4f9d6f821492748ac78f958c3463bd6be030f1de962b4e3ecb69186985e",
+    "calibration_record_sha256": "b3ac8cf1bfd7525e848c969b7c034c36fec35ffffffbdd77805b5954996a39f0",
+    "failure_result_path": "artifacts/product-matrix/20260718-bilingual-vowel-replicated-anchor-failure-screen-v1/results.json",
+    "failure_result_sha256": "52896515a9499661988bd0d637f28a6343655e5eb6d6f692e22cef4cfd317c1d",
+    "failure_record_sha256": "2e29556abf023b6133cf2a3f79caa6759f63e73319c93cfe6600c4f1f133948b",
+    "reachability_result_path": "artifacts/product-matrix/20260717-bilingual-g2p-reachability-v1/results.json",
+    "reachability_result_sha256": "dbce7288fcb53fe2e6643d8519d297bf37a98c69ac36cb1f0cb60c8a3c39c387",
+    "reachability_record_sha256": "4481547cc272dff572324f3dda5baa768a84e5d0c7d60a06d872b3f6f5a7e321"
+  },
+  "scope": {
+    "oral_candidate_cell_count": 28,
+    "rule_group_count": 15,
+    "logical_slot_count": 84,
+    "expected_occurrence_count": 112,
+    "voice_cell_counts": {
+      "af_heart": 8,
+      "am_michael": 9,
+      "pf_dora": 5,
+      "pm_alex": 6
+    },
+    "candidate_rung_counts": {
+      "adaptive_strength": 6,
+      "full_context": 1,
+      "v8": 20,
+      "word_context": 1
+    },
+    "excluded": "Every nasal candidate and every automatic failure remains outside this manifest."
+  },
+  "selection": {
+    "fixture_selection_version": "bilingual-vowel-unseen-typed-fixture-v1",
+    "inventory": "Pinned wordfreq-large inventory in descending frequency order after canonicalization and deduplication.",
+    "wordfreq_resource_sha256": {
+      "en": "dffae8066b78dce0a6667cf5f58e567054f902674667090a7ac8a8a44628b05c",
+      "pt": "7d764586bca6262f554d5fa77ad8e6841ef42534776e70558065140853660ce2"
+    },
+    "minimum_canonical_rank": 256,
+    "maximum_canonical_rank": 75000,
+    "candidates_retained_per_rule": 128,
+    "surface_filter": "One lowercase alphabetic source word of 3-14 characters, excluding frozen frame words and the old synthetic mora/tavi/nelo words.",
+    "phone_filter": "The real source adapter must find exactly one occurrence of the selected changed vowel rule and no other changed vowel rule; every eligible voice for that profile/rule must agree.",
+    "context_order": [
+      "real_g2p_phrase_medial",
+      "real_g2p_phrase_final",
+      "real_g2p_repeated_target"
+    ],
+    "english_frames": [
+      "They see {target} more now.",
+      "They say more, then {target}.",
+      "They say {target}, then {target}."
+    ],
+    "portuguese_frames": [
+      "Quem quer {target} mais?",
+      "Quem quer mais, diz {target}.",
+      "Quem diz {target}, diz {target}."
+    ],
+    "frame_control": "Every frozen frame word has zero changed-vowel occurrences under both source voices. Each selected source word is distinct across the three contexts for a rule.",
+    "cross_voice_control": "When both voices are eligible for a rule, select one shared text before voice-specific rendering; every voice must pass the same real-G2P planner contract.",
+    "planner_contract": "Exactly the selected rule is changed; expected target indexes and occurrence counts match; consonant, insertion, and prosody changes are absent; comparison, nonce, supplemental-phone, model, punctuation, and repeated-word gates all pass.",
+    "selection_rule": "For each rule and context in frozen order, select the first unused prequalified word whose complete sentence passes the planner contract for every eligible voice. Log every rejection reason."
+  },
+  "claim_limits": {
+    "unseen": "Previously unrendered and lexically distinct from the injected-phone carrier fixtures; not statistically representative of all words or sentences.",
+    "real_g2p": "The actual pinned source adapters analyze every selected sentence; the profile is still rule-isolated for acoustic attribution.",
+    "audio": "No renderer, anchor, candidate, or listening result exists at manifest time.",
+    "product": "No voice, rule, route, flag, or deployment is enabled by fixture selection."
+  },
+  "stopping_rule": {
+    "selection_runs_allowed": 1,
+    "api_calls_allowed": 0,
+    "audio_renders_allowed": 0,
+    "listening_selection_allowed": false,
+    "replacement_after_manifest_freeze_allowed": false,
+    "product_promotion_allowed": false,
+    "instruction": "Select all 84 slots once, write the immutable manifest, and stop before acoustic rendering."
+  },
+  "source_bindings": [
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_unseen_fixtures.py",
+      "sha256": "d198dffa3bc6e912d891fb765116be42e7e0b070f0698bfeee3c9ea439251741"
+    },
+    {
+      "path": "scripts/build_bilingual_vowel_unseen_typed_manifest_v1.py",
+      "sha256": "56aff97c5a7d7608dc6b3f1b1952288b494a6f1c25369fa5bd67c1ba274ae13d"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_g2p_reachability.py",
+      "sha256": "820335f99a5997212269e0d510bf22120eba1f18a41b36b47485f562f0c7917e"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_product_isolation.py",
+      "sha256": "bb7b2664f0eae516e080a1d19ee31728747f778d6a2eed8b353ad684cd5d2701"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_engine.py",
+      "sha256": "968a99db8660176d0ff646d2a1d2cc6e775a57eb506a64f5bdf74b5c2c24bf7f"
+    },
+    {
+      "path": "src/earshift_bakeoff/portuguese_carrier_planner_v1.py",
+      "sha256": "0353221b2f5d9363b2b4b4a845a5c7af1c11521797b4973981e1f34723c23ba9"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_gate_bridge.py",
+      "sha256": "12dd75642df55b76d29aa2d27b7f410478b8b94261c0706a550a25ffd19d2729"
+    },
+    {
+      "path": "src/earshift_bakeoff/listener_lens.py",
+      "sha256": "6938bebae490fdf7e26c66151a8128f13a2c90aa5f0db67f853a705da7aa8f33"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    },
+    {
+      "path": "rules/bilingual-listener-lenses-v2.json",
+      "sha256": "23fa4cb220098e19ceec8945b2b431e976dc0f4f41c8bd8e3481a5efb3352107"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    }
+  ]
+}

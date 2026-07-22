@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "matrix_version": "bilingual-product-matrix-v1",
+  "status": "four_voice_bidirectional_research_matrix_all_product_cells_disabled",
+  "production_enabled": false,
+  "source_bindings": {
+    "vowel_rules": {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    },
+    "listener_rules": {
+      "path": "rules/bilingual-listener-lenses-v2.json",
+      "sha256": "23fa4cb220098e19ceec8945b2b431e976dc0f4f41c8bd8e3481a5efb3352107"
+    },
+    "voice_registry": {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    },
+    "heart_reference_candidate": {
+      "path": "rules/kokoro-candidate-state.json",
+      "sha256": "4088e13c98353a3e50dec6182b6486a5b30e5c047de6fdbf35f5eed79fd34950"
+    }
+  },
+  "validation_policy": {
+    "cell_unit": "listener_profile_x_source_voice_x_rule",
+    "evidence_transfer_between_voices": false,
+    "evidence_transfer_between_rules": false,
+    "identity_rules_require_intervention_validation": false,
+    "changed_rule_default_runtime_status": "pending",
+    "changed_rule_default_human_status": "pending",
+    "all_changed_rules_required_for_unqualified_profile_claim": true,
+    "failed_or_pending_cells_fail_closed": true
+  },
+  "fixture_policy": {
+    "segment_context_order": [
+      "phrase_medial_continuous_speech",
+      "phrase_final_new_context",
+      "repeated_multi_target"
+    ],
+    "render_sides": [
+      "neutral",
+      "identity",
+      "full_lens_diagnostic",
+      "spliced_lens"
+    ],
+    "same_voice_pair_required": true,
+    "common_rng_required": true,
+    "replacement_fixtures_allowed": false,
+    "selective_rerender_allowed": false
+  },
+  "evidence_overrides": [
+    {
+      "profile_id": "en-US-to-pt-BR-listener-v2",
+      "voice_id": "af_heart",
+      "rule_id": "enpt.ae_eh",
+      "reference_rule_id": "ptbr.vowel.ae_to_eh",
+      "runtime_status": "strict_shell_automatic_pass_pending_broad_confirmation",
+      "human_status": "pending",
+      "product_enabled": false,
+      "claim_tier": "narrow_reference_only",
+      "binding_id": "heart_reference_candidate",
+      "note": "The frozen Heart strict-shell result is relevant architecture and category evidence, but it does not validate this broader planner, arbitrary contexts, another rule, or another voice."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "registry_version": "kokoro-product-voices-v1",
+  "renderer": {
+    "package": "kokoro",
+    "version": "0.9.4",
+    "model_repo": "hexgrad/Kokoro-82M",
+    "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "sample_rate_hz": 24000,
+    "license": "Apache-2.0"
+  },
+  "same_voice_pair_required": true,
+  "production_enabled": false,
+  "selection_bindings": {
+    "en-US": {
+      "path": "rules/kokoro-en-voice-shortlist.json",
+      "sha256": "d246dc74fc2f17f923f2f79985e039460a0e1a87086f59af25748c063bb67c5e"
+    },
+    "pt-BR": {
+      "path": "rules/kokoro-ptbr-voice-shortlist.json",
+      "sha256": "519a20766304f52ac9eedb261f7cf6f5da3c054c4b7c021139f236929876845c"
+    }
+  },
+  "languages": [
+    {
+      "language_id": "en-US",
+      "display_name": "American English",
+      "default_voice_id": "af_heart",
+      "profile_ids": [
+        "en-to-pt-BR-vowel-lens",
+        "en-US-to-pt-BR-vowels-v1",
+        "en-US-to-pt-BR-listener-v2"
+      ],
+      "voices": [
+        {
+          "voice_id": "af_heart",
+          "display_name": "Heart",
+          "gender": "female",
+          "style_label": "clear, strong American-English delivery; relatively high pitch",
+          "selection_role": "female_default",
+          "evidence_status": "existing_rule_specific_evidence_only",
+          "voice_sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff"
+        },
+        {
+          "voice_id": "am_michael",
+          "display_name": "Michael",
+          "gender": "male",
+          "style_label": "mature, general-purpose American-English delivery",
+          "selection_role": "male_default",
+          "evidence_status": "configured_pending_per_rule_qc",
+          "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37"
+        }
+      ]
+    },
+    {
+      "language_id": "pt-BR",
+      "display_name": "Brazilian Portuguese",
+      "default_voice_id": "pm_alex",
+      "profile_ids": [
+        "pt-BR-to-en-US-vowels-v1",
+        "pt-BR-to-en-US-listener-v2"
+      ],
+      "voices": [
+        {
+          "voice_id": "pm_alex",
+          "display_name": "Alex",
+          "gender": "male",
+          "style_label": "expressive, dramatic Brazilian-Portuguese delivery",
+          "selection_role": "expressive_default",
+          "evidence_status": "configured_pending_per_rule_qc",
+          "voice_sha256": "cf0ba8c573c2480fc54123683a35cf1e2ae130428e441eb91f9149bdb188a526"
+        },
+        {
+          "voice_id": "pf_dora",
+          "display_name": "Dora",
+          "gender": "female",
+          "style_label": "formal, polished Brazilian-Portuguese delivery",
+          "selection_role": "formal_option",
+          "evidence_status": "configured_pending_per_rule_qc",
+          "voice_sha256": "07e4ff987c5d5a8c3995efd15cc4f0db7c4c15e881b198d8ab7f67ecf51f5eb7"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "engine_version": 1,
+  "status": "experimental_broad_coverage_not_yet_acoustically_promoted",
+  "sources": [
+    {
+      "id": "rauber2005",
+      "title": "The interrelation between the perception and production of English vowels by native speakers of Brazilian Portuguese",
+      "url": "https://doi.org/10.21437/Interspeech.2005-769"
+    },
+    {
+      "id": "rauber2006",
+      "title": "Perception and production of English vowels by Brazilian EFL speakers",
+      "url": "https://repositorio.ufsc.br/handle/123456789/88701"
+    },
+    {
+      "id": "elvin2018",
+      "title": "Non-Native Dialect Matters: The Perception of European and Brazilian Portuguese Vowels by Californian English Monolinguals and Spanish-English Bilinguals",
+      "url": "https://doi.org/10.3390/languages3030037"
+    },
+    {
+      "id": "escudero2009",
+      "title": "A cross-dialect acoustic description of vowels: Brazilian and European Portuguese",
+      "url": "https://doi.org/10.1121/1.3180321"
+    },
+    {
+      "id": "slmr2021",
+      "title": "The Revised Speech Learning Model (SLM-r)",
+      "url": "https://doi.org/10.1017/9781108886901"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "en-US-to-pt-BR-vowels-v1",
+      "source_language": "en-US",
+      "listener_language": "pt-BR",
+      "source_adapter": "misaki-en-US",
+      "source_gate_language": "en",
+      "voice_id": "af_heart",
+      "claim": "Broad experimental English-vowel projection through Brazilian-Portuguese-linked categories; individual mappings retain separate evidence and acoustic statuses.",
+      "vowel_rules": [
+        {"id": "enpt.i_i", "source": "i", "target": "i", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["rauber2006"]},
+        {"id": "enpt.ih_i", "source": "ɪ", "target": "i", "evidence_tier": "direct_assimilation", "acoustic_status": "pending_kokoro", "source_ids": ["rauber2005", "rauber2006"]},
+        {"id": "enpt.eh_eh", "source": "ɛ", "target": "ɛ", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["rauber2006"]},
+        {"id": "enpt.ae_eh", "source": "æ", "target": "ɛ", "evidence_tier": "direct_assimilation", "acoustic_status": "kokoro_output_splice_exact_category_pass_pending_broad_human_qc", "source_ids": ["rauber2005", "rauber2006"]},
+        {"id": "enpt.aa_a", "source": "ɑ", "target": "a", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.ao_ao", "source": "ɔ", "target": "ɔ", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009"]},
+        {"id": "enpt.ah_a", "source": "ʌ", "target": "a", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.uh_u", "source": "ʊ", "target": "u", "evidence_tier": "direct_assimilation", "acoustic_status": "pending_kokoro", "source_ids": ["rauber2005", "rauber2006"]},
+        {"id": "enpt.u_u", "source": "u", "target": "u", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["rauber2006"]},
+        {"id": "enpt.schwa_reduced_a", "source": "ə", "target": "ɐ", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.nurse_eh", "source": "ɜ", "target": "ɛ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.rhotic_schwa_reduced_a", "source": "ɚ", "target": "ɐ", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.face_face", "source": "A", "target": "A", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "enpt.price_price", "source": "I", "target": "I", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "enpt.goat_o", "source": "O", "target": "o", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.mouth_mouth", "source": "W", "target": "W", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "enpt.choice_choice", "source": "Y", "target": "Y", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "enpt.open_back_ao", "source": "ɒ", "target": "ɔ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.open_back_symbol_ao", "source": "Q", "target": "ɔ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "enpt.reduced_a_reduced_a", "source": "ɐ", "target": "ɐ", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009"]},
+        {"id": "enpt.reduced_i_i", "source": "ᵻ", "target": "i", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.reduced_schwa_a", "source": "ᵊ", "target": "ɐ", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.central_high_i", "source": "ɨ", "target": "i", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.back_unrounded_u", "source": "ɯ", "target": "u", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.back_mid_o", "source": "ɤ", "target": "o", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.front_rounded_e", "source": "ø", "target": "e", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.front_open_rounded_eh", "source": "œ", "target": "ɛ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.front_rounded_i", "source": "y", "target": "i", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "enpt.close_mid_front_e", "source": "e", "target": "e", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009"]},
+        {"id": "enpt.close_mid_back_o", "source": "o", "target": "o", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009"]},
+        {"id": "enpt.low_a_a", "source": "a", "target": "a", "evidence_tier": "shared_category", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009"]}
+      ]
+    },
+    {
+      "id": "pt-BR-to-en-US-vowels-v1",
+      "source_language": "pt-BR",
+      "listener_language": "en-US",
+      "source_adapter": "misaki-pt-BR",
+      "source_gate_language": "pt",
+      "voice_id": "pf_dora",
+      "claim": "Broad experimental Brazilian-Portuguese-vowel projection through American-English-linked categories; dialect-specific and ambiguous mappings remain labeled.",
+      "vowel_rules": [
+        {"id": "pten.i_i", "source": "i", "target": "i", "evidence_tier": "direct_dominant_category", "acoustic_status": "not_required_identity", "source_ids": ["elvin2018"]},
+        {"id": "pten.e_ih", "source": "e", "target": "ɪ", "evidence_tier": "direct_ambiguous_plurality_34_vs_31", "acoustic_status": "pending_kokoro", "source_ids": ["elvin2018"]},
+        {"id": "pten.eh_eh", "source": "ɛ", "target": "ɛ", "evidence_tier": "direct_dominant_category", "acoustic_status": "pending_kokoro", "source_ids": ["elvin2018"]},
+        {"id": "pten.a_ae", "source": "a", "target": "æ", "evidence_tier": "direct_weak_majority_54_percent", "acoustic_status": "pending_kokoro", "source_ids": ["elvin2018"]},
+        {"id": "pten.ao_aa", "source": "ɔ", "target": "ɑ", "evidence_tier": "direct_majority_72_percent", "acoustic_status": "pending_kokoro", "source_ids": ["elvin2018"]},
+        {"id": "pten.o_goat", "source": "o", "target": "O", "evidence_tier": "direct_distributed_plurality", "acoustic_status": "pending_kokoro", "source_ids": ["elvin2018"]},
+        {"id": "pten.u_u", "source": "u", "target": "u", "evidence_tier": "direct_dominant_category_73_percent", "acoustic_status": "pending_kokoro", "source_ids": ["elvin2018"]},
+        {"id": "pten.reduced_a_schwa", "source": "ɐ", "target": "ə", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.final_a_schwa", "source": "æ", "target": "ə", "evidence_tier": "renderer_allophone_projection", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009"]},
+        {"id": "pten.final_o_foot", "source": "ʊ", "target": "ʊ", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.face_face", "source": "A", "target": "A", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.price_price", "source": "I", "target": "I", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.goat_goat", "source": "O", "target": "O", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.mouth_mouth", "source": "W", "target": "W", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.choice_choice", "source": "Y", "target": "Y", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.final_e_i", "source": "y", "target": "i", "evidence_tier": "renderer_allophone_projection", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009"]},
+        {"id": "pten.kit_kit", "source": "ɪ", "target": "ɪ", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.schwa_schwa", "source": "ə", "target": "ə", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.low_back_low_back", "source": "ɑ", "target": "ɑ", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.open_back_low_back", "source": "ɒ", "target": "ɑ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.open_back_symbol_low_back", "source": "Q", "target": "ɑ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.strut_strut", "source": "ʌ", "target": "ʌ", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.nurse_nurse", "source": "ɜ", "target": "ɜ", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.rhotic_schwa_rhotic_schwa", "source": "ɚ", "target": "ɚ", "evidence_tier": "inventory_correspondence", "acoustic_status": "not_required_identity", "source_ids": ["slmr2021"]},
+        {"id": "pten.reduced_i_kit", "source": "ᵻ", "target": "ɪ", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.reduced_schwa_schwa", "source": "ᵊ", "target": "ə", "evidence_tier": "derived_reduced_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.central_high_kit", "source": "ɨ", "target": "ɪ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.back_unrounded_u", "source": "ɯ", "target": "u", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.back_mid_goat", "source": "ɤ", "target": "O", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.front_rounded_face", "source": "ø", "target": "A", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.front_open_rounded_eh", "source": "œ", "target": "ɛ", "evidence_tier": "derived_nearest_listener_category", "acoustic_status": "pending_kokoro", "source_ids": ["slmr2021"]},
+        {"id": "pten.nasal_a_schwa", "source": "ɐ̃", "target": "ə̃", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_low_a_ae", "source": "ã", "target": "æ̃", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_e_ih", "source": "ẽ", "target": "ɪ̃", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_eh_eh", "source": "ɛ̃", "target": "ɛ̃", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_i_i", "source": "ĩ", "target": "ĩ", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_o_goat", "source": "õ", "target": "Õ", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_ao_low_back", "source": "ɔ̃", "target": "ɑ̃", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "pending_kokoro", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_u_u", "source": "ũ", "target": "ũ", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009", "slmr2021"]},
+        {"id": "pten.nasal_foot_foot", "source": "ʊ̃", "target": "ʊ̃", "evidence_tier": "derived_nasal_base_projection_preserving_nasality", "acoustic_status": "not_required_identity", "source_ids": ["escudero2009", "slmr2021"]}
+      ]
+    }
+  ]
+}

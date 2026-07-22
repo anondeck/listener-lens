@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "engine_version": 2,
+  "status": "experimental_all_segment_and_prosody_profile_with_rule_level_evidence",
+  "method": {
+    "identity_policy": "Segments without an enabled listener-recategorization rule remain in the same broad source class in both conditions.",
+    "substitution_policy": "Equal-token substitutions can use the shared-state/common-RNG Kokoro path.",
+    "insertion_policy": "Perceptual insertions require the separately controlled latent-slot path and are not silently approximated as substitutions.",
+    "prosody_policy": "Prosodic rules are applied only to the structures and directions supported by their cited perception task; other contours remain paired controls."
+  },
+  "sources": [
+    {
+      "id": "reis2006",
+      "title": "The perception and production of English interdental fricatives by Brazilian EFL learners",
+      "url": "https://repositorio.ufsc.br/xmlui/handle/123456789/89154"
+    },
+    {
+      "id": "dupoux2011",
+      "title": "Where do illusory vowels come from?",
+      "url": "https://doi.org/10.1016/j.jml.2010.12.004"
+    },
+    {
+      "id": "guevara-rukoz2017",
+      "title": "Predicting Epenthetic Vowel Quality from Acoustics",
+      "url": "https://doi.org/10.21437/Interspeech.2017-1735"
+    },
+    {
+      "id": "cardoso2011",
+      "title": "The development of coda perception in second language phonology: A variationist perspective",
+      "url": "https://doi.org/10.1177/0267658311413540"
+    },
+    {
+      "id": "osborne2015",
+      "title": "The L2 perception of initial English /h/ and /r/ by Brazilian Portuguese learners of English",
+      "url": "https://doi.org/10.1075/jslp.1.2.02osb"
+    },
+    {
+      "id": "wong2017",
+      "title": "Investigating sources of phonological rarity and instability: a study of the palatal lateral approximant in Brazilian Portuguese",
+      "url": "https://hdl.handle.net/2142/97255"
+    },
+    {
+      "id": "modesto-barbosa2019",
+      "title": "Unraveling Foreign Accent Prosody: Production and Perception of Lexical Stress in English by Brazilian Portuguese Speakers",
+      "url": "https://doi.org/10.17851/2237-2083.27.1.165-189"
+    },
+    {
+      "id": "kivisto-de-souza2021",
+      "title": "Examining L1 Brazilian Portuguese speakers' sensitivity to English nuclear stress assignment",
+      "url": "https://periodicos.ufmg.br/index.php/relin/article/view/28227"
+    },
+    {
+      "id": "buzan2022",
+      "title": "Intonational interference in English-L2 Brazilian speakers: production and perception",
+      "url": "https://doi.org/10.21437/SpeechProsody.2022-168"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "en-US-to-pt-BR-listener-v2",
+      "base_profile_id": "en-US-to-pt-BR-vowels-v1",
+      "claim": "Experimental English-through-Brazilian-Portuguese listener profile with broad vowel coverage, consonant substitutions, explicit insertion eligibility, and structure-bounded prosody evidence.",
+      "consonant_rules": [
+        {
+          "id": "enpt.theta_t",
+          "source": "θ",
+          "target": "t",
+          "contexts": ["any"],
+          "evidence_tier": "direct_two_category_assimilation_with_position_extrapolation",
+          "acoustic_status": "pending_kokoro",
+          "source_ids": ["reis2006"],
+          "note": "Reis found /t/ was the most common /theta/ replacement and interpreted the perception results as /theta/ assimilation to BP /t/; the broad positional use remains an explicit extrapolation."
+        },
+        {
+          "id": "enpt.eth_d",
+          "source": "ð",
+          "target": "d",
+          "contexts": ["any"],
+          "evidence_tier": "direct_two_category_assimilation_with_position_extrapolation",
+          "acoustic_status": "pending_kokoro",
+          "source_ids": ["reis2006"],
+          "note": "Reis reported /d/ in 94% of voiced-interdental replacements across the production tests and interpreted the perception pattern as BP /d/ assimilation."
+        },
+        {
+          "id": "enpt.initial_h_h",
+          "source": "h",
+          "target": "h",
+          "contexts": ["word_initial"],
+          "evidence_tier": "direct_distinct_listener_category_identity",
+          "acoustic_status": "not_required_identity",
+          "source_ids": ["osborne2015"]
+        },
+        {
+          "id": "enpt.initial_rhotic_rhotic",
+          "source": "ɹ",
+          "target": "ɹ",
+          "contexts": ["word_initial"],
+          "evidence_tier": "direct_distinct_listener_category_identity",
+          "acoustic_status": "not_required_identity",
+          "source_ids": ["osborne2015"]
+        }
+      ],
+      "insertion_rules": [
+        {
+          "id": "enpt.illicit_coda_epenthetic_i",
+          "operation": "insert_after",
+          "target": "i",
+          "contexts": ["word_final_obstruent", "illegal_consonant_cluster"],
+          "evidence_tier": "direct_perceptual_epenthesis_context_sensitive_quality",
+          "architecture_status": "controlled_latent_slot_v2_pending_validation",
+          "source_ids": ["dupoux2011", "guevara-rukoz2017", "cardoso2011"],
+          "note": "BP listeners show perceptual epenthesis, often /i/, but coarticulatory cues can override the default quality; the engine must not insert /i/ indiscriminately."
+        }
+      ],
+      "prosody_rules": [
+        {
+          "id": "enpt.lexical_stress_initial_bias",
+          "operation": "swap_primary_and_initial_secondary_stress",
+          "contexts": ["multisyllabic_word_with_initial_secondary_and_noninitial_primary"],
+          "evidence_tier": "direct_perception_bias_structure_bounded",
+          "architecture_status": "controlled_stress_marker_candidate",
+          "source_ids": ["modesto-barbosa2019"],
+          "note": "The cited task found an initial-stress response bias when an initial secondary stress competed with final primary stress; this is not a license to move stress in every word."
+        },
+        {
+          "id": "enpt.english_polar_rise_identity",
+          "operation": "identity",
+          "contexts": ["polar_question"],
+          "evidence_tier": "direct_question_recognition_identity",
+          "architecture_status": "not_required_identity",
+          "source_ids": ["buzan2022"]
+        }
+      ]
+    },
+    {
+      "id": "pt-BR-to-en-US-listener-v2",
+      "base_profile_id": "pt-BR-to-en-US-vowels-v1",
+      "claim": "Experimental Brazilian-Portuguese-through-American-English listener profile with broad vowel coverage, consonant substitutions, and structure-bounded question-contour recategorization.",
+      "consonant_rules": [
+        {
+          "id": "pten.palatal_lateral_yod",
+          "source": "lj",
+          "target": "jj",
+          "contexts": ["any"],
+          "evidence_tier": "direct_phone_identification_approximant_confusion_renderer_projection",
+          "acoustic_status": "pending_kokoro",
+          "source_ids": ["wong2017"],
+          "note": "American-English listeners frequently identified the BP palatal lateral as a palatal approximant. Misaki/Kokoro represents the source as /lj/; /jj/ is an equal-token renderer projection requiring acoustic and listener QC."
+        },
+        {
+          "id": "pten.dorsal_r_h",
+          "source": "x",
+          "target": "h",
+          "contexts": ["any"],
+          "evidence_tier": "derived_nearest_american_english_category",
+          "acoustic_status": "pending_kokoro",
+          "source_ids": [],
+          "note": "Coverage rule derived from inventory and acoustic proximity; no direct American-English listener mapping result is claimed."
+        },
+        {
+          "id": "pten.palatal_nasal_n",
+          "source": "ɲ",
+          "target": "n",
+          "contexts": ["any"],
+          "evidence_tier": "derived_nearest_american_english_category",
+          "acoustic_status": "pending_kokoro",
+          "source_ids": ["wong2017"],
+          "note": "Wong establishes poorer English-listener identification for palatal nasal categories, but not a universal /n/ response; /n/ is a labeled nearest-category projection."
+        },
+        {
+          "id": "pten.tap_flap",
+          "source": "ɾ",
+          "target": "T",
+          "contexts": ["intervocalic"],
+          "evidence_tier": "derived_listener_allophone_correspondence",
+          "acoustic_status": "pending_kokoro",
+          "source_ids": [],
+          "note": "The target is Kokoro's American-English alveolar-flap symbol; category correspondence is derived and must be checked for an audible non-artifactual effect."
+        }
+      ],
+      "insertion_rules": [],
+      "prosody_rules": [
+        {
+          "id": "pten.polar_rise_fall_statement",
+          "operation": "map_final_rise_fall_to_fall",
+          "contexts": ["polar_question"],
+          "evidence_tier": "direct_delexicalized_listener_classification",
+          "architecture_status": "controlled_f0_candidate",
+          "source_ids": ["buzan2022"],
+          "note": "In the cited small study, English-L1 listeners preferred 'statement' for delexicalized BP rise-fall questions; this supports a bounded contour-category candidate, not a general intonation model."
+        }
+      ]
+    }
+  ]
+}

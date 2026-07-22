@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "creator_selected_pending_renderer_qc",
+  "source_screen": {
+    "run_id": "20260717-kokoro-bilingual-voice-screen-v1",
+    "summary_sha256": "0b198eb28afc534c059ce051c306312e2605765d4cd7554c4f126548f241def1",
+    "public_manifest_sha256": "7016d3837d6ebfae7256acd16dc29dbf0d0b75afa307029a1f9abcdcda8362c5"
+  },
+  "active_voice_ids": [
+    "pm_alex",
+    "pf_dora"
+  ],
+  "eliminated_voices": [
+    {
+      "voice_id": "pm_santa",
+      "decision_basis": "creator_listening_qc",
+      "reason_tag": "raspy_timbre",
+      "scope": "product_voice_preference_not_automatic_renderer_failure"
+    }
+  ],
+  "selected_voice_id": "pm_alex",
+  "selection": {
+    "decision_basis": "creator_comparative_listening_qc",
+    "preference_strength": "slight",
+    "reason_tag": "preferred_expressive_dramatic_delivery",
+    "alternate_voice_ids": [
+      "pf_dora"
+    ],
+    "scope": "product_voice_preference_pending_renderer_and_rule_qc"
+  },
+  "production_candidate_enabled": false,
+  "interpretation": "The frozen three-voice screen and its automatic integrity result remain unchanged. Both pm_alex and pf_dora were perceived as Brazilian Portuguese voices with different accent and delivery impressions. Creator comparative listening selects pm_alex as the expressive default because its delivery sounded more dramatic and soulful; pf_dora remains a fully acceptable, more formal-sounding alternate. This does not rank Brazilian authenticity and is not Brazilian-population validation or renderer/rule promotion."
+}

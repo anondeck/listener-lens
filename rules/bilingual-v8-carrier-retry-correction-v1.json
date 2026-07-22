@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-v8-carrier-retry-correction-v1",
+  "status": "frozen_before_first_candidate_audio",
+  "classification_scope": "zero_api_known_failure_deterministic_carrier_reresolution",
+  "candidate_version": "v8-carrier-retry-v1",
+  "production_enabled": false,
+  "api_calls_allowed": 0,
+  "fixture": {
+    "fixture_id": "heart_unseen_continuous",
+    "profile_id": "en-US-to-pt-BR-listener-v2",
+    "voice_id": "af_heart",
+    "text": "One good cook took books.",
+    "selected_rule_ids": [
+      "enpt.ah_a",
+      "enpt.uh_u"
+    ],
+    "selected_occurrence_count": 5,
+    "failed_global_occurrence_index": 3,
+    "failed_rule_id": "enpt.uh_u",
+    "failed_source_word": "took",
+    "initial_candidate_attempt": 3,
+    "initial_failure": "target_gain_gate_only"
+  },
+  "rationale": {
+    "evidence": "The same enpt.uh_u rule passed in three other shells in this sentence, while scalar state strengths 0.5 through 2.0 all failed for the took carrier. Context has also changed the outcome of pten.o_goat across frozen fixtures.",
+    "hypothesis": "The failed occurrence is a carrier-context realization failure. Deterministically advancing its opaque mapping can find a gate-clean shell in which the unchanged v8 intervention realizes the intended acoustic direction.",
+    "not_assumed": "A passing known-fixture retry would not prove that carrier retry generalizes. It would only make the algorithm eligible for a fresh unseen confirmation."
+  },
+  "retry_mapping": {
+    "source_casefold": "took",
+    "source_phone": "tˈʊk",
+    "carrier_role": "content",
+    "repeated_source_word_policy": "The utterance-local MappingKey is advanced as one unit, so every repetition receives the same replacement mapping.",
+    "adjacency_policy": "After the minimum is advanced, the existing bounded isolated written-word, predicted-homophone, model-vocabulary, and global adjacency resolver runs unchanged and may deterministically re-resolve implicated neighbors.",
+    "maximum_rounds": 5
+  },
+  "selection_rule": "first_complete_composition_gate_pass_under_frozen_plan_order",
+  "candidate_plans": [
+    {
+      "round": 1,
+      "minimum_attempt": 4,
+      "selected_attempt": 4,
+      "receipt": {
+        "plan_sha256": "5edadc883c77051b77e694ebd19400d3f3bd581c8dbbd50cec95260221240d2a",
+        "neutral_script": "wuhngsh duugs tuupv kuutp guupf.",
+        "lens_script": "wahngsh doogs toopv kootp goopf.",
+        "gates": {
+          "isolated_pairs_checked": 5,
+          "adjacency_pairs_checked": 4,
+          "candidate_attempts": 5,
+          "candidate_rejection_counts": {},
+          "written_and_espeak_gate_pass": true,
+          "supplemental_phone_gates_pass": true,
+          "model_representable": true,
+          "punctuation_preserved": true,
+          "repeated_word_invariant_pass": true
+        },
+        "word_mapping_sha256": "6a45e9c7576beafdee3b440117a139943d0816542bdc697a367e596fa970ab66",
+        "word_candidate_attempts": [0, 0, 0, 4, 0],
+        "retried_word": {
+          "word_index": 3,
+          "source_casefold": "took",
+          "source_phone": "tˈʊk",
+          "neutral_phone": "kˈʊtp",
+          "lens_phone": "kˈutp",
+          "candidate_attempt": 4
+        }
+      }
+    },
+    {
+      "round": 2,
+      "minimum_attempt": 5,
+      "selected_attempt": 5,
+      "receipt": {
+        "plan_sha256": "78e66228e3e7cf79dcdb85e402bbd77cbae07b2ba791800a496daa74f13ecfc2",
+        "neutral_script": "wuhngsh duugs tuupv kuutf guupf.",
+        "lens_script": "wahngsh doogs toopv kootf goopf.",
+        "gates": {
+          "isolated_pairs_checked": 5,
+          "adjacency_pairs_checked": 4,
+          "candidate_attempts": 5,
+          "candidate_rejection_counts": {},
+          "written_and_espeak_gate_pass": true,
+          "supplemental_phone_gates_pass": true,
+          "model_representable": true,
+          "punctuation_preserved": true,
+          "repeated_word_invariant_pass": true
+        },
+        "word_mapping_sha256": "c5dcdc087cf07daa7052e4ef70f501bfbaabc532cab9d5a3efeff5d1e3503877",
+        "word_candidate_attempts": [0, 0, 0, 5, 0],
+        "retried_word": {
+          "word_index": 3,
+          "source_casefold": "took",
+          "source_phone": "tˈʊk",
+          "neutral_phone": "kˈʊtf",
+          "lens_phone": "kˈutf",
+          "candidate_attempt": 5
+        }
+      }
+    },
+    {
+      "round": 3,
+      "minimum_attempt": 6,
+      "selected_attempt": 6,
+      "receipt": {
+        "plan_sha256": "341d498e368197c02975ee9f89c7ade5d021d620842729f9c8f4c64b7bed392c",
+        "neutral_script": "wuhngsh duugs tuupv puupm guupf.",
+        "lens_script": "wahngsh doogs toopv poopm goopf.",
+        "gates": {
+          "isolated_pairs_checked": 5,
+          "adjacency_pairs_checked": 4,
+          "candidate_attempts": 5,
+          "candidate_rejection_counts": {},
+          "written_and_espeak_gate_pass": true,
+          "supplemental_phone_gates_pass": true,
+          "model_representable": true,
+          "punctuation_preserved": true,
+          "repeated_word_invariant_pass": true
+        },
+        "word_mapping_sha256": "03e6398b03d94fd28eb96cc4f3f61fe678e2c403460c6303aa80942e1fe84892",
+        "word_candidate_attempts": [0, 0, 0, 6, 0],
+        "retried_word": {
+          "word_index": 3,
+          "source_casefold": "took",
+          "source_phone": "tˈʊk",
+          "neutral_phone": "pˈʊpm",
+          "lens_phone": "pˈupm",
+          "candidate_attempt": 6
+        }
+      }
+    },
+    {
+      "round": 4,
+      "minimum_attempt": 7,
+      "selected_attempt": 7,
+      "receipt": {
+        "plan_sha256": "6152a9d5a707e21660a0c7d161bc25dc2aacc8fa1af4f1b0733ea87e757dc202",
+        "neutral_script": "wuhngsh duugs tuupv puupz guupf.",
+        "lens_script": "wahngsh doogs toopv poopz goopf.",
+        "gates": {
+          "isolated_pairs_checked": 5,
+          "adjacency_pairs_checked": 4,
+          "candidate_attempts": 5,
+          "candidate_rejection_counts": {},
+          "written_and_espeak_gate_pass": true,
+          "supplemental_phone_gates_pass": true,
+          "model_representable": true,
+          "punctuation_preserved": true,
+          "repeated_word_invariant_pass": true
+        },
+        "word_mapping_sha256": "7f61d4920e7b568cffd8de539084b3650fda046164f43ba5cca5f921c1c8ffb1",
+        "word_candidate_attempts": [0, 0, 0, 7, 0],
+        "retried_word": {
+          "word_index": 3,
+          "source_casefold": "took",
+          "source_phone": "tˈʊk",
+          "neutral_phone": "pˈʊpz",
+          "lens_phone": "pˈupz",
+          "candidate_attempt": 7
+        }
+      }
+    },
+    {
+      "round": 5,
+      "minimum_attempt": 8,
+      "selected_attempt": 9,
+      "receipt": {
+        "plan_sha256": "01ad3b4305d2cbab1cafd4179aa9644d000042010a7e8b36e2129438cee17f4d",
+        "neutral_script": "wuhngsh duugs tuupv puutv guupf.",
+        "lens_script": "wahngsh doogs toopv pootv goopf.",
+        "gates": {
+          "isolated_pairs_checked": 5,
+          "adjacency_pairs_checked": 4,
+          "candidate_attempts": 6,
+          "candidate_rejection_counts": {
+            "lens_written_espeak_predicted_homophone": 1,
+            "neutral_written_espeak_predicted_homophone": 1
+          },
+          "written_and_espeak_gate_pass": true,
+          "supplemental_phone_gates_pass": true,
+          "model_representable": true,
+          "punctuation_preserved": true,
+          "repeated_word_invariant_pass": true
+        },
+        "word_mapping_sha256": "3af90079d8382a5d7115fcc9c184d94b45074f38fd91580dee1670be92100d6f",
+        "word_candidate_attempts": [0, 0, 0, 9, 0],
+        "retried_word": {
+          "word_index": 3,
+          "source_casefold": "took",
+          "source_phone": "tˈʊk",
+          "neutral_phone": "pˈʊtv",
+          "lens_phone": "pˈutv",
+          "candidate_attempt": 9
+        }
+      }
+    }
+  ],
+  "automatic_gates": {
+    "frozen_plan_receipt_exact": true,
+    "complete_text_and_phone_gate_contract": true,
+    "source_word_repetition_invariant": true,
+    "punctuation_and_word_count_preserved": true,
+    "unchanged_combined_v8_renderer": true,
+    "neutral_identity_bit_exact": true,
+    "equal_finite_nonempty_unclipped_audio": true,
+    "outside_splice_exact_neutral": true,
+    "full_weight_interior_exact_lens": true,
+    "frozen_boundary_and_localization_gates": true,
+    "complete_current_context_composition_gate": true,
+    "every_occurrence_must_pass": true,
+    "identity_false_positive_count_must_equal": 0
+  },
+  "execution": {
+    "candidate_order_frozen_before_audio": true,
+    "stop_at_first_complete_pass": true,
+    "maximum_candidate_pair_renders": 5,
+    "current_context_anchor_decodes_per_attempt": 6,
+    "replacement_fixture_allowed": false,
+    "threshold_changes_allowed": false,
+    "manual_or_listening_selection_allowed": false,
+    "human_review_generated": false
+  },
+  "outcomes": {
+    "first_candidate_passes": "known_failure_carrier_retry_pass_eligible_fresh_unseen_confirmation",
+    "all_candidates_fail": "known_failure_carrier_retry_failed_preserve_parent_failure",
+    "stopping_rule": "Stop at the first complete automatic pass or after all five frozen plans. Do not listen, promote, or reinterpret the frozen parent.",
+    "interpretation_limit": "A pass supports deterministic carrier re-resolution as a correction mechanism for the exact known Heart context. Because the mapping is selected by automatic outcomes on a known failed fixture, it requires a new unseen algorithm-level confirmation and does not establish arbitrary text, other voices, all vowels, consonants, prosody, naturalness, listener-profile fit, or production validity."
+  },
+  "bindings": [
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-v8-composition-unseen-confirmation-v2/results.json",
+      "sha256": "6afcd959d5fc95c2668d2232ce3b461db185c83b0f4d238b3969367ba84cf2a3"
+    },
+    {
+      "path": "rules/bilingual-v8-occurrence-strength-correction-v1.json",
+      "sha256": "7a43f62855df7e9e48fd66850139630197e6922279d465ae9eb57fc99f49fb52"
+    },
+    {
+      "path": "artifacts/product-matrix/20260718-bilingual-v8-occurrence-strength-correction-v1/results.json",
+      "sha256": "7cd009a1d7236640efa6cb96dc6bed30e31be21509f2610c7886c7a407f70f33"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_v8_carrier_retry.py",
+      "sha256": "23637fd8c8d11cc173974e92c42857b6dc88575d84a2db2ea00c7abe8aaeafe2"
+    },
+    {
+      "path": "scripts/run_bilingual_v8_carrier_retry_correction_v1.py",
+      "sha256": "f6678f088ee98fe6adffc20078c8f27e678c155c5ae43264a2020bc52610aeb9"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_candidate_runtime.py",
+      "sha256": "2406703bcf5f8ea5ce3090e1f1a3b67452e19d8355006d2edc3a5088bf04e25b"
+    },
+    {
+      "path": "rules/bilingual-kokoro-candidate-state-v1.json",
+      "sha256": "3ab1179fa5c5bc341821bf07dc013c0c2f00288af7a4766abe621a970db7989c"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    }
+  ]
+}

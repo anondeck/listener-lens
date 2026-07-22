@@ -1,0 +1,86 @@
+{
+  "acoustic_gates": "Reuse every frozen v8 source/target anchor, measurement interval, three-ceiling analysis family, threshold, and aggregate rule unchanged.",
+  "engineering_gates": {
+    "absolute_high_band_delta_db_maximum": 1.5,
+    "absolute_rms_delta_db_maximum": 1.0,
+    "boundary_metrics": "existing frozen output-domain thresholds",
+    "clipped_sample_count_maximum": 0,
+    "finite": true,
+    "localization": "existing frozen runtime localization gate",
+    "outside_windows_bit_exact": true
+  },
+  "intervention": {
+    "formant_endpoints": "Median source and target F1/F2 in Hz across the three frozen v8 analysis ceilings, separately for every occurrence.",
+    "processing": "Warp the smoothed log-magnitude envelope while retaining harmonic bin positions and phase; preserve the transfer function above 4500 Hz and taper to bit-exact neutral outside each edit window.",
+    "selection": "Choose the first exact-category strength per occurrence in frozen order, otherwise first directional-only; no listening selection.",
+    "strength_order": [
+      1.0,
+      0.75,
+      1.25,
+      0.5,
+      1.5,
+      2.0
+    ],
+    "version": "spectral-envelope-warp-v1"
+  },
+  "parents": {
+    "central_latent_result_sha256": "262a2fd16149419b482c42e2916e363c7541aeb739417f2f26c727d310c39db4",
+    "v8_manifest_record_sha256": "d091875d00cc31dadd39bf37196581a8050d67c02a5f823b7a993add74ad8409",
+    "v8_manifest_sha256": "d86cc342271e4baae8a645ed98e2fb8878a2a0b5f1b93b65931755a414780aa6",
+    "v8_result_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2"
+  },
+  "protocol_sha256": "d1d6836fa6a99cd4537e045ce0b2a6d138dc996ee4e5c60226e6866138231406",
+  "purpose": "Test a localized smooth-spectral-envelope warp after the bounded latent-strength mechanism failed to generalize for English central vowels.",
+  "run_id": "20260718-english-central-vowel-spectral-correction-v1",
+  "schema_version": 1,
+  "scope": {
+    "candidate_count": 72,
+    "cell_count": 4,
+    "cell_ids": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.schwa_reduced_a"
+    ],
+    "logical_slot_count": 12,
+    "logical_slot_ids": [
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.reduced_schwa_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.reduced_schwa_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.reduced_schwa_a__repeated_multi_target",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.schwa_reduced_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.schwa_reduced_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.schwa_reduced_a__repeated_multi_target",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.reduced_schwa_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.reduced_schwa_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.reduced_schwa_a__repeated_multi_target",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.schwa_reduced_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.schwa_reduced_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.schwa_reduced_a__repeated_multi_target"
+    ],
+    "rule_ids": [
+      "enpt.reduced_schwa_a",
+      "enpt.schwa_reduced_a"
+    ],
+    "voice_order": [
+      "af_heart",
+      "am_michael"
+    ]
+  },
+  "scope_controls": {
+    "api_calls": 0,
+    "deployment": false,
+    "kokoro_renders": 0,
+    "paid_calls": 0,
+    "production_enabled": false
+  },
+  "source_bindings": {
+    "scripts/run_bilingual_product_v8_vowel_acoustic_screen.py": "252afd101f1c93015f4d535a591fa963d3407add1e346bf90f81bf45f8ab74e7",
+    "scripts/run_bilingual_vowel_adaptive_strength_screen_v1.py": "7a8ff8291f4a3c530e699c0a4bcff5996c0bb3b6f6b4e857b22fce71fc9c2a12",
+    "scripts/run_english_central_vowel_spectral_correction_v1.py": "ae7dc49ba8c87f27a751503eef21b7273cdad9d72c2ade07e6be0a8cb70d6f1f",
+    "src/earshift_bakeoff/spectral_envelope_warp.py": "e9afa15d7c4d86b48353f20cd71c533c0891f39d86659e4d12bc3942b18f16f8"
+  },
+  "status": "frozen_before_signal_processing",
+  "stopping_rule": "Process all 72 candidates once without replacement. A known-fixture pass permits unseen confirmation only; no production promotion.",
+  "version": "english-central-vowel-spectral-correction-v1"
+}

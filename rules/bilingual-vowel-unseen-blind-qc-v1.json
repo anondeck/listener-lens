@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-unseen-blind-qc-v1",
+  "status": "frozen_before_first_human_review",
+  "production_enabled": false,
+  "parent_bindings": {
+    "unseen_confirmation_path": "artifacts/product-matrix/20260718-bilingual-vowel-unseen-typed-confirmation-v1/results.json",
+    "unseen_confirmation_sha256": "13f2b76870f4055889d612013add7a2ea00c102a42def9e4e13aeae88a755259",
+    "unseen_confirmation_record_sha256": "14add28fe961d14ba2541bb20dc143d26f7fb9e93d0aa149a3bdf2a0a0c328a4",
+    "typed_manifest_path": "artifacts/product-matrix/20260718-bilingual-vowel-unseen-typed-manifest-v1/manifest.json",
+    "typed_manifest_sha256": "36a3a15acf70469ce21d408705fee00165f0364a5284d9a7fd48fec4a9cac6e1",
+    "typed_manifest_record_sha256": "633c8d720b0af2a678532de455b3abf751cc811d2d08c063e072a807f989ba1d",
+    "automatic_protocol_path": "rules/bilingual-vowel-unseen-typed-confirmation-v1.json",
+    "automatic_protocol_sha256": "7e2433ac9e6b5430739534d836632614f4a1e8d37cd1e9950292b139dae7e68a"
+  },
+  "scope": {
+    "automatic_candidate_cell_count": 18,
+    "candidate_context_count_per_cell": 3,
+    "neutral_lens_trial_count": 54,
+    "bit_identical_identity_trial_count": 18,
+    "total_trial_count": 72,
+    "voice_session_counts": {
+      "af_heart": 24,
+      "am_michael": 32,
+      "pf_dora": 8,
+      "pm_alex": 8
+    },
+    "retained_wavs_only": true,
+    "new_audio_renders_allowed": 0,
+    "api_calls_allowed": 0
+  },
+  "presentation": {
+    "random_seed": 2026071801,
+    "session_label_seed": 2026071802,
+    "trial_order_randomized_within_session": true,
+    "side_order_randomized_per_trial": true,
+    "identity_context_selection": "sha256(cell_id) modulo frozen context order",
+    "session_identity_hidden": true,
+    "condition_hidden": true,
+    "source_text_hidden": true,
+    "carrier_script_hidden": true,
+    "source_word_hidden": true,
+    "rule_id_hidden": true,
+    "source_and_target_ipa_hidden": true,
+    "original_filename_hidden": true,
+    "shared_target_cues_shown_in_every_condition": true,
+    "cue_derivation": "minimal envelopes of nonidentical neutral/lens PCM samples merged across gaps no larger than 20 milliseconds and padded by 40 milliseconds, clamped to the file",
+    "direction_reference_is_not_a_transcription": true,
+    "local_storage_required": true,
+    "review_sessions_may_be_completed_separately": true
+  },
+  "ratings": {
+    "per_side": {
+      "naturalness": "integer 1 through 5",
+      "sentence_delivery": "sentence_like, partly_sentence_like, or not_sentence_like",
+      "stable_meaning": "none, isolated_possible_word, coherent_phrase, or clear_source_sentence",
+      "artifact": "none, minor, major, or uncertain"
+    },
+    "per_pair": {
+      "difference_strength": "integer 1 through 7",
+      "target_direction": "A, B, same, or uncertain",
+      "confidence": "integer 1 through 5",
+      "unrelated_interference": "none, manageable, dominant, or uncertain",
+      "notes": "optional string",
+      "play_starts": "counted separately for A and B"
+    }
+  },
+  "candidate_trial_gate": {
+    "both_sides_naturalness_minimum": 4,
+    "both_sides_sentence_delivery_allowed": [
+      "sentence_like"
+    ],
+    "both_sides_stable_meaning_allowed": [
+      "none",
+      "isolated_possible_word"
+    ],
+    "both_sides_artifact_allowed": [
+      "none",
+      "minor"
+    ],
+    "difference_strength_minimum": 5,
+    "target_direction_must_equal_hidden_lens_side": true,
+    "confidence_minimum": 3,
+    "unrelated_interference_allowed": [
+      "none",
+      "manageable"
+    ]
+  },
+  "cell_gate": {
+    "all_three_neutral_lens_contexts_must_pass": true,
+    "favorable_context_selection_allowed": false,
+    "wrong_direction_allowed": false,
+    "automatic_result_reclassification_allowed": false
+  },
+  "identity_control_handling": {
+    "expected_difference_strength_maximum": 2,
+    "expected_direction": "same",
+    "false_alarm_action": "flag_identity_control_investigation_required_without_reclassifying_the_bit_identical_files_or_candidate_trials",
+    "clean_identity_required_before_product_promotion": true
+  },
+  "direction_prompts": {
+    "enpt.aa_a": "Which side, if either, sounds closer to the open vowel in Portuguese ‘pá’?",
+    "enpt.ae_eh": "Which side, if either, sounds closer to the vowel in English ‘bet’?",
+    "enpt.ah_a": "Which side, if either, sounds closer to the open vowel in Portuguese ‘pá’?",
+    "enpt.goat_o": "Which side, if either, sounds closer to the vowel in Portuguese ‘avô’?",
+    "enpt.ih_i": "Which side, if either, sounds closer to the vowel in English ‘see’?",
+    "enpt.nurse_eh": "Which side, if either, sounds closer to the vowel in English ‘bet’?",
+    "enpt.reduced_i_i": "Which side, if either, sounds closer to the vowel in English ‘see’?",
+    "enpt.reduced_schwa_a": "Which side, if either, sounds closer to the open vowel in Portuguese ‘pá’?",
+    "enpt.uh_u": "Which side, if either, sounds closer to the vowel in Portuguese ‘tu’?",
+    "pten.ao_aa": "Which side, if either, sounds closer to the vowel in American English ‘father’?",
+    "pten.e_ih": "Which side, if either, sounds closer to the vowel in English ‘bit’?",
+    "pten.final_e_i": "Which side, if either, sounds closer to the vowel in English ‘see’?",
+    "pten.o_goat": "Which side, if either, sounds closer to the vowel in English ‘go’?"
+  },
+  "interpretation": {
+    "review_kind": "creator_product_qc_not_population_validation",
+    "a_pass_can_establish": "voice-bound rule-bound naturalness and perceptual direction across the three frozen unseen carriers for this informed reviewer",
+    "a_pass_cannot_establish": "Brazilian-Portuguese population perception, American-English population perception, arbitrary sentence generalization, multi-rule composition, consonants, nasality, or validated prosody",
+    "native_listener_profile_fit_remains_separate": true
+  },
+  "stopping_rule": {
+    "review_response_does_not_mutate_frozen_audio_or_automatic_results": true,
+    "failed_cell_cannot_be_rescued_by_threshold_change_or_context_substitution": true,
+    "no_product_promotion_without_complete_response_and_clean_identity_control": true,
+    "production_enabled_after_review": false
+  }
+}

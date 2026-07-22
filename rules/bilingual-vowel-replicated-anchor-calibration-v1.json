@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-replicated-anchor-calibration-v1",
+  "status": "frozen_before_first_context_matched_anchor_render",
+  "production_enabled": false,
+  "purpose": {
+    "question": "Can independently seeded natural source/target anchors in the exact same carrier provide a stable context-matched vowel direction and reproduce the twelve typed-core candidates already accepted by the immutable Praat evidence ladder?",
+    "relationship_to_failed_spectral_screen": "This changes the validation design, not the feature extractor or thresholds. The failed cross-context spectral result remains immutable and contributes no candidates. Context matching is tested only on previously accepted reference candidates in this calibration.",
+    "scientific_boundary": "A passing calibration makes the context-matched replicated-anchor instrument eligible for a separately frozen evaluation of failed cells. It does not itself rescue a cell, validate a listener profile, or promote product support."
+  },
+  "parent_bindings": {
+    "v8_manifest_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-manifest/manifest.json",
+    "v8_manifest_sha256": "d86cc342271e4baae8a645ed98e2fb8878a2a0b5f1b93b65931755a414780aa6",
+    "v8_result_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-acoustic-screen/results.json",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2",
+    "v8_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "v1_result_path": "artifacts/product-matrix/20260717-bilingual-product-vowel-acoustic-screen-v1/results.json",
+    "v1_result_sha256": "1c993e7a58b5e6f4f048c44e5bcf489a4dbc7776e6d5fc3818ffc375314a2306",
+    "v1_record_sha256": "9e4b2f88ae37fc7e46d8ea55921c8d339c0b4b4016effb0c37c9344bd0b688a5",
+    "word_result_path": "artifacts/product-matrix/20260717-bilingual-vowel-word-context-screen-v1/results.json",
+    "word_result_sha256": "138a43f2f08605a70fdd8c120b9d24ddd30841a8ed2f429d86bd5500f5bdebd2",
+    "word_record_sha256": "d683e261b4c574d20899a5e1b3e5d8bbef84a81b0ce776cde1c3b0f7dfe031f8",
+    "full_result_path": "artifacts/product-matrix/20260717-bilingual-vowel-full-context-screen-v1/results.json",
+    "full_result_sha256": "22a3c72e72c8fce5b6ee151c536501238fe7417aba420028dc1dbf79d6a6ae86",
+    "full_record_sha256": "c464451ff12525a0454a1f9f89ac575297a80969b5829a41b55faccc8ff2d403",
+    "adaptive_result_path": "artifacts/product-matrix/20260717-bilingual-vowel-adaptive-strength-screen-v1/results.json",
+    "adaptive_result_sha256": "1758217df140b242e51609c950cae4aba784e7d78b53b01faa0740be50c0fa55",
+    "adaptive_record_sha256": "e0f3afd2ca78562e2aa6e97f7930018da58a98568290580cc0665716acbe0950",
+    "reachability_result_path": "artifacts/product-matrix/20260717-bilingual-g2p-reachability-v1/results.json",
+    "reachability_result_sha256": "dbce7288fcb53fe2e6643d8519d297bf37a98c69ac36cb1f0cb60c8a3c39c387",
+    "reachability_record_sha256": "4481547cc272dff572324f3dda5baa768a84e5d0c7d60a06d872b3f6f5a7e321"
+  },
+  "scope": {
+    "typed_core_cell_count": 36,
+    "logical_slot_count": 108,
+    "occurrence_count": 144,
+    "voices_in_order": [
+      "af_heart",
+      "am_michael",
+      "pm_alex",
+      "pf_dora"
+    ],
+    "contexts_per_cell": [
+      "phrase_medial_continuous_speech",
+      "phrase_final_new_context",
+      "repeated_multi_target"
+    ],
+    "typed_core_cell_ids_in_order": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ah_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ah_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_i_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_i_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.uh_u",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.uh_u",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.a_ae",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.a_ae",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.e_ih",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.e_ih",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_e_i",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_e_i",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.nasal_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.nasal_o_goat",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_o_goat",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.o_goat",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.o_goat"
+    ]
+  },
+  "replicated_anchor_rendering": {
+    "version": "bilingual-vowel-replicated-anchors-v1",
+    "renderer": "Kokoro 0.9.4 with the already pinned model and four voice hashes",
+    "baseline_parity_seed": 20260716,
+    "training_seeds_in_order": [
+      202607171,
+      202607172,
+      202607173
+    ],
+    "conditions_per_slot": [
+      "natural_source_anchor",
+      "natural_target_anchor"
+    ],
+    "decoder_render_count": 864,
+    "training_render_count": 648,
+    "baseline_parity_render_count": 216,
+    "shared_state_per_condition": "Within each natural condition, text state, predicted durations, F0, predicted noise, voice, style, and speed are computed once; only the decoder seed changes.",
+    "baseline_parity": "The baseline-seed PCM for every source and target condition must exactly match the immutable v1 natural-anchor PCM hash before the three training seeds count.",
+    "training_audio_retention": "Record hashes, sizes, peaks, feature receipts, and measurements; retain no new WAV files because the pinned renderer, plan, voice, and seeds reproduce them.",
+    "spectral_feature_version": "bilingual-vowel-spectral-category-v1",
+    "spectral_feature_config": {
+      "sample_rate_hz": 24000,
+      "frame_length_samples": 600,
+      "hop_length_samples": 240,
+      "fft_size": 1024,
+      "mel_filter_count": 32,
+      "minimum_frequency_hz": 80.0,
+      "maximum_frequency_hz": 7600.0,
+      "cepstral_coefficient_count": 12,
+      "temporal_sample_fractions": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "log_power_floor": 1e-08,
+      "robust_scale_floor": 0.05
+    }
+  },
+  "context_matched_validation": {
+    "context_rule": "Each source/target endpoint is trained and evaluated only within the identical voice, rule, carrier slot, occurrence, consonant shell, and target position.",
+    "scaler_rule": "Robust feature scaling uses only the same voice's three-seed natural anchors from other complete logical slots; the current slot and every controlled candidate are excluded.",
+    "natural_seed_cross_validation": "For each of three seeds, source and target centroids use the other two seeds from that exact occurrence; the heldout natural pair is then classified.",
+    "minimum_anchor_separation_scaled_rms": 0.25,
+    "minimum_direction_cosine": 0.5,
+    "minimum_directional_movement_fraction_of_anchor": 0.25,
+    "minimum_exact_movement_fraction_of_anchor": 0.5,
+    "minimum_exact_seed_pairs_per_occurrence": 2,
+    "maximum_reversed_seed_pairs_per_occurrence": 0,
+    "occurrence_anchor_gate": "At least two of three heldout natural pairs must be exact-category and no natural pair may have negative source-to-target direction cosine.",
+    "cell_anchor_gate": "All four frozen occurrences across all three carrier slots must pass the occurrence anchor gate.",
+    "candidate_gate": "The heldout baseline-seed neutral/lens candidate is classified against three-seed endpoint centroids. Every occurrence must be at least directional for a directional cell and exact for an exact cell.",
+    "identity_negative_control": "Every reference neutral compared with itself must fail the movement gate."
+  },
+  "reference_candidate_ladder": {
+    "selection_rule": "Use the latest first-passing immutable automatic evidence rung for each typed-core cell: v8, then word-context, then full-context, then adaptive-strength. No failed cell is evaluated during calibration.",
+    "reference_candidate_cell_count": 12,
+    "cells_in_order": [
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+        "evidence_rung": "adaptive_strength"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+        "evidence_rung": "adaptive_strength"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ah_a",
+        "evidence_rung": "v8"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+        "evidence_rung": "adaptive_strength"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.uh_u",
+        "evidence_rung": "v8"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.aa_a",
+        "evidence_rung": "v8"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ih_i",
+        "evidence_rung": "word_context"
+      },
+      {
+        "cell_id": "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_i_i",
+        "evidence_rung": "full_context"
+      },
+      {
+        "cell_id": "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_a_schwa",
+        "evidence_rung": "v8"
+      },
+      {
+        "cell_id": "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.ao_aa",
+        "evidence_rung": "adaptive_strength"
+      },
+      {
+        "cell_id": "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_a_schwa",
+        "evidence_rung": "v8"
+      },
+      {
+        "cell_id": "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.nasal_o_goat",
+        "evidence_rung": "v8"
+      }
+    ]
+  },
+  "global_instrument_sanity": {
+    "baseline_parity_condition_count": 216,
+    "baseline_parity_required_pass_count": 216,
+    "training_condition_count": 648,
+    "training_integrity_required_pass_count": 648,
+    "reference_candidate_cell_count": 12,
+    "minimum_reference_concordant_cell_count": 10,
+    "reference_concordance_definition": "The complete cell passes context-matched natural-anchor validation and the already accepted candidate remains directional-only or exact-category.",
+    "maximum_identity_negative_control_false_positives": 0,
+    "failure_effect": "A failed global gate rejects this context-matched instrument for supplementing evidence. No failed cell may be inspected or reclassified under it."
+  },
+  "claim_limits": {
+    "calibration_only": "This run evaluates natural-anchor stability and previously accepted references; it generates no new product candidate or rescue.",
+    "spectral_category": "A later eligible pass would support broad context-matched spectral direction, not exact F1/F2 realization.",
+    "nasal_and_rhotic": "The instrument does not independently validate nasality or rhoticity; their dedicated gates remain mandatory.",
+    "listener_profile": "Acoustic detectability does not prove that the transformation recreates Brazilian-Portuguese or American-English perception.",
+    "human_qc": "Every enabled voice-rule cell still requires blind naturalness, direction, artifact, semantic-opacity, and interference QC.",
+    "product": "Nothing in this run enables a rule, voice, service, flag, deployment, or arbitrary typed-input claim."
+  },
+  "stopping_rule": {
+    "runs_allowed": 1,
+    "decoder_render_count_ceiling": 864,
+    "api_calls_allowed": 0,
+    "failure_cell_evaluation_allowed": false,
+    "replacement_or_selective_rerender_allowed": false,
+    "post_result_seed_feature_or_threshold_tuning_allowed": false,
+    "retained_new_wav_count": 0,
+    "product_promotion_allowed": false,
+    "instruction": "Render every baseline and training seed once, analyze all 144 occurrences, preserve any failure, and stop before evaluating the 24 failed typed-core cells."
+  },
+  "source_bindings": [
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_replicated_anchors.py",
+      "sha256": "7592528ab532dd1ed0dcbf20c837f0c9889fd1089ee49d869e635cc92865ef2b"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_replicated_anchor_calibration_v1.py",
+      "sha256": "32b79b77d854836c1ec06f8f651c6cdadb92e31077876ae1bc5286c7a836389b"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_spectral_category.py",
+      "sha256": "f227a6a32f3506f1561c67254fffc2ae5fb76b76048a8a390bc791a9a0cd8ec7"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_listener_synthesis.py",
+      "sha256": "3807acba3bf10f5a52477c321681c1b3ca2ec60ee7b55f8b950b5b768833b0de"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_synthesis.py",
+      "sha256": "177a16723def39e6e2179fba88dd3ac8c823ec40df02b61e2c44f230380bd07d"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_engine.py",
+      "sha256": "968a99db8660176d0ff646d2a1d2cc6e775a57eb506a64f5bdf74b5c2c24bf7f"
+    },
+    {
+      "path": "scripts/run_bilingual_product_v8_vowel_acoustic_screen.py",
+      "sha256": "252afd101f1c93015f4d535a591fa963d3407add1e346bf90f81bf45f8ab74e7"
+    }
+  ]
+}

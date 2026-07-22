@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-spectral-category-screen-v1",
+  "status": "frozen_before_first_spectral_category_evaluation",
+  "production_enabled": false,
+  "purpose": {
+    "question": "Can a project-authored, zero-API broad-spectral vowel instrument recognize held-out natural Kokoro source/target categories and provide complementary evidence when short-vowel Praat F1/F2 retention is brittle?",
+    "scientific_boundary": "This is a complementary instrument calibration on already frozen audio. It does not rewrite any v8 Praat outcome, prove a precise formant transition, or promote a product rule.",
+    "motivation": "Many lexically core v8 failures passed most occurrence analyses and failed on a small number of short-span LPC exclusions or endpoint instabilities. The instrument must earn authority on natural anchors before seeing a controlled candidate classification."
+  },
+  "parent_bindings": {
+    "v8_result_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-acoustic-screen/results.json",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2",
+    "v8_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "v1_result_path": "artifacts/product-matrix/20260717-bilingual-product-vowel-acoustic-screen-v1/results.json",
+    "v1_result_sha256": "1c993e7a58b5e6f4f048c44e5bcf489a4dbc7776e6d5fc3818ffc375314a2306",
+    "v1_record_sha256": "9e4b2f88ae37fc7e46d8ea55921c8d339c0b4b4016effb0c37c9344bd0b688a5",
+    "reachability_result_path": "artifacts/product-matrix/20260717-bilingual-g2p-reachability-v1/results.json",
+    "reachability_result_sha256": "dbce7288fcb53fe2e6643d8519d297bf37a98c69ac36cb1f0cb60c8a3c39c387",
+    "reachability_record_sha256": "4481547cc272dff572324f3dda5baa768a84e5d0c7d60a06d872b3f6f5a7e321"
+  },
+  "scope": {
+    "voice_rule_cell_count": 80,
+    "logical_slot_count": 240,
+    "occurrence_count": 320,
+    "voices_in_order": [
+      "af_heart",
+      "am_michael",
+      "pm_alex",
+      "pf_dora"
+    ],
+    "conditions": [
+      "natural_source_anchor",
+      "natural_target_anchor",
+      "controlled_neutral",
+      "controlled_spliced_lens"
+    ],
+    "typed_core_definition": "Changed rules emitted for at least 100 canonical words by the pinned full wordfreq/G2P inventory; crossed with both selected voices in that source language.",
+    "typed_core_cell_count": 36,
+    "typed_core_cell_ids_in_order": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ah_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ah_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_i_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_i_i",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.uh_u",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.uh_u",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.a_ae",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.a_ae",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.e_ih",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.e_ih",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_e_i",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_e_i",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.nasal_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.nasal_o_goat",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_o_goat",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.o_goat",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.o_goat"
+    ]
+  },
+  "feature_extraction": {
+    "version": "bilingual-vowel-spectral-category-v1",
+    "implementation": "Project-authored NumPy-only PCM16 log-mel MFCC trajectory; no learned weights, hosted model, network request, or additional dependency.",
+    "config": {
+      "sample_rate_hz": 24000,
+      "frame_length_samples": 600,
+      "hop_length_samples": 240,
+      "fft_size": 1024,
+      "mel_filter_count": 32,
+      "minimum_frequency_hz": 80.0,
+      "maximum_frequency_hz": 7600.0,
+      "cepstral_coefficient_count": 12,
+      "temporal_sample_fractions": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "log_power_floor": 1e-08,
+      "robust_scale_floor": 0.05
+    },
+    "amplitude_handling": "Each frame is RMS-normalized, mel power is normalized to its frame maximum, and DCT coefficient zero is omitted.",
+    "temporal_handling": "Twelve non-energy MFCCs are linearly sampled at 30%, 50%, and 70% of each frozen stress-plus-vowel interval, producing a 36-dimensional trajectory.",
+    "intervals": "Use the immutable v8 source, target, and controlled stress-plus-vowel intervals without boundary search or listening selection."
+  },
+  "leave_context_out_validation": {
+    "heldout_unit": "Complete logical carrier slot; both repeated occurrences are held out together.",
+    "scaler": "For each heldout occurrence, robust median/MAD scaling uses natural anchors from the same voice in every other logical slot. The heldout slot and all controlled conditions are excluded.",
+    "endpoint_training": "Source and target centroids use only the same voice-rule cell's natural anchors from the other two carrier slots.",
+    "minimum_anchor_separation_scaled_rms": 0.25,
+    "minimum_direction_cosine": 0.5,
+    "minimum_directional_movement_fraction_of_anchor": 0.25,
+    "minimum_exact_movement_fraction_of_anchor": 0.5,
+    "minimum_exact_heldout_pairs": 3,
+    "maximum_reversed_heldout_pairs": 0,
+    "cell_validation": "At least three of four heldout natural source/target pairs must cross the trained endpoint bisector with exact-category status, and no heldout natural pair may have a negative source-to-target direction cosine."
+  },
+  "candidate_classification": {
+    "eligibility": "A controlled cell is classified only when its natural-anchor leave-slot-out validation passes.",
+    "directional": "Every one of four controlled neutral/lens occurrences must pass anchor separation, cosine >= 0.5, movement >= 25% of the trained anchor span, target-distance gain, and source-distance departure.",
+    "exact": "Every occurrence must additionally move >= 50% of the trained anchor span, leave neutral on the source side, and place lens on the target side of the endpoint bisector.",
+    "identity_negative_control": "Controlled neutral compared with itself must produce zero directional passes across all 320 occurrences.",
+    "aggregation": "One failed, excluded, or anchor-invalid occurrence fails the complete cell; no favorable occurrence selection is allowed."
+  },
+  "global_instrument_sanity": {
+    "frozen_reference_pass_cell_count": 21,
+    "reference_definition": "The 12 exact-category and 9 directional-only cells in the immutable v8 Praat result.",
+    "minimum_reference_concordant_cell_count": 16,
+    "reference_concordance_definition": "Natural-anchor validation passes and the spectral controlled candidate is directional-only or exact-category.",
+    "maximum_identity_negative_control_false_positives": 0,
+    "failure_effect": "If global sanity fails, the spectral instrument is rejected for this dataset and no spectral cell may supplement product evidence."
+  },
+  "claim_limits": {
+    "complement_not_replacement": "Spectral results remain alongside immutable Praat F1/F2 results; they cannot reclassify the v8 record.",
+    "category_wording": "A pass supports broad spectral-category direction under the frozen instrument, not an exact F1/F2 or phoneme-realization claim.",
+    "nasal": "MFCC evidence does not establish preserved nasality; every nasal cell remains ineligible until a dedicated nasality gate passes.",
+    "rhotic": "MFCC evidence does not establish rhoticity; a rhotic cell still requires its existing F3-F2 gate.",
+    "product": "No spectral result alone authorizes a rule, voice, arbitrary typed input, listener-profile fit, naturalness, or deployment.",
+    "future_confirmation": "Any proposed evidence supplement must keep these parameters fixed, use unseen typed fixtures, retain all engineering gates, and pass stratified blind human QC."
+  },
+  "stopping_rule": {
+    "runs_allowed": 1,
+    "new_audio_renders_allowed": 0,
+    "api_calls_allowed": 0,
+    "replacement_or_selection_allowed": false,
+    "post_result_threshold_tuning_allowed": false,
+    "product_promotion_allowed": false,
+    "instruction": "Evaluate every frozen natural and controlled occurrence exactly once. Preserve a failed instrument or cell without threshold changes, feature-family search, fixture substitution, or post-hoc rescue."
+  },
+  "source_bindings": [
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_spectral_category.py",
+      "sha256": "f227a6a32f3506f1561c67254fffc2ae5fb76b76048a8a390bc791a9a0cd8ec7"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_spectral_category_screen_v1.py",
+      "sha256": "fe9c3f7370c81099ed408f417994c98bb997b8c91211b350dd0da567d6f5be09"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "criteria_sha256": "e660e9fff6e884d2fb1de0d556c8cf785e7c668150d1b5e9cffe86a54b4afbe7",
+  "timebox_seconds": 5400,
+  "profiles": ["en-US-mae", "es-MX-cdmx", "pt-BR-sp"],
+  "generator": {
+    "mode": "codex_corpus",
+    "corpus_path": "corpus/candidates.json",
+    "model": "gpt-5.6",
+    "initial_candidates_per_language": 20,
+    "max_refill_calls": 2,
+    "target_scripts": 10,
+    "minimum_shortfall_scripts": 6
+  },
+  "renderers": [
+    {
+      "slug": "gpt-4o-mini-tts-2025-12-15",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "api": "speech"
+    },
+    {
+      "slug": "gpt-audio-1.5",
+      "model": "gpt-audio-1.5",
+      "api": "chat_audio"
+    }
+  ],
+  "preferred_voice": "marin",
+  "fallback_voice": "alloy",
+  "audio_format": "wav",
+  "render_concurrency": 2,
+  "max_transport_retries": 2,
+  "candidate_features": {
+    "KOKORO_ENGLISH_CANDIDATE_ENABLED": false,
+    "KOKORO_BILINGUAL_CANDIDATE_ENABLED": false,
+    "PORTUGUESE_RENDERER_CANDIDATE_ENABLED": false,
+    "RECIPROCAL_LISTENER_LENS_RESEARCH_ENABLED": false,
+    "AZURE_LENS_CANDIDATE_ENABLED": false,
+    "GIBBERISH_CANDIDATE_ENABLED": false
+  },
+  "whisper": {
+    "implementation": "mlx-whisper",
+    "model_repo": "mlx-community/whisper-large-v3-mlx",
+    "model_revision": "49e6aa286ad60c14352c404340ded53710378a11",
+    "weights_sha256": "05ff791ce3630fae47e7c51004e9666204d786246ec07cac6110af768099b40d",
+    "config_sha256": "34982ce6ae286095000f82ae9583b3431639e8b092bf60c961f203745e6500e3",
+    "fallback_repo": "mlx-community/whisper-large-v3-mlx-4bit",
+    "fallback_revision": "d12b5d0043a6fe0c59af321617fba041d4e8e0c8",
+    "fallback_weights_sha256": "3bfa3c4e42344ea87a5b81a73992a867088ae076d377042e384b657adea81db9"
+  },
+  "word_gate": {
+    "package_version": "3.1.1",
+    "wheel_sha256": "4b1c6ecffc6198be3396d5cf871c4423ca71c907c231348d352dd54d62b97473",
+    "languages": ["en", "es", "pt"],
+    "voices": {"en": "en-us", "es": "es-419", "pt": "pt-br"},
+    "expected_counts": {"en": 292477, "es": 336265, "pt": 262151, "union": 627439},
+    "resource_sha256": {
+      "en": "dffae8066b78dce0a6667cf5f58e567054f902674667090a7ac8a8a44628b05c",
+      "es": "14f326b4f68d517f9b8b99c1e26ef56a508d2dc8d0ee7a9e6e8732ddab1aa65e",
+      "pt": "7d764586bca6262f554d5fa77ad8e6841ef42534776e70558065140853660ce2"
+    }
+  }
+}

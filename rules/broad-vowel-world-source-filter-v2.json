@@ -1,0 +1,43 @@
+{
+  "correction": {
+    "aggregation": "aggregate classification strings directly; exact only when every slot is exact, directional when every slot is exact/directional",
+    "audio_generation": "none",
+    "measurement": "reapply frozen v1 gates to hash-bound v1 WAVs",
+    "signal_processing": "none"
+  },
+  "parents": {
+    "calibration_sha256": "95b4d4e6f0b10b859d05e504be37d70defc2a0e12b4b4a036bb0acb726d7ef2e",
+    "v1_audio_count": 266,
+    "v1_audio_manifest_sha256": "f3447e8cab2ea730bc66ca8d6d012917e880aad343ed9bde6db188ff938113de",
+    "v1_protocol_sha256": "f208352e009a9bd74cf6da955fd5066397e128cab97a42f21951543e73ec8a1a",
+    "v1_runtime_inconclusive_sha256": "61eba044644d229b7b7b8103410899a7d90158d8d71903f675976185f662983d",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2"
+  },
+  "protocol_sha256": "7a88c605b423696ee8700677eb938c83d781ab5512adee03e1fbdf7a779ca018",
+  "purpose": "Recover the exact frozen v1 WORLD WAVs after its post-processing aggregation adapter failed.",
+  "run_id": "20260718-broad-vowel-world-source-filter-v2",
+  "schema_version": 1,
+  "scope": {
+    "available_matched_pair_count": 133,
+    "cell_count": 45,
+    "frozen_wav_count": 266,
+    "logical_slot_count": 135,
+    "world_analyses": 0,
+    "world_syntheses": 0
+  },
+  "scope_controls": {
+    "api_calls": 0,
+    "deployment": false,
+    "kokoro_renders": 0,
+    "paid_calls": 0,
+    "production_enabled": false
+  },
+  "source_bindings": {
+    "scripts/run_broad_oral_monophthong_contextual_warp_v1.py": "1a74dce867c82172715a60cddee8621617216f84772b16e013cb3ae00139091a",
+    "scripts/run_broad_vowel_world_source_filter_v1.py": "3a450fd265dfe30e71d0941491b2e27c8bdc9250a7f3cd49584d6c61a22cdebf",
+    "scripts/run_broad_vowel_world_source_filter_v2.py": "9227facd02b209032ba62e0e6f45a5f3c7dbc5280c5dd7e51c33a766cab49936"
+  },
+  "status": "frozen_before_measurement_only_recovery",
+  "stopping_rule": "Evaluate each available hash-bound pair once. Missing v1 pairs remain processing exclusions. Do not generate or replace audio.",
+  "version": "broad-vowel-world-source-filter-v2"
+}

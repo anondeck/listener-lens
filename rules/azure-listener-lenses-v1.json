@@ -1,0 +1,1208 @@
+{
+  "schema_version": 1,
+  "status": "derived_baseline_pending_citation_and_blind_qc",
+  "method": {
+    "vowel_derivation": "Vowel rules start from panphon weighted feature-edit distance between the two phonemic inventories (scripts/generate_derived_lens_rules_v1.py) and are then corrected by hand where the metric is known to fail.",
+    "consonant_derivation": "Consonant rules are hand-authored. Feature distance is unreliable for consonants: the perceptually salient mappings are exactly the ones the distance threshold rejects.",
+    "evidence_policy": "No rule in this file claims a cited listener result. Every rule is a derived or hand-authored candidate awaiting both a published source and blind human QC.",
+    "identity_policy": "A category the listener language already owns produces no rule."
+  },
+  "sources": [],
+  "profiles": [
+    {
+      "id": "it-IT-to-en-US-listener-v1",
+      "source_locale": "it-IT",
+      "listener_locale": "en-US",
+      "claim": "Experimental Italian-through-American-English listener profile. Derived vowel baseline plus hand-authored consonant recategorizations; no cited listener result and no blind QC.",
+      "vowel_rules": [
+        {
+          "id": "iten.a_low_back",
+          "source": "a",
+          "target": "ɑ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian /a/ has no exact American English counterpart; /ɑ/ is the nearest category by feature distance (0.25)."
+        },
+        {
+          "id": "iten.e_dress",
+          "source": "e",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian close-mid /e/ falls between English /eɪ/ and /ɛ/; the monophthongal /ɛ/ is taken as the nearest non-diphthongal category."
+        },
+        {
+          "id": "iten.o_thought",
+          "source": "o",
+          "target": "ɔ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian close-mid /o/ maps to the nearest English back rounded category."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "iten.trill_approximant",
+          "source": "r",
+          "target": "ɹ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "American English has no trill; listeners assimilate the Italian trill to the /ɹ/ category. Hand-authored because feature distance rejects the pair (manner difference)."
+        },
+        {
+          "id": "iten.palatal_nasal_n",
+          "source": "ɲ",
+          "target": "n",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English lacks a phonemic palatal nasal; /n/ is the nearest category. Labeled projection, not a listener result."
+        },
+        {
+          "id": "iten.palatal_lateral_l",
+          "source": "ʎ",
+          "target": "l",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English lacks a phonemic palatal lateral; /l/ is the nearest category."
+        },
+        {
+          "id": "iten.dz_affricate",
+          "source": "ʣ",
+          "target": "ʤ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no alveolar /dz/ affricate phoneme; the postalveolar /dʒ/ is the nearest category."
+        }
+      ],
+      "insertion_rules": [],
+      "prosody_rules": [
+        {
+          "id": "iten.polar_rise_fall_statement",
+          "operation": "map_final_rise_fall_to_fall",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian yes/no questions carry a final rise; an American-English listener maps the unmarked rise-fall onto a statement-like final fall."
+        }
+      ]
+    },
+    {
+      "id": "en-US-to-it-IT-listener-v1",
+      "source_locale": "en-US",
+      "listener_locale": "it-IT",
+      "claim": "Experimental English-through-Italian listener profile. Derived vowel baseline (verbatim from generate_derived_lens_rules_v1.py) plus hand-authored consonant recategorizations; no cited listener result and no blind QC. Renders on the English voice with Italian lens targets receipted in the en-US map.",
+      "vowel_rules": [
+        {
+          "id": "enit.ih_i",
+          "source": "ɪ",
+          "target": "i",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian has no lax /ɪ/; nearest category is /i/ (feature distance 0.25)."
+        },
+        {
+          "id": "enit.ae_e",
+          "source": "æ",
+          "target": "e",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian lacks /æ/; nearest category is /e/ (feature distance 0.5)."
+        },
+        {
+          "id": "enit.aa_a",
+          "source": "ɑ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest Italian category to English /ɑ/ is /a/ (feature distance 0.25)."
+        },
+        {
+          "id": "enit.uh_ao",
+          "source": "ʊ",
+          "target": "ɔ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian has no lax /ʊ/; the metric's nearest category is /ɔ/ (feature distance 0.5). Kept verbatim from the deriver; blind QC may prefer /u/."
+        },
+        {
+          "id": "enit.ah_e",
+          "source": "ʌ",
+          "target": "e",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian lacks /ʌ/; nearest category by the metric is /e/ (feature distance 0.5)."
+        },
+        {
+          "id": "enit.nurse_eh",
+          "source": "ɜ",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian has no /ɜ/ nurse vowel; nearest category is /ɛ/ (feature distance 0.5)."
+        },
+        {
+          "id": "enit.schwa_eh",
+          "source": "ə",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian has no reduced schwa; nearest full-vowel category is /ɛ/ (feature distance 0.5)."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "enit.th_stop_t",
+          "source": "θ",
+          "target": "t",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian lacks /θ/; listeners assimilate it to /t/. Hand-authored: feature distance wrongly prefers /s/."
+        },
+        {
+          "id": "enit.eth_stop_d",
+          "source": "ð",
+          "target": "d",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian lacks /ð/; listeners assimilate it to /d/. Hand-authored: feature distance wrongly prefers /z/."
+        },
+        {
+          "id": "enit.eng_n",
+          "source": "ŋ",
+          "target": "n",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian has no phonemic /ŋ/; the nearest category is /n/. Hand-authored: feature distance prefers /ɲ/."
+        },
+        {
+          "id": "enit.approximant_trill",
+          "source": "ɹ",
+          "target": "r",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian has no approximant rhotic; listeners assimilate English /ɹ/ to the trill /r/. Hand-authored because feature distance rejects the pair (manner)."
+        },
+        {
+          "id": "enit.zh_sh",
+          "source": "ʒ",
+          "target": "ʃ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian lacks phonemic /ʒ/; the nearest category is /ʃ/ (feature distance also agrees at 0.25)."
+        }
+      ],
+      "insertion_rules": [
+        {
+          "id": "enit.paragogic_e",
+          "operation": "insert_after",
+          "target": "e",
+          "contexts": [
+            "any_word_final_consonant"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian content words end in vowels; listeners resolve a word-final consonant with a paragogic vowel (cat -> 'catte'). Widened past the obstruent-only trigger because the constraint is on any final consonant."
+        }
+      ],
+      "prosody_rules": [
+        {
+          "id": "enit.lexical_stress_penultimate_bias",
+          "operation": "swap_primary_and_initial_secondary_stress",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Italian stress is overwhelmingly penultimate; an English initial-secondary/late-primary word is pulled toward the Italian pattern."
+        }
+      ]
+    },
+    {
+      "id": "en-US-to-de-DE-listener-v1",
+      "source_locale": "en-US",
+      "listener_locale": "de-DE",
+      "claim": "Experimental English-through-German listener profile. Derived monophthong-vowel baseline plus hand-authored consonant recategorizations; no cited listener result and no blind QC. Renders on the English voice with German lens targets receipted in the en-US map. English diphthongs are intentionally not recategorized: German already parses /aɪ aʊ ɔʏ/ natively, and the deriver's cross-diphthong pairings (for example oʊ->ɔʏ) are metric artifacts rather than listener judgements.",
+      "vowel_rules": [
+        {
+          "id": "ende.ae_e",
+          "source": "æ",
+          "target": "e",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German lacks /æ/; nearest category is /e/ (feature distance 0.5)."
+        },
+        {
+          "id": "ende.aa_a",
+          "source": "ɑ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest German category to English /ɑ/ is /a/ (feature distance 0.25)."
+        },
+        {
+          "id": "ende.ah_schwa",
+          "source": "ʌ",
+          "target": "ə",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest German category to English /ʌ/ is /ə/ (feature distance 0.25)."
+        },
+        {
+          "id": "ende.nurse_schwa",
+          "source": "ɜ",
+          "target": "ə",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German has no /ɜ/ nurse vowel; nearest category is /ə/ (feature distance 0.0)."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "ende.w_v",
+          "source": "w",
+          "target": "v",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German has no /w/; listeners assimilate it to /v/ (the signature 've' for 'we'). Hand-authored: feature distance wrongly prefers /j/."
+        },
+        {
+          "id": "ende.th_s",
+          "source": "θ",
+          "target": "s",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German lacks /θ/; listeners assimilate it to /s/ ('sink' for 'think'). Feature distance agrees at 0.5."
+        },
+        {
+          "id": "ende.eth_z",
+          "source": "ð",
+          "target": "z",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German lacks /ð/; listeners assimilate it to /z/ ('zis' for 'this'). Feature distance agrees at 0.5."
+        },
+        {
+          "id": "ende.approximant_uvular",
+          "source": "ɹ",
+          "target": "ʁ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German has no approximant rhotic; listeners assimilate English /ɹ/ to the uvular /ʁ/. Hand-authored because feature distance rejects the pair (place)."
+        }
+      ],
+      "insertion_rules": [
+        {
+          "id": "ende.glottal_onset",
+          "operation": "insert_before",
+          "target": "ʔ",
+          "contexts": [
+            "word_initial_vowel"
+          ],
+          "vowels": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u",
+            "ɑ",
+            "ɛ",
+            "ɪ",
+            "ʊ",
+            "ʌ",
+            "ə",
+            "æ",
+            "ɔ",
+            "ɜ",
+            "ɐ",
+            "ᵻ",
+            "ᵊ",
+            "A",
+            "I",
+            "O",
+            "W",
+            "Y"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German gives vowel-initial words a glottal onset; listeners impose it on English (an apple -> [ʔæn ʔæpəl]). Structural, applies at the word edge only."
+        }
+      ],
+      "prosody_rules": [
+        {
+          "id": "ende.lexical_stress_initial_bias",
+          "operation": "swap_primary_and_initial_secondary_stress",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German lexical stress is strongly root-initial; a late English primary competing with an initial secondary is pulled forward."
+        }
+      ]
+    },
+    {
+      "id": "de-DE-to-en-US-listener-v1",
+      "source_locale": "de-DE",
+      "listener_locale": "en-US",
+      "claim": "Experimental German-through-American-English listener profile. Derived vowel baseline (panphon feature distance between the two phonemic inventories) plus hand-authored consonant recategorizations; no cited listener result and no blind QC. Renders on the German Katja voice with English lens targets receipted in the de-DE map. espeak surfaces the German rhotic as trill/tap rather than the phonemic uvular, so the rhotic rules are authored against r and ɾ. The deriver's ts→tʃ is excluded: English owns /ts/ as a sequence and the map expands the espeak ʦ ligature identically on both sides, so that rule would render no difference.",
+      "vowel_rules": [
+        {
+          "id": "deen.e_ɛ",
+          "source": "e",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest en-US category to de-DE /e/ by panphon weighted feature edit distance (0.25). Like the Italian close-mid /e/, the monophthongal /ɛ/ is taken as the nearest non-diphthongal category; blind QC may prefer /eɪ/."
+        },
+        {
+          "id": "deen.a_ɑ",
+          "source": "a",
+          "target": "ɑ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German short /a/ has no exact American counterpart; /ɑ/ is the nearest category by feature distance (0.25)."
+        },
+        {
+          "id": "deen.o_ɔ",
+          "source": "o",
+          "target": "ɔ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest en-US category to de-DE /o/ by feature distance (0.25); the monophthongal /ɔ/ is taken over /oʊ/, matching the Italian /o/ decision. Blind QC may prefer /oʊ/."
+        },
+        {
+          "id": "deen.y_u",
+          "source": "y",
+          "target": "u",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no front rounded /y/; nearest category is /u/ (feature distance 0.5)."
+        },
+        {
+          "id": "deen.ʏ_ɪ",
+          "source": "ʏ",
+          "target": "ɪ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no lax front rounded /ʏ/; nearest category is /ɪ/ (feature distance 0.5)."
+        },
+        {
+          "id": "deen.ø_ɛ",
+          "source": "ø",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no front rounded /ø/; nearest category is /ɛ/ (feature distance 0.75)."
+        },
+        {
+          "id": "deen.œ_ɛ",
+          "source": "œ",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no lax front rounded /œ/; nearest category is /ɛ/ (feature distance 0.5)."
+        },
+        {
+          "id": "deen.ɔø_ɔɪ",
+          "source": "ɔø",
+          "target": "ɔɪ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "The deriver pairs phonemic /ɔʏ/->/ɔɪ/ at 0.5; the rule is authored against the espeak surface form ɔø (Leute, neu). English owns the /ɔɪ/ diphthong natively ('boy')."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "deen.ich_laut_sh",
+          "source": "ç",
+          "target": "ʃ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no /ç/; listeners assimilate the ich-laut to /ʃ/ ('ich' -> 'ish'). Hand-authored: feature distance rejects the pair (1.375, over threshold). Source is the adapter's NFD surface c + combining cedilla (U+0327); the de-DE map's locale-gated NFC compose step renders the neutral side as precomposed ç."
+        },
+        {
+          "id": "deen.ach_laut_k",
+          "source": "x",
+          "target": "k",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no /x/; listeners hear /k/ ('Bach' -> 'back'). Feature distance agrees at exactly the 1.0 threshold."
+        },
+        {
+          "id": "deen.trill_approximant",
+          "source": "r",
+          "target": "ɹ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no trill; listeners assimilate espeak's German trill to /ɹ/. Hand-authored: feature distance prefers /ʒ/ for the phonemic uvular (1.125, over threshold), which is noise, not a listener judgement."
+        },
+        {
+          "id": "deen.tap_approximant",
+          "source": "ɾ",
+          "target": "ɹ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "espeak's intervocalic German rhotic is the tap /ɾ/; English listeners hear the approximant /ɹ/. Hand-authored: the same category judgement as the trill."
+        },
+        {
+          "id": "deen.pf_f",
+          "source": "pf",
+          "target": "f",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no /pf/ cluster-initial affricate; listeners drop the stop and hear /f/ ('Pferd' -> 'ferd'). Hand-authored: feature distance is meaningless on the cluster (2.75 to /tʃ/)."
+        }
+      ],
+      "insertion_rules": [],
+      "prosody_rules": [
+        {
+          "id": "deen.polar_rise_fall_statement",
+          "operation": "map_final_rise_fall_to_fall",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "German yes/no questions carry a final rise; an American-English listener maps it onto a statement-like final fall."
+        }
+      ]
+    },
+    {
+      "id": "es-ES-to-en-US-listener-v1",
+      "source_locale": "es-ES",
+      "listener_locale": "en-US",
+      "claim": "Experimental Castilian-Spanish-through-American-English listener profile. Derived vowel baseline (panphon feature distance between the two phonemic inventories) plus hand-authored consonant recategorizations; no cited listener result and no blind QC. Renders on the Spanish Elvira voice with English lens targets receipted in the es-ES map. Two Spanish surface segments carry no rule by design: ð (English already owns /ð/) and the tap ɾ (English owns the flap allophonically in AmE 'city'), so a rule there would render no difference. Authored against the espeak surface inventory, which realizes /b d ɡ/ as [β ð ɣ] except after nasals.",
+      "vowel_rules": [
+        {
+          "id": "esen.a_aa",
+          "source": "a",
+          "target": "ɑ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish /a/ has no exact American counterpart; /ɑ/ is the nearest category by feature distance (0.25)."
+        },
+        {
+          "id": "esen.e_dress",
+          "source": "e",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish close-mid /e/ falls between English /eɪ/ and /ɛ/; the monophthongal /ɛ/ is taken as the nearest non-diphthongal category, matching the Italian /e/ decision."
+        },
+        {
+          "id": "esen.o_thought",
+          "source": "o",
+          "target": "ɔ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish close-mid /o/ maps to the nearest English back rounded category, matching the Italian /o/ decision. Blind QC may prefer /oʊ/."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "esen.jota_h",
+          "source": "x",
+          "target": "h",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English listeners hear the jota as /h/ ('jalapeño' -> 'hala-penyo'). Hand-authored: feature distance prefers /k/ at exactly the 1.0 threshold; matches the pt-to-en dorsal-r mapping to /h/."
+        },
+        {
+          "id": "esen.palatal_nasal_n",
+          "source": "ɲ",
+          "target": "n",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English lacks a phonemic palatal nasal; listeners parse ñ as /n(j)/ ('niño' -> 'neen-yo'). Hand-authored: feature distance prefers /ŋ/ (0.5). Matches the it-to-en ɲ rule."
+        },
+        {
+          "id": "esen.palatal_lateral_l",
+          "source": "ʎ",
+          "target": "l",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English lacks a phonemic palatal lateral; the conservative Castilian /ʎ/ files under /l/, matching the it-to-en ʎ rule (the metric agreed at 1.5 but over threshold). The common AmE 'tortiya' percept reflects the yeísta /ʝ/, not this lateral."
+        },
+        {
+          "id": "esen.trill_approximant",
+          "source": "r",
+          "target": "ɹ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "American English has no trill; listeners assimilate the Spanish trill to the /ɹ/ category. Hand-authored because feature distance rejects the pair (nearest /l/ at 1.25 is noise). Matches the it-to-en trill rule."
+        },
+        {
+          "id": "esen.beta_v",
+          "source": "β",
+          "target": "v",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no bilabial fricative; listeners file espeak's intervocalic [β] under /v/ ('La Habana' -> 'Havana'). Hand-authored: the phonemic deriver never sees [β] (Spanish /b/ exists in both inventories)."
+        },
+        {
+          "id": "esen.gamma_g",
+          "source": "ɣ",
+          "target": "ɡ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no voiced velar fricative; listeners file espeak's intervocalic [ɣ] under /ɡ/ ('amigo'). Hand-authored: same phonemic-invisibility as [β]."
+        }
+      ],
+      "insertion_rules": [],
+      "prosody_rules": [
+        {
+          "id": "esen.polar_rise_fall_statement",
+          "operation": "map_final_rise_fall_to_fall",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish yes/no questions are marked by intonation alone; an American-English listener maps the rise onto a statement-like final fall."
+        }
+      ]
+    },
+    {
+      "id": "en-US-to-es-ES-listener-v1",
+      "source_locale": "en-US",
+      "listener_locale": "es-ES",
+      "claim": "Experimental English-through-Castilian-Spanish listener profile. Derived vowel baseline plus hand-authored consonant recategorizations; no cited listener result and no blind QC. Renders on the English voice with Spanish lens targets receipted in the en-US map. Castilian inventory: English /θ/ is a category Spanish already owns (distinción), so no rule fires on it — Latin American Spanish (seseo, yeísmo) would need its own profile. Of the English diphthongs only /oʊ/ is recategorized (the attested monophthongization to /o/, 'boat' -> 'bot'); /eɪ aɪ aʊ ɔɪ/ parse natively for a Spanish listener (espeak itself emits A/I/W for reina/hay/pausa) and are excluded on the same grounds as the German diphthongs.",
+      "vowel_rules": [
+        {
+          "id": "enes.ih_i",
+          "source": "ɪ",
+          "target": "i",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no lax /ɪ/; nearest category is /i/ (feature distance 0.25). The signature 'I speek Eenglish'."
+        },
+        {
+          "id": "enes.dress_e",
+          "source": "ɛ",
+          "target": "e",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no open /ɛ/; nearest category is /e/ (feature distance 0.25)."
+        },
+        {
+          "id": "enes.ae_a",
+          "source": "æ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish lacks /æ/; nearest category is /a/ (feature distance 0.5)."
+        },
+        {
+          "id": "enes.aa_a",
+          "source": "ɑ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest Spanish category to English /ɑ/ is /a/ (feature distance 0.25)."
+        },
+        {
+          "id": "enes.thought_o",
+          "source": "ɔ",
+          "target": "o",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest Spanish category to English /ɔ/ is /o/ (feature distance 0.25)."
+        },
+        {
+          "id": "enes.uh_o",
+          "source": "ʊ",
+          "target": "o",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no lax /ʊ/; the metric's nearest category is /o/ (feature distance 0.75). Kept verbatim from the deriver; blind QC may prefer /u/."
+        },
+        {
+          "id": "enes.ah_a",
+          "source": "ʌ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish lacks /ʌ/; nearest category is /a/ (feature distance 0.5)."
+        },
+        {
+          "id": "enes.nurse_a",
+          "source": "ɜ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no /ɜ/ nurse vowel; nearest category is /a/ (feature distance 0.75)."
+        },
+        {
+          "id": "enes.schwa_a",
+          "source": "ə",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no reduced schwa; nearest full-vowel category is /a/ (feature distance 0.75)."
+        },
+        {
+          "id": "enes.goat_o",
+          "source": "O",
+          "target": "o",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no /ou/ diphthong; listeners hear /o/ ('boat' -> 'bot'). Hand-authored against the Misaki GOAT shorthand: feature distance is meaningless across the diphthong boundary (7.25). The other English diphthongs parse natively in Spanish and carry no rule."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "enes.v_b",
+          "source": "v",
+          "target": "b",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "attested_orthographic_merger_uncited",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish merges orthographic v with /b/; feature distance wrongly prefers /f/. Deriver override retained; needs a citation before claiming a direct tier."
+        },
+        {
+          "id": "enes.z_s",
+          "source": "z",
+          "target": "s",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Castilian Spanish has no voiced /z/; listeners devoice it to /s/ ('zoo' -> 'su'). Feature distance agrees at 0.25."
+        },
+        {
+          "id": "enes.j_affricate",
+          "source": "ʤ",
+          "target": "ʧ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no /dʒ/; listeners hear /tʃ/ ('jeep' -> 'chip'). Feature distance agrees at 0.5."
+        },
+        {
+          "id": "enes.eth_d",
+          "source": "ð",
+          "target": "d",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish owns [ð] only as an allophone of /d/ (dedo), so the listener's phoneme is /d/ ('this' -> 'dis'). Hand-authored: feature distance prefers /θ/, which would map a voiced fricative onto the voiceless one."
+        },
+        {
+          "id": "enes.sh_s",
+          "source": "ʃ",
+          "target": "s",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no /ʃ/; listeners hear /s/ ('ship' -> 'sip'; the ship~chip confusion is also attested). Hand-authored: feature distance prefers /θ/ (0.75)."
+        },
+        {
+          "id": "enes.zh_s",
+          "source": "ʒ",
+          "target": "s",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no /ʒ/; listeners hear /s/ ('vision' -> 'bision'). Hand-authored: feature distance prefers /θ/ at exactly the 1.0 threshold."
+        },
+        {
+          "id": "enes.eng_n",
+          "source": "ŋ",
+          "target": "n",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Castilian Spanish has no phonemic /ŋ/; the nearest category is /n/. Hand-authored: feature distance prefers /ɲ/ (0.5). Matches the it-to-en ŋ decision."
+        },
+        {
+          "id": "enes.h_x",
+          "source": "h",
+          "target": "x",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no /h/; listeners hear the jota /x/ ('hat' -> 'jat'). Hand-authored: the metric's nearest at 2.375 (/l/) is noise."
+        },
+        {
+          "id": "enes.approximant_trill",
+          "source": "ɹ",
+          "target": "r",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish has no approximant rhotic; listeners assimilate English /ɹ/ to the trill /r/. Hand-authored because feature distance rejects the pair (nearest /j/ at 1.625). Matches the it-to-en and de-to-en rhotic decisions."
+        }
+      ],
+      "insertion_rules": [
+        {
+          "id": "enes.prothetic_e",
+          "operation": "insert_before",
+          "target": "e",
+          "contexts": [
+            "word_initial_cluster"
+          ],
+          "onsets": [
+            "s"
+          ],
+          "not_followed_by": [
+            "a",
+            "e",
+            "i",
+            "o",
+            "u",
+            "ɑ",
+            "ɛ",
+            "ɪ",
+            "ʊ",
+            "ʌ",
+            "ə",
+            "æ",
+            "ɔ"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish forbids word-initial /s/+consonant; listeners prepend /e/ (school -> 'eschool', Spain -> 'España'). Structural phonotactic repair, not a segment substitution."
+        }
+      ],
+      "prosody_rules": [
+        {
+          "id": "enes.lexical_stress_penultimate_bias",
+          "operation": "swap_primary_and_initial_secondary_stress",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Spanish stress is overwhelmingly penultimate (llana); an English initial-secondary/late-primary word is pulled toward it."
+        }
+      ]
+    },
+    {
+      "id": "en-US-to-fr-FR-listener-v1",
+      "source_locale": "en-US",
+      "listener_locale": "fr-FR",
+      "claim": "Experimental English-through-French listener profile. Derived vowel baseline corrected by hand plus hand-authored consonant recategorizations; no cited listener result and no blind QC. Renders on the English voice with French lens targets already receipted in the en-US map. Three rules are kept although the renderer collapses them (ɪ->i, ɑ->a, ɹ->ʁ): they are the correct recategorizations and are reported as renderer-inaudible rather than deleted, so the absence of the signature French R is visible instead of silent.",
+      "vowel_rules": [
+        {
+          "id": "enfr.trap_a",
+          "source": "æ",
+          "target": "a",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French lacks /æ/; listeners use /a/ (cat -> [kat]). Hand-corrected: feature distance preferred /e/, which would render 'cat' as 'ket'."
+        },
+        {
+          "id": "enfr.foot_u",
+          "source": "ʊ",
+          "target": "u",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French has no lax /ʊ/; listeners use cardinal /u/ (book -> [buk]). Hand-corrected: feature distance preferred /ɔ/, a height error."
+        },
+        {
+          "id": "enfr.strut_schwa",
+          "source": "ʌ",
+          "target": "ə",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest French category to English /ʌ/ is /ə/."
+        },
+        {
+          "id": "enfr.nurse_schwa",
+          "source": "ɜ",
+          "target": "ə",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French has no /ɜ/ nurse vowel; nearest category is /ə/."
+        },
+        {
+          "id": "enfr.kit_i",
+          "source": "ɪ",
+          "target": "i",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French has no lax /ɪ/; listeners use /i/ (ship/sheep merge). Correct rule, but the English voice renders /ɪ/ and /i/ identically, so it is reported as renderer-inaudible."
+        },
+        {
+          "id": "enfr.lot_a",
+          "source": "ɑ",
+          "target": "a",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "Nearest French category to English /ɑ/ is /a/. The English voice collapses the pair, so it is reported as renderer-inaudible."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "enfr.theta_s",
+          "source": "θ",
+          "target": "s",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French lacks /θ/; listeners assimilate it to /s/ (think -> 'sink')."
+        },
+        {
+          "id": "enfr.eth_z",
+          "source": "ð",
+          "target": "z",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French lacks /ð/; listeners assimilate it to /z/ (this -> 'zis')."
+        },
+        {
+          "id": "enfr.eng_n",
+          "source": "ŋ",
+          "target": "n",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French /ŋ/ occurs only in loanwords; listeners resolve it to /n/."
+        },
+        {
+          "id": "enfr.affricate_sh",
+          "source": "ʧ",
+          "target": "ʃ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French has no native /ʧ/; the affricate is simplified to its fricative release (chair -> 'share')."
+        },
+        {
+          "id": "enfr.affricate_zh",
+          "source": "ʤ",
+          "target": "ʒ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French has no native /ʤ/; the affricate is simplified to /ʒ/."
+        },
+        {
+          "id": "enfr.rhotic_uvular",
+          "source": "ɹ",
+          "target": "ʁ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French listeners recategorize the English approximant as their uvular /ʁ/. This is the signature effect of the direction and the English voice renders both identically, so it is reported as renderer-inaudible rather than silently applied."
+        },
+        {
+          "id": "enfr.delete_h",
+          "source": "h",
+          "operation": "delete",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_structural_phonotactic",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French /h/ is silent (haricot -> [aʁiko]); listeners do not perceive the segment."
+        }
+      ],
+      "insertion_rules": [],
+      "prosody_rules": [
+        {
+          "id": "enfr.stress_final",
+          "operation": "shift_primary_stress_to_final",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French has no lexical stress; prominence falls on the final syllable of the rhythmic group, pulling an English word's primary rightward."
+        }
+      ]
+    },
+    {
+      "id": "fr-FR-to-en-US-listener-v1",
+      "source_locale": "fr-FR",
+      "listener_locale": "en-US",
+      "claim": "Experimental French-through-English listener profile. Derived vowel baseline corrected by hand; no cited listener result and no blind QC. Renders on the French voice with English lens targets receipted in the fr-FR map. The uvular-R rule is kept although the French voice collapses it, and reported as renderer-inaudible: it is the correct recategorization and the direction should not appear to be doing something it cannot.",
+      "vowel_rules": [
+        {
+          "id": "fren.front_rounded_u",
+          "source": "y",
+          "target": "u",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no front rounded /y/; listeners hear the nearest back rounded vowel (tu -> 'too'). The signature effect of the direction."
+        },
+        {
+          "id": "fren.eu_e",
+          "source": "ø",
+          "target": "e",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English lacks /ø/; unrounding it yields /e/. Hand-corrected: the deriver sent both /ø/ and /œ/ to /ɛ/, merging two French categories the listener does distinguish."
+        },
+        {
+          "id": "fren.oeu_eh",
+          "source": "œ",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English lacks /œ/; unrounding it yields /ɛ/."
+        },
+        {
+          "id": "fren.a_ah",
+          "source": "a",
+          "target": "ɑ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French /a/ is fronter than any English low vowel; listeners assimilate to /ɑ/."
+        },
+        {
+          "id": "fren.e_eh",
+          "source": "e",
+          "target": "ɛ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no pure monophthong /e/; listeners use /ɛ/."
+        },
+        {
+          "id": "fren.o_aw",
+          "source": "o",
+          "target": "ɔ",
+          "evidence_tier": "derived_feature_distance_nearest_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English has no pure monophthong /o/; listeners use /ɔ/."
+        }
+      ],
+      "consonant_rules": [
+        {
+          "id": "fren.rhotic_approximant",
+          "source": "ʁ",
+          "target": "ɹ",
+          "contexts": [
+            "any"
+          ],
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English listeners recategorize the French uvular /ʁ/ as their alveolar approximant. The French voice renders both identically, so it is reported as renderer-inaudible."
+        },
+        {
+          "id": "fren.delete_p",
+          "source": "p",
+          "operation": "delete",
+          "contexts": [
+            "word_initial_cluster"
+          ],
+          "followed_by": [
+            "s",
+            "f"
+          ],
+          "evidence_tier": "derived_structural_phonotactic",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English resolves an illegal /ps/ or /pf/ onset by dropping the stop (psychologie)."
+        },
+        {
+          "id": "fren.delete_t",
+          "source": "t",
+          "operation": "delete",
+          "contexts": [
+            "word_initial_cluster"
+          ],
+          "followed_by": [
+            "s"
+          ],
+          "evidence_tier": "derived_structural_phonotactic",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "English resolves an illegal /ts/ onset by dropping the stop (tsar -> [zɑɹ])."
+        }
+      ],
+      "insertion_rules": [],
+      "prosody_rules": [
+        {
+          "id": "fren.lexical_stress_initial_bias",
+          "operation": "swap_primary_and_initial_secondary_stress",
+          "evidence_tier": "derived_nearest_listener_category",
+          "acoustic_status": "pending_azure_qc",
+          "source_ids": [],
+          "note": "French prominence is phrase-final and non-lexical; an English listener imposes a word-level primary, pulling it off the final syllable."
+        }
+      ]
+    }
+  ]
+}

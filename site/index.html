@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An evidence-informed language education tool that re-pronounces a familiar sentence through another language's sound categories.">
+  <title>Listener / Lens — same words, different ears</title>
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png?v=2" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the listening tool</a>
+
+  <div class="site-frame">
+    <aside class="brand-rail" aria-label="Product introduction">
+      <a class="wordmark" href="#main" aria-label="Listener Lens home">
+        <img src="/favicon.svg" alt="" width="30" height="30">
+        <span>LISTENER / LENS</span>
+      </a>
+      <h1><span>SAME WORDS.</span><span>DIFFERENT</span><span class="tomato">EARS,</span></h1>
+
+      <div class="route-lockup" aria-label="Selected direction">
+        <strong id="route-source-name">ENGLISH</strong>
+        <span>THROUGH</span>
+        <strong id="route-listener-name">PORTUGUÊS (BR)</strong>
+      </div>
+
+      <dl class="scope-metrics">
+        <div><dt>Languages</dt><dd>30</dd></div>
+        <div><dt>Directions</dt><dd>835</dd></div>
+      </dl>
+
+      <p class="rail-explainer">Hear a shared voice twice: neutral, then recategorized through another language's sound categories.</p>
+      <p class="claim-boundary">Research-informed approximation—not private perception.</p>
+    </aside>
+
+    <div class="product-column">
+      <header class="utility-bar">
+        <span>Language listening for the classroom</span>
+        <nav aria-label="Primary navigation">
+          <a href="#main">Try</a>
+          <a href="#evidence">How it works</a>
+          <a href="#classroom">Classroom</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="workbench" aria-labelledby="workbench-title">
+          <h2 id="workbench-title" class="visually-hidden">Create a listener-lens comparison</h2>
+
+          <form id="lens-form" class="lens-form" data-mode="lens">
+            <div class="sentence-field">
+              <label for="source-text">Enter source text <span><output id="source-character-count">42</output> / 200 characters</span></label>
+              <textarea id="source-text" name="text" rows="2" maxlength="200">The happy cat sat back and laughed at the bad joke.</textarea>
+            </div>
+
+            <div class="control-deck">
+              <div class="picker" data-picker="source">
+                <div class="picker-head">
+                  <span class="picker-label">Source language</span>
+                  <button type="button" class="picker-toggle" aria-expanded="false">
+                    <span data-picker-current>English</span><span class="picker-action">Change</span>
+                  </button>
+                </div>
+                <div class="picker-panel" hidden>
+                  <input type="search" class="picker-search" placeholder="Search 30 languages" aria-label="Search source languages">
+                  <div class="picker-groups" role="listbox" aria-label="Source languages"></div>
+                </div>
+              </div>
+
+              <div class="direction-word" data-lens-only aria-hidden="true">THROUGH</div>
+
+              <div class="picker" data-picker="listener" data-lens-only>
+                <div class="picker-head">
+                  <span class="picker-label"><span>Listener language</span>
+                    <button type="button" id="random-listener" class="picker-random" data-lens-only>Randomize</button>
+                  </span>
+                  <button type="button" class="picker-toggle" aria-expanded="false">
+                    <span data-picker-current>Brazilian Portuguese</span><span class="picker-action">Change</span>
+                  </button>
+                </div>
+                <div class="picker-panel" hidden>
+                  <input type="search" class="picker-search" placeholder="Search listeners" aria-label="Search listener languages">
+                  <div class="picker-groups" role="listbox" aria-label="Listener languages"></div>
+                </div>
+              </div>
+
+              <div class="mode-toggle" role="group" aria-label="Choose listening mode">
+                <button type="button" class="mode active" data-mode="lens" aria-pressed="true">Listener lens</button>
+                <button type="button" class="mode" data-mode="gibberish" aria-pressed="false">Sound minus meaning</button>
+              </div>
+
+              <input type="hidden" id="source-language" name="source_language" value="en-US">
+              <input type="hidden" id="listener-profile" name="profile_id" value="en-US-to-pt-BR-listener-v2">
+              <button class="generate lens-submit" type="submit">Generate listener comparison</button>
+            </div>
+
+            <p class="form-note">Audio is generated securely; service credentials stay server-side.</p>
+          </form>
+
+          <div id="lens-status" class="lens-status" role="status" aria-live="polite">
+            <strong>Ready.</strong> Try the example or enter a short sentence.
+          </div>
+
+          <div id="lens-result" class="lens-result" hidden>
+            <p id="result-source" class="visually-hidden"></p>
+            <div id="runtime-player" class="track-player" data-player hidden>
+              <audio preload="metadata"></audio>
+
+              <section class="audio-track track-a" data-track="neutral" aria-labelledby="track-a-title">
+                <button class="ab track-play active" type="button" data-side="neutral" data-label="A · as you say it" aria-pressed="true">
+                  <span class="track-letter">A</span><span data-side-label>Play A</span>
+                </button>
+                <div class="track-body">
+                  <div class="track-heading">
+                    <strong id="track-a-title">As you say it</strong>
+                    <span data-lens-only>Neutral source pronunciation</span>
+                    <span data-gibberish-only hidden>Source pronunciation</span>
+                    <time data-track-time="neutral">00:00</time>
+                  </div>
+                  <canvas class="waveform" data-waveform-side="neutral" width="900" height="82" aria-hidden="true"></canvas>
+                  <progress data-track-progress="neutral" max="1" value="0" aria-label="Track A playback progress"></progress>
+                  <div id="phone-grid-a" class="phone-grid" aria-label="Track A word and sound alignment"></div>
+                </div>
+              </section>
+
+              <section class="audio-track track-b" data-track="lens">
+                <button class="ab track-play" type="button" data-side="lens" data-label="B · as they hear it" aria-pressed="false">
+                  <span class="track-letter">B</span><span data-side-label>Play B</span>
+                </button>
+                <div class="track-body">
+                  <div class="track-heading">
+                    <strong data-lens-only>As they may hear it</strong>
+                    <strong data-gibberish-only hidden>Sound minus meaning</strong>
+                    <span data-lens-only>Listener sound-category lens</span>
+                    <span data-gibberish-only hidden>Meaning-opaque reconstruction</span>
+                    <time data-track-time="lens">00:00</time>
+                    <time data-track-time="gibberish" hidden>00:00</time>
+                  </div>
+                  <canvas class="waveform" data-waveform-side="lens" width="900" height="82" aria-hidden="true"></canvas>
+                  <canvas class="waveform" data-waveform-side="gibberish" width="900" height="82" aria-hidden="true"></canvas>
+                  <progress data-track-progress="lens" max="1" value="0" aria-label="Track B playback progress"></progress>
+                  <progress data-track-progress="gibberish" max="1" value="0" hidden aria-label="Track B playback progress"></progress>
+                  <div id="phone-grid-b" class="phone-grid" aria-label="Track B word and sound alignment"></div>
+                </div>
+              </section>
+
+              <section class="audio-track track-c" data-track="speaker" data-lens-only aria-labelledby="track-c-title">
+                <button class="ab track-play" type="button" data-side="speaker" data-label="C · listener voice reading source" aria-pressed="false">
+                  <span class="track-letter">C</span><span data-side-label>Play C</span>
+                </button>
+                <div class="track-body">
+                  <div class="track-heading">
+                    <strong id="track-c-title">Listener voice reading your words</strong>
+                    <span>Production comparison · not part of A/B evidence</span>
+                    <time data-track-time="speaker">00:00</time>
+                  </div>
+                  <canvas class="waveform" data-waveform-side="speaker" width="900" height="62" aria-hidden="true"></canvas>
+                  <progress data-track-progress="speaker" max="1" value="0" aria-label="Track C playback progress"></progress>
+                </div>
+              </section>
+            </div>
+
+            <div class="runtime-facts" data-lens-only>
+              <p><strong id="applied-rule-count">0</strong><span>Rules applied</span></p>
+              <p><strong id="context-absent-count">0</strong><span>Context absent</span></p>
+              <p><strong id="neutralized-count">0</strong><span>Neutralized</span></p>
+              <p><strong>Passed</strong><span>A/B integrity</span></p>
+              <button type="button" class="receipt-button" data-open-evidence>Open evidence receipt</button>
+              <span id="rule-count" hidden>0</span><span id="active-rule" hidden>—</span>
+            </div>
+
+            <div class="runtime-facts gibberish-facts" data-gibberish-only hidden>
+              <p><strong id="gibberish-word-count">0</strong><span>Words remade</span></p>
+              <p><strong id="gibberish-syllables">0</strong><span>Syllables kept</span></p>
+              <p><strong id="gibberish-reduction">—</strong><span>Vowel reduction</span></p>
+            </div>
+
+            <p id="runtime-voice-label" class="voice-receipt">Azure neural voice · same voice on both A/B sides</p>
+            <p id="runtime-warning" class="runtime-warning" data-lens-only>C uses the listener-language voice and is separate from the A/B perception comparison.</p>
+            <p class="runtime-warning" data-gib-copy="source" hidden>B keeps the source language's syllable patterns while replacing real words. Sound Minus Meaning is source-only; cross-language recategorization belongs to Listener Lens.</p>
+          </div>
+        </section>
+
+        <section class="support-section" id="evidence" aria-labelledby="evidence-title">
+          <div class="support-heading"><span>How it works</span><h2 id="evidence-title">A comparison you can inspect.</h2></div>
+          <div class="evidence-grid">
+            <article><strong>01</strong><h3>Analyse the sentence</h3><p>The selected source language produces a word-by-word sound plan.</p></article>
+            <article><strong>02</strong><h3>Apply the listener lens</h3><p>Only rules that match this sentence and remain audible in the selected voice appear in B.</p></article>
+            <article><strong>03</strong><h3>Show the result</h3><p>The receipt separates applied, absent, neutralized, and renderer-inaudible changes across all supported directions.</p></article>
+          </div>
+        </section>
+
+        <section class="support-section" id="classroom" aria-labelledby="activity-title">
+          <div class="activity-layout">
+            <div>
+              <div class="support-heading"><span>Classroom</span><h2 id="activity-title">Turn a contrast into a verified drill.</h2></div>
+              <p>Generate a lesson from the comparison above. GPT-5.6 receives only its direction and rule receipt—not your sentence or audio.</p>
+              <form id="activity-form" class="activity-form">
+                <label for="drill-direction">Direction</label>
+                <output id="drill-direction">Use the comparison above</output>
+                <label for="drill-focus">Target contrast</label>
+                <select id="drill-focus" name="focus" disabled><option>Generate A/B to load its contrasts</option></select>
+                <label for="grade-band">Learner group</label>
+                <select id="grade-band" name="grade_band">
+                  <option value="adult">Adult learners</option><option value="secondary">Secondary school</option><option value="middle">Middle school</option><option value="elementary">Elementary school</option>
+                </select>
+                <label for="minutes">Lesson length</label>
+                <select id="minutes" name="minutes"><option value="10">10 minutes</option><option value="20" selected>20 minutes</option><option value="30">30 minutes</option></select>
+                <button class="generate" type="submit" disabled>Generate classroom activity</button>
+              </form>
+            </div>
+            <div class="activity-output" id="activity-output" aria-live="polite">
+              <div class="drill-preview">
+                <span>Classroom activity</span>
+                <ol><li>Generate a listener comparison above</li><li>Select one applied sound rule</li><li>Choose the learner group and lesson length</li><li>Generate a grounded activity with GPT-5.6 Luna</li></ol>
+                <p>The fallback remains available if Foundry is unavailable.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer><span>Build Week · Education track</span><span>AI-generated voices · not human recordings</span><span>Built with Codex and GPT-5.6</span></footer>
+    </div>
+  </div>
+
+  <dialog id="evidence-drawer" class="evidence-drawer" aria-labelledby="drawer-title">
+    <header><div><span>Evidence receipt</span><h2 id="drawer-title">What changed—and what did not.</h2></div><button type="button" data-close-evidence>Close</button></header>
+    <section><h3>Applied sound changes <span id="drawer-applied-count">0</span></h3><ul id="evidence-applied-list"><li>Generate a comparison to inspect its applied rules.</li></ul></section>
+    <section><h3>Not present in this sentence <span id="drawer-context-count">0</span></h3><ul id="evidence-context-list"><li>No result yet.</li></ul></section>
+    <section><h3>Same after voice mapping <span id="drawer-neutralized-count">0</span></h3><ul id="evidence-neutralized-list"><li>No result yet.</li></ul></section>
+    <section><h3>No audible change in this voice <span id="drawer-inaudible-count">0</span></h3><ul id="evidence-inaudible-list"><li>No result yet.</li></ul></section>
+  </dialog>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

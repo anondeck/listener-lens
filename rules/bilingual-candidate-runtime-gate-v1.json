@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-candidate-runtime-gate-v1",
+  "status": "frozen_before_runtime_gate_execution",
+  "production_enabled": false,
+  "purpose": "Fit a compact voice-specific spectral scaler from the frozen unseen-context natural anchors, then determine which prior unseen automatic vowel candidates can be checked fail-closed on arbitrary typed contexts without rerendering or reclassifying the frozen confirmation.",
+  "parent_bindings": {
+    "unseen_manifest_path": "artifacts/product-matrix/20260718-bilingual-vowel-unseen-typed-manifest-v1/manifest.json",
+    "unseen_manifest_sha256": "36a3a15acf70469ce21d408705fee00165f0364a5284d9a7fd48fec4a9cac6e1",
+    "unseen_manifest_record_sha256": "633c8d720b0af2a678532de455b3abf751cc811d2d08c063e072a807f989ba1d",
+    "unseen_result_path": "artifacts/product-matrix/20260718-bilingual-vowel-unseen-typed-confirmation-v1/results.json",
+    "unseen_result_sha256": "13f2b76870f4055889d612013add7a2ea00c102a42def9e4e13aeae88a755259",
+    "unseen_result_record_sha256": "14add28fe961d14ba2541bb20dc143d26f7fb9e93d0aa149a3bdf2a0a0c328a4"
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/run_bilingual_candidate_runtime_gate_v1.py",
+      "sha256": "0304b230ef3d474cfbfffc6cf574132126c0501b21157f68fd62d1e5e6f1ef99"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_spectral_category.py",
+      "sha256": "f227a6a32f3506f1561c67254fffc2ae5fb76b76048a8a390bc791a9a0cd8ec7"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_replicated_anchors.py",
+      "sha256": "7592528ab532dd1ed0dcbf20c837f0c9889fd1089ee49d869e635cc92865ef2b"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    }
+  ],
+  "scope": {
+    "oral_confirmed_cell_count": 28,
+    "prior_unseen_pass_cell_count": 18,
+    "logical_slot_count": 84,
+    "target_occurrence_count": 112,
+    "voices": [
+      "af_heart",
+      "am_michael",
+      "pm_alex",
+      "pf_dora"
+    ],
+    "candidate_audio": "Reuse every frozen neutral/lens WAV from the unseen confirmation. No candidate may be rerendered, replaced, or selected again.",
+    "eligibility": "Only an existing unseen automatic pass may remain runtime eligible. This gate cannot add a new cell or rescue a prior failure."
+  },
+  "rendering": {
+    "renderer": "Kokoro 0.9.4 local pinned model and exact selected voice",
+    "training_seeds_in_order": [
+      202607171,
+      202607172,
+      202607173
+    ],
+    "natural_conditions_per_slot": 6,
+    "natural_decoder_render_count": 504,
+    "retained_new_wav_count": 0,
+    "candidate_audio_rerender_count": 0
+  },
+  "measurement": {
+    "feature_version": "bilingual-vowel-spectral-category-v1",
+    "feature_size": 36,
+    "feature_config": {
+      "sample_rate_hz": 24000,
+      "frame_length_samples": 600,
+      "hop_length_samples": 240,
+      "fft_size": 1024,
+      "mel_filter_count": 32,
+      "minimum_frequency_hz": 80.0,
+      "maximum_frequency_hz": 7600.0,
+      "cepstral_coefficient_count": 12,
+      "temporal_sample_fractions": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "log_power_floor": 1e-08,
+      "robust_scale_floor": 0.05
+    },
+    "alignment": "listener-candidate-v8 stress-plus-complete-vowel interval",
+    "scaler": "Fit one immutable median/MAD robust scaler per voice from all three-seed natural source and target features in all 84 frozen unseen slots. This differs from the prior leave-current-slot-out analysis and is a new runtime instrument; prior classifications remain immutable.",
+    "context_endpoints": "For each occurrence, source and target centroids use all three current-context natural-anchor seeds under that occurrence's voice scaler.",
+    "anchor_sanity": "For each of the three seeds, classify the held-out natural source/target pair against centroids from the other two seeds. At least two pairs must be exact and none may reverse direction.",
+    "candidate": "Classify the frozen lens relative to the frozen neutral against the current-context three-seed endpoints.",
+    "identity_control": "Classify the frozen neutral against itself. Any directional identity result fails instrument sanity globally."
+  },
+  "unchanged_thresholds": {
+    "minimum_anchor_separation_scaled_rms": 0.25,
+    "minimum_direction_cosine": 0.5,
+    "minimum_directional_movement_fraction": 0.25,
+    "minimum_exact_movement_fraction": 0.5,
+    "minimum_exact_seed_pairs_per_occurrence": 2,
+    "maximum_reversed_seed_pairs_per_occurrence": 0
+  },
+  "decision_rule": {
+    "cell_runtime_gate_pass": "The cell was already an unseen automatic pass; every frozen occurrence passes anchor sanity and remains exact-category or directional-only under the runtime scaler; every identity control remains negative.",
+    "cell_runtime_gate_fail": "Any prior pass that misses the new runtime gate is removed from runtime eligibility without changing its frozen unseen-confirmation classification.",
+    "global_instrument_fail": "Any identity false positive makes every cell runtime-ineligible and closes this runtime instrument.",
+    "human_qc": "No automatic outcome establishes naturalness, sentence-like delivery, perceived direction, or listener-profile fit."
+  },
+  "stopping_rule": {
+    "execute_once": true,
+    "api_calls_allowed": 0,
+    "candidate_audio_rerenders_allowed": 0,
+    "replacement_slots_allowed": 0,
+    "threshold_changes_allowed": 0,
+    "product_promotion_allowed": false
+  },
+  "claim_limits": {
+    "pass": "A pass makes a prior unseen automatic candidate eligible for a fail-closed per-request acoustic implementation. It is not product support until that implementation and blind human QC pass.",
+    "failure": "A failure removes that voice/rule cell from the runtime candidate set. It does not rewrite the frozen unseen result.",
+    "coverage": "This protocol covers oral vowels only. It does not validate nasal vowels, consonants, insertions, prosody, multi-rule composition, arbitrary words, or either full language direction."
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-adaptive-strength-screen-v1",
+  "status": "frozen_before_first_adaptive_strength_render",
+  "production_enabled": false,
+  "parent_bindings": {
+    "matrix_sha256": "171ba086e2641542a57895805dac84fadb967a4d8ab357c9d961873e20057ac5",
+    "v8_manifest_sha256": "d86cc342271e4baae8a645ed98e2fb8878a2a0b5f1b93b65931755a414780aa6",
+    "v8_manifest_record_sha256": "d091875d00cc31dadd39bf37196581a8050d67c02a5f823b7a993add74ad8409",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2",
+    "v8_result_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "full_result_sha256": "22a3c72e72c8fce5b6ee151c536501238fe7417aba420028dc1dbf79d6a6ae86",
+    "full_result_record_sha256": "c464451ff12525a0454a1f9f89ac575297a80969b5829a41b55faccc8ff2d403"
+  },
+  "scope": {
+    "family": "vowel",
+    "voice_rule_cell_count": 12,
+    "logical_slot_count": 36,
+    "candidate_strength_count": 6,
+    "candidate_render_set_count": 216,
+    "contexts_per_cell": [
+      "phrase_medial_continuous_speech",
+      "phrase_final_new_context",
+      "repeated_multi_target"
+    ],
+    "required_occurrences_per_cell": 4,
+    "cell_ids_in_order": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.back_mid_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.front_rounded_e",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.nurse_eh",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.central_high_kit",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.front_open_rounded_eh",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_e_ih",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.central_high_kit"
+    ],
+    "selection_basis": "Every cell that remained fail after the frozen complete-context neutral-excitation screen; no anchor-limited cell is included.",
+    "evidence_transfer_between_voices": false,
+    "evidence_transfer_between_rules": false,
+    "evidence_transfer_between_occurrences": false
+  },
+  "candidate_intervention": {
+    "version": "vowel-state-strength-v1",
+    "controlled_version": "controlled-vowel-state-strength-v1",
+    "strength_order": [1.0, 0.75, 1.25, 0.5, 1.5, 2.0],
+    "state_formula": "neutral_state + strength * (complete_lens_text_state - neutral_state)",
+    "duration_alignment_f0_noise": "unchanged source-derived neutral duration, alignment, F0, noise, and common RNG at every strength",
+    "output_localization": "unchanged v8 stress-plus-vowel interval plus 25 ms context and 10 ms taper",
+    "occurrence_selection": "For each occurrence, take the first exact-category candidate in strength order; if none is exact, take the first directional-only candidate; otherwise leave the occurrence unresolved.",
+    "composite_rule": "When every occurrence resolves, splice each occurrence from its selected strength into one neutral file and re-run every integrity and acoustic gate on the composite.",
+    "selection_uses_listening": false,
+    "selective_rerender_allowed": false,
+    "replacement_slots_allowed": false,
+    "api_calls_allowed": 0
+  },
+  "instrument_and_gates": {
+    "inheritance": "Reuse every frozen v8 context-specific source anchor, target anchor, neutral measurement, target interval, formant ceiling, retention rule, threshold, endpoint rule, and aggregation rule unchanged.",
+    "praat_version": "6.6.30",
+    "praat_sha256": "b0311abb9ae606a5204715b0ab861d4ab863b932cbe3f0faecb7cce80b609d8d",
+    "praat_script_sha256": "114a91d4415d538041da6e0d28d35fc010d36e9f8b89c84e5e893b99bce4abfe",
+    "formant_ceilings_hz": [5500, 5750, 6000],
+    "minimum_valid_frames_per_bin": 3,
+    "minimum_valid_frame_fraction": 0.6,
+    "base_minimum_anchor_separation_bark_rms": 0.18,
+    "base_minimum_controlled_movement_bark_rms": 0.18,
+    "minimum_controlled_movement_fraction_of_anchor_for_exact": 0.5,
+    "minimum_direction_cosine": 0.5,
+    "universal_integrity_required_at_every_strength": true,
+    "composite_integrity_and_remeasurement_required": true,
+    "all_three_ceilings_required": true
+  },
+  "aggregation_policy": {
+    "occurrence_requires_one_strength_to_pass_all_three_ceilings": true,
+    "slot_requires_every_occurrence": true,
+    "cell_requires_all_three_slots_and_four_occurrences": true,
+    "missing_or_excluded_measurement_fails_the_occurrence": true,
+    "nasal_vowel_cell_remains_ineligible_without_nasality_gate": true,
+    "automatic_pass_only_queues_blind_human_qc": true,
+    "product_promotion_allowed": false
+  },
+  "claim_limits": {
+    "candidate_pass": "A pass establishes the inherited automatic vowel gate only on the three known matrix fixtures for that exact voice and rule under occurrence-adaptive state strength.",
+    "runtime": "The screen establishes feasibility of bounded automatic occurrence selection; it does not yet establish production latency or a deployable online formant instrument.",
+    "generalization": "Unseen words, arbitrary sentences, naturalness, listener-profile fit, and multi-rule composition remain unvalidated.",
+    "other_families": "Anchor-limited vowels, nasality, consonants, insertion, and prosody are separate unfinished families."
+  },
+  "stopping_rule": "Render all six strengths exactly once for each of the 36 frozen slots, choose only by the frozen automatic ordering, preserve every error and unresolved occurrence, remeasure every complete composite, and do not add a strength, replace a fixture, rerender a candidate, alter a gate, or promote a product cell in this run.",
+  "source_bindings": [
+    {
+      "path": "scripts/run_bilingual_vowel_adaptive_strength_screen_v1.py",
+      "sha256": "7a8ff8291f4a3c530e699c0a4bcff5996c0bb3b6f6b4e857b22fce71fc9c2a12"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_state_strength.py",
+      "sha256": "bf58681f0f9a46b3be5dabea645af0925560ffd98f0d7ad8df1558f164e3d225"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_state_strength.py",
+      "sha256": "1446b4de06dfb3a23427e060631eef39386eac9b279a614a6e5575a9549004c8"
+    },
+    {
+      "path": "scripts/run_bilingual_product_v8_vowel_acoustic_screen.py",
+      "sha256": "252afd101f1c93015f4d535a591fa963d3407add1e346bf90f81bf45f8ab74e7"
+    },
+    {
+      "path": "scripts/run_bilingual_vowel_word_context_screen_v1.py",
+      "sha256": "04f54a3c1053b8d8536f33789addcf9e40da195fc834e65f4adb2b704bb9b62f"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_acoustics_v2.py",
+      "sha256": "0d4e6071c632078fda0fe5afb8d08dadc73214d8044f87c42840b03246eb5a03"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_output_domain_splice.py",
+      "sha256": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_synthesis.py",
+      "sha256": "177a16723def39e6e2179fba88dd3ac8c823ec40df02b61e2c44f230380bd07d"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    }
+  ]
+}

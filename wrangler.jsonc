@@ -1,0 +1,61 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "listener-lens-build-week",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-07-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "TYPED_AUDIO_SERVE_ENABLED": "false",
+    "TYPED_AUDIO_RENDER_ENABLED": "false",
+    "ACTIVITY_GENERATION_ENABLED": "false",
+    "AZURE_FOUNDRY_DEPLOYMENT": "luna",
+    "KOKORO_ENGLISH_CANDIDATE_ENABLED": "false",
+    "PORTUGUESE_RENDERER_CANDIDATE_ENABLED": "false",
+    "RECIPROCAL_LISTENER_LENS_RESEARCH_ENABLED": "false"
+  },
+  "containers": [
+    {
+      "class_name": "TransformContainer",
+      "image": "./container/Dockerfile",
+      "instance_type": "lite",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "TRANSFORM_CONTAINER",
+        "class_name": "TransformContainer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "typed-transform-v1",
+      "new_sqlite_classes": ["TransformContainer"]
+    }
+  ],
+  "assets": {
+    "directory": "./site",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "ratelimits": [
+    {
+      "name": "ACTIVITY_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 5, "period": 60 }
+    },
+    {
+      "name": "AUDIO_RATE_LIMITER",
+      "namespace_id": "1002",
+      "simple": { "limit": 2, "period": 60 }
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

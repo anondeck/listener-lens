@@ -1,0 +1,10 @@
+**
+!.dockerignore
+!bakeoff.yaml
+!container/
+!container/Dockerfile
+!container/requirements.txt
+!rules/
+!rules/**
+!src/
+!src/**

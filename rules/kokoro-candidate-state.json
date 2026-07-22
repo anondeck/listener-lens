@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "candidate_id": "kokoro-en-ae-to-eh-strict-shell-output-splice-v1",
+  "feature_flag": "KOKORO_ENGLISH_CANDIDATE_ENABLED",
+  "enabled_by_default": false,
+  "production_enabled": false,
+  "service_contract_version": "kokoro-controlled-pair-service-v2",
+  "profile_id": "en-to-pt-BR-vowel-lens",
+  "voice_registry": {
+    "version": "kokoro-product-voices-v1",
+    "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+  },
+  "rule_ids": [
+    "ptbr.vowel.ae_to_eh"
+  ],
+  "planner": {
+    "name": "strict-shell",
+    "version": 1,
+    "supported_target_shape": "C-stress-/ae/-C",
+    "unsupported_inputs_fail_closed": true
+  },
+  "renderer": {
+    "package": "kokoro",
+    "version": "0.9.4",
+    "model_repo": "hexgrad/Kokoro-82M",
+    "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "voice": "af_heart",
+    "sample_rate_hz": 24000,
+    "rng_seed": 20260716
+  },
+  "splice": {
+    "version": "output-domain-splice-v1",
+    "taper_ms_each_edge": 10.0,
+    "localization_minimum": 0.8,
+    "maximum_edge_delta_step_pcm": 1.0,
+    "maximum_boundary_derivative_ratio": 1.25
+  },
+  "evidence": {
+    "run_id": "20260717-kokoro-strict-shell-confirmation-v1",
+    "protocol_path": "artifacts/typed-engine/20260717-kokoro-strict-shell-confirmation-v1/protocol.json",
+    "protocol_sha256": "3ed4c98d1333082df761aadcf60bd1141e8d1194b71a7a2a95ece65fcda10703",
+    "protocol_record_sha256": "31b4ed371d68b636e44f7053a9a52d8b4c41932f054d22f962a5255401c5d044",
+    "analysis_path": "artifacts/typed-engine/20260717-kokoro-strict-shell-confirmation-v1/analysis.json",
+    "analysis_sha256": "8e3c7769cb47dfc841a7b39e62062ff5d3a86b160f72c4a9570becc0d0baaf88",
+    "analysis_record_sha256": "94fc3398517fc289348d9b75b8e7479559fe1d1bddfe816eb872e5ef6e27593b",
+    "automatic_status": "pass",
+    "automatic_classification": "strict_shell_aggregate_automatic_pass_pending_human_qc",
+    "human_status": "pending",
+    "production_promotion": false
+  }
+}

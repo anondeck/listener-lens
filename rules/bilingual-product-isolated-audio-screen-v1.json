@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-product-isolated-audio-screen-v1",
+  "status": "frozen_before_first_isolated_audio_render",
+  "production_enabled": false,
+  "matrix_binding": {
+    "path": "rules/bilingual-product-matrix-v1.json",
+    "sha256": "380b704fd00bc4fa5a79e87958900573e607eb905f53cc0043cca90f1c0383de",
+    "matrix_sha256": "171ba086e2641542a57895805dac84fadb967a4d8ab357c9d961873e20057ac5"
+  },
+  "isolated_manifest_binding": {
+    "path": "artifacts/product-matrix/20260717-bilingual-product-isolated-acoustic-manifest-v1/manifest.json",
+    "sha256": "2e5c7a79ee134ec5d2423a241f3069c8ce57742d332d7436294eaa52e3405adf",
+    "record_sha256": "b4d3a74eefcaab89559a5f6a671724ec9b126c51b52dbeddb4ae6850500cf905",
+    "logical_slot_count": 280
+  },
+  "renderer_policy": {
+    "renderer": "Kokoro 0.9.4",
+    "voices_in_order": [
+      "af_heart",
+      "am_michael",
+      "pm_alex",
+      "pf_dora"
+    ],
+    "isolated_validation_profile_version": "isolated-validation-profile-v1",
+    "exactly_one_active_changed_rule_required": true,
+    "same_voice_neutral_lens_required": true,
+    "common_rng_required": true,
+    "saved_sides": [
+      "neutral",
+      "spliced_lens"
+    ],
+    "identity_and_full_lens_pcm_hashes_recorded": true,
+    "render_every_slot_once": true,
+    "replacement_slots_allowed": false,
+    "selective_rerender_allowed": false,
+    "api_calls_allowed": 0
+  },
+  "universal_gates": [
+    "isolated_plan_hash_matches_manifest",
+    "exactly_one_named_rule_active",
+    "target_rule_activated",
+    "neutral_identity_bit_exact",
+    "equal_nonempty_samples",
+    "finite_pcm",
+    "unclipped_pcm",
+    "outside_splice_exact_neutral",
+    "full_weight_interior_exact_full_lens",
+    "boundary_metrics_pass",
+    "localization_pass",
+    "overall_integrity_pass"
+  ],
+  "classification_policy": {
+    "scope": "atomic_renderer_and_output_splice_integrity_only",
+    "vowel_acoustic_classification": "pending_separate_family_analysis",
+    "consonant_acoustic_classification": "pending_separate_family_analysis",
+    "insertion_acoustic_classification": "pending_separate_family_analysis",
+    "prosody_acoustic_classification": "pending_separate_family_analysis",
+    "human_qc": "not_generated_by_this_screen",
+    "product_promotion_allowed": false,
+    "stopping_rule": "Run all 280 frozen isolated slots exactly once; preserve every failure without replacement, rerendering, threshold changes, or cross-cell evidence transfer."
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/run_bilingual_product_isolated_audio_screen_v1.py",
+      "sha256": "f55159728e410bef336207c7f20d9e467f9c8ada4f2cd8cd6d43062a13c7b421"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_product_isolation.py",
+      "sha256": "bb7b2664f0eae516e080a1d19ee31728747f778d6a2eed8b353ad684cd5d2701"
+    },
+    {
+      "path": "scripts/run_bilingual_product_audio_integrity_screen_v1.py",
+      "sha256": "6756570b9c420adbe122f3568525a1666d10dcf9c59ac21f53ccb7ca534857c4"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine.py",
+      "sha256": "be2a41ee92bbe7466766b0bbf85b12fc9314df08ca352d922d0e6f0bdd4d6a0a"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_engine.py",
+      "sha256": "968a99db8660176d0ff646d2a1d2cc6e775a57eb506a64f5bdf74b5c2c24bf7f"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_listener_synthesis.py",
+      "sha256": "3807acba3bf10f5a52477c321681c1b3ca2ec60ee7b55f8b950b5b768833b0de"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_output_domain_splice.py",
+      "sha256": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_synthesis.py",
+      "sha256": "177a16723def39e6e2179fba88dd3ac8c823ec40df02b61e2c44f230380bd07d"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    }
+  ]
+}

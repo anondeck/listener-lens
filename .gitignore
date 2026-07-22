@@ -1,0 +1,27 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+.wrangler/
+
+# Local-only licensed/cached data and generated outputs.
+.cache/
+artifacts/
+output/
+tmp/
+design-variants/
+.playwright-cli/
+.claude/
+*_START_HERE.md
+*_PLAN.md
+*_STATE.md
+*_HANDOFF.md
+*_SPEC.md
+*-qa.md
+docs/research/

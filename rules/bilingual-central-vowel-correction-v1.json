@@ -1,0 +1,100 @@
+{
+  "gates": {
+    "inheritance": "Reuse the frozen v8 plan, neutral PCM, source/target anchors, three-ceiling analysis family, classification formula, boundary metrics, localization gate, and complete three-context/four-occurrence aggregation unchanged.",
+    "regression_control": "Michael enpt.reduced_schwa_a is included despite its later unseen pass; this run may not weaken or erase that evidence."
+  },
+  "intervention": {
+    "candidate": "complete-context-state-delta-with-output-domain-splice",
+    "candidate_render_set_count": 144,
+    "replacement_slots": 0,
+    "selection": "For each occurrence choose the first exact-category pass in frozen order, otherwise the first directional-only pass; never select using listening or effect magnitude.",
+    "strength_order": [
+      1.0,
+      0.75,
+      1.25,
+      0.5,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ]
+  },
+  "outcomes": {
+    "fail": "No production promotion and no threshold change.",
+    "mechanism_pass": "All six cells complete with at least directional evidence and the Michael control remains exact-category. Eligible for a separately frozen unseen confirmation, not production promotion.",
+    "mixed": "Preserve per-cell outcomes and redesign only failed mechanism classes."
+  },
+  "parents": {
+    "v8_manifest_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-manifest/manifest.json",
+    "v8_manifest_record_sha256": "d091875d00cc31dadd39bf37196581a8050d67c02a5f823b7a993add74ad8409",
+    "v8_manifest_sha256": "d86cc342271e4baae8a645ed98e2fb8878a2a0b5f1b93b65931755a414780aa6",
+    "v8_result_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-acoustic-screen/results.json",
+    "v8_result_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2"
+  },
+  "protocol_sha256": "fa109f17ac0dfa8199395d42f944b3be5ca518cd62a4d54c8051522337a98c92",
+  "purpose": "Evaluate one shared complete-context latent-delta strength mechanism for English central-vowel reduction and Portuguese final-a reduction across all four product voices.",
+  "run_id": "20260718-bilingual-central-vowel-correction-v1",
+  "schema_version": 1,
+  "scope": {
+    "cell_count": 6,
+    "cell_ids": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.schwa_reduced_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_schwa_a",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.schwa_reduced_a",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.final_a_schwa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.final_a_schwa"
+    ],
+    "contexts_per_cell": 3,
+    "expected_occurrence_count_per_cell": 4,
+    "logical_slot_count": 18,
+    "logical_slot_ids": [
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.reduced_schwa_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.reduced_schwa_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.reduced_schwa_a__repeated_multi_target",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.schwa_reduced_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.schwa_reduced_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__af_heart__enpt.schwa_reduced_a__repeated_multi_target",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.reduced_schwa_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.reduced_schwa_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.reduced_schwa_a__repeated_multi_target",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.schwa_reduced_a__phrase_medial_continuous_speech",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.schwa_reduced_a__phrase_final_new_context",
+      "en-US-to-pt-BR-listener-v2__am_michael__enpt.schwa_reduced_a__repeated_multi_target",
+      "pt-BR-to-en-US-listener-v2__pm_alex__pten.final_a_schwa__phrase_medial_continuous_speech",
+      "pt-BR-to-en-US-listener-v2__pm_alex__pten.final_a_schwa__phrase_final_new_context",
+      "pt-BR-to-en-US-listener-v2__pm_alex__pten.final_a_schwa__repeated_multi_target",
+      "pt-BR-to-en-US-listener-v2__pf_dora__pten.final_a_schwa__phrase_medial_continuous_speech",
+      "pt-BR-to-en-US-listener-v2__pf_dora__pten.final_a_schwa__phrase_final_new_context",
+      "pt-BR-to-en-US-listener-v2__pf_dora__pten.final_a_schwa__repeated_multi_target"
+    ],
+    "rule_ids": [
+      "enpt.reduced_schwa_a",
+      "enpt.schwa_reduced_a",
+      "pten.final_a_schwa"
+    ],
+    "voice_order": [
+      "af_heart",
+      "am_michael",
+      "pm_alex",
+      "pf_dora"
+    ]
+  },
+  "scope_controls": {
+    "api_calls": 0,
+    "deployment": false,
+    "paid_calls": 0,
+    "production_enabled": false
+  },
+  "source_bindings": {
+    "scripts/run_bilingual_central_vowel_correction_v1.py": "826fd6913d56d387d663b4de4376e7cab3162dccabd8cbba94988be04ad209f9",
+    "scripts/run_bilingual_vowel_adaptive_strength_screen_v1.py": "7a8ff8291f4a3c530e699c0a4bcff5996c0bb3b6f6b4e857b22fce71fc9c2a12",
+    "src/earshift_bakeoff/bilingual_vowel_state_strength.py": "1446b4de06dfb3a23427e060631eef39386eac9b279a614a6e5575a9549004c8",
+    "src/earshift_bakeoff/controlled_vowel_state_strength.py": "bf58681f0f9a46b3be5dabea645af0925560ffd98f0d7ad8df1558f164e3d225",
+    "src/earshift_bakeoff/kokoro_output_domain_splice.py": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+  },
+  "status": "frozen_before_local_synthesis",
+  "stopping_rule": "Run every frozen slot and strength exactly once locally. Do not replace fixtures, rerender a valid result, alter thresholds, or promote a cell.",
+  "version": "bilingual-central-vowel-correction-v1"
+}

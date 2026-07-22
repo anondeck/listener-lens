@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "protocol_version": "bilingual-vowel-word-context-screen-v1",
+  "status": "frozen_before_first_word_context_matrix_render",
+  "production_enabled": false,
+  "parent_bindings": {
+    "matrix_path": "rules/bilingual-product-matrix-v1.json",
+    "matrix_file_sha256": "380b704fd00bc4fa5a79e87958900573e607eb905f53cc0043cca90f1c0383de",
+    "matrix_sha256": "171ba086e2641542a57895805dac84fadb967a4d8ab357c9d961873e20057ac5",
+    "v8_manifest_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-manifest/manifest.json",
+    "v8_manifest_sha256": "d86cc342271e4baae8a645ed98e2fb8878a2a0b5f1b93b65931755a414780aa6",
+    "v8_manifest_record_sha256": "d091875d00cc31dadd39bf37196581a8050d67c02a5f823b7a993add74ad8409",
+    "v8_protocol_path": "rules/bilingual-product-v8-vowel-acoustic-screen.json",
+    "v8_protocol_sha256": "d5267e5fa553a62d595edb8336eba021498597c37bca5fc242e3039a240352ee",
+    "v8_result_path": "artifacts/product-matrix/20260717-bilingual-product-v8-vowel-acoustic-screen/results.json",
+    "v8_result_sha256": "84cba509978927e0367185a8ad63e06019315b2da128b19cab532a2cf91cc9a2",
+    "v8_result_record_sha256": "052b6f4478476dde5c0ff6ff46f1cbf633d2eabf94f87fe98d6eef7a5b39d70f"
+  },
+  "selection_basis": {
+    "status_required": "frozen v8 cell classification is fail",
+    "all_occurrences_and_ceilings_measurable": true,
+    "base_f1_f2_anchor_separation_gate_required_everywhere": true,
+    "rhotic_f3_f2_anchor_separation_gate_required_everywhere_when_applicable": true,
+    "controlled_intervention_may_have_failed_any_non-anchor_gate": true,
+    "selection_uses_no_candidate_audio_or_listening": true,
+    "michael_rhotic_cell_excluded_because_the_conjunctive_rhotic_anchor_gate_is_not_adequate": true
+  },
+  "scope": {
+    "family": "vowel",
+    "voice_rule_cell_count": 16,
+    "logical_slot_count": 48,
+    "candidate_render_set_count": 48,
+    "contexts_per_cell": [
+      "phrase_medial_continuous_speech",
+      "phrase_final_new_context",
+      "repeated_multi_target"
+    ],
+    "required_occurrences_per_cell": 4,
+    "cell_ids_in_order": [
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.aa_a",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.ae_eh",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.back_mid_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.back_unrounded_u",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.goat_o",
+      "en-US-to-pt-BR-listener-v2::af_heart::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.front_rounded_e",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.ih_i",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.nurse_eh",
+      "en-US-to-pt-BR-listener-v2::am_michael::vowel::enpt.reduced_i_i",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.central_high_kit",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.front_open_rounded_eh",
+      "pt-BR-to-en-US-listener-v2::pf_dora::vowel::pten.nasal_e_ih",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.ao_aa",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.central_high_kit",
+      "pt-BR-to-en-US-listener-v2::pm_alex::vowel::pten.front_rounded_face"
+    ],
+    "evidence_transfer_between_voices": false,
+    "evidence_transfer_between_rules": false,
+    "evidence_transfer_between_contexts": false
+  },
+  "candidate_intervention": {
+    "version": "vowel-word-context-plus-excitation-v1",
+    "text_and_phone_plan": "unchanged frozen v8 plan",
+    "state_context": "replace lens-conditioned decoder text state across each complete carrier word containing a changed vowel",
+    "excitation_context": "copy target-conditioned F0 and noise across the same complete carrier word",
+    "duration_and_alignment": "unchanged source-derived v8 duration and alignment plan",
+    "output_domain_splice": "unchanged output-domain-splice-v1 windows: v8 stress-plus-vowel measurement interval plus 25 ms context, 10 ms taper",
+    "neutral": "must remain PCM-identical to the frozen v8 neutral",
+    "identity": "must remain bit-identical to neutral",
+    "candidate_order": [
+      "target_word_state_plus_excitation"
+    ],
+    "first_complete_pass_wins": true,
+    "selective_rerender_allowed": false,
+    "replacement_slots_allowed": false,
+    "api_calls_allowed": 0
+  },
+  "instrument_and_gates": {
+    "inheritance": "Reuse the frozen v8 source anchor, target anchor, neutral measurements, stress-plus-vowel intervals, acoustic-v2 classification formulas, and every threshold unchanged; measure only the new candidate lens WAVs.",
+    "praat_version": "6.6.30",
+    "praat_sha256": "b0311abb9ae606a5204715b0ab861d4ab863b932cbe3f0faecb7cce80b609d8d",
+    "praat_script_sha256": "114a91d4415d538041da6e0d28d35fc010d36e9f8b89c84e5e893b99bce4abfe",
+    "formant_ceilings_hz": [
+      5500,
+      5750,
+      6000
+    ],
+    "measurement_retention": {
+      "minimum_valid_frames_per_bin": 3,
+      "minimum_valid_frame_fraction": 0.6,
+      "plausible_f1_hz": [
+        180,
+        1200
+      ],
+      "plausible_f2_hz": [
+        600,
+        3500
+      ],
+      "minimum_f2_minus_f1_hz": 250,
+      "all_four_conditions_required": true
+    },
+    "base_vowel": {
+      "minimum_anchor_separation_bark_rms": 0.18,
+      "minimum_controlled_movement_bark_rms": 0.18,
+      "minimum_controlled_movement_fraction_of_anchor_for_exact": 0.5,
+      "minimum_direction_cosine": 0.5
+    },
+    "rhoticity": {
+      "minimum_anchor_separation_bark_rms": 0.1,
+      "minimum_controlled_movement_bark_rms": 0.1,
+      "minimum_controlled_movement_fraction_of_anchor_for_exact": 0.5,
+      "minimum_direction_cosine": 0.5
+    },
+    "universal_integrity_required": true,
+    "all_three_ceilings_required": true
+  },
+  "aggregation_policy": {
+    "slot_requires_every_occurrence_across_every_ceiling": true,
+    "cell_requires_all_three_slots_and_four_occurrences": true,
+    "missing_or_excluded_measurement_fails_the_cell": true,
+    "nasal_vowel_cell_remains_ineligible_without_nasality_gate": true,
+    "automatic_pass_only_queues_blind_human_qc": true,
+    "product_promotion_allowed": false
+  },
+  "claim_limits": {
+    "candidate_pass": "A pass shows that the stronger local contextual intervention satisfies the inherited v8 automatic vowel gate on the three known matrix fixtures for that exact voice and rule.",
+    "generalization": "A pass does not establish unseen-word or arbitrary-sentence robustness and must advance to blind QC and later unseen fixtures.",
+    "unrelated_local_change": "The complete target-word state/excitation intervention may alter consonant delivery inside the local output window; blind unrelated-interference QC remains mandatory.",
+    "anchor_limited_cells": "This screen cannot rescue a cell whose natural source/target anchors are unstable or unmeasurable.",
+    "other_families": "Consonants, insertion, nasality, and prosody remain separate unsolved validation families."
+  },
+  "stopping_rule": "Render the one frozen word-context candidate exactly once for each of the 48 selected slots, preserve every error and exclusion, select only cells passing all inherited gates across all contexts, and do not add a second context mode, replace a fixture, rerender a slot, change a threshold, or promote a product cell in this run.",
+  "source_bindings": [
+    {
+      "path": "scripts/run_bilingual_vowel_word_context_screen_v1.py",
+      "sha256": "04f54a3c1053b8d8536f33789addcf9e40da195fc834e65f4adb2b704bb9b62f"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_word_context.py",
+      "sha256": "03c11a14cee3f338cad27ec894650ad7874539fe68df167cae1bbd7bb192fefa"
+    },
+    {
+      "path": "scripts/run_bilingual_product_v8_vowel_acoustic_screen.py",
+      "sha256": "252afd101f1c93015f4d535a591fa963d3407add1e346bf90f81bf45f8ab74e7"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_listener_engine_v8.py",
+      "sha256": "bfb6072544ac869e9f5f7b9a5b5d81116a9c582e5b51bfb009c3f3a04f974055"
+    },
+    {
+      "path": "src/earshift_bakeoff/controlled_vowel_synthesis_v2.py",
+      "sha256": "2fc3aad0cf0c4de8c80e297a8352002f5f2f1ecc5a7cd5314f80de9bf6407dbb"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_acoustics_v2.py",
+      "sha256": "0d4e6071c632078fda0fe5afb8d08dadc73214d8044f87c42840b03246eb5a03"
+    },
+    {
+      "path": "src/earshift_bakeoff/bilingual_vowel_acoustics.py",
+      "sha256": "ad10321e17fccbf84defc6ca436d0ed5e9097181487cde9dc5d35eb301548c64"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_output_domain_splice.py",
+      "sha256": "f578bf75dae771bfc6facbe212958ada0bc39bcbb8a108e0ac2f1ea2aa936842"
+    },
+    {
+      "path": "src/earshift_bakeoff/kokoro_typed_diagnostic.py",
+      "sha256": "5063239efa5c4c0c3065269fd0f31b57662b22e17fe64434f4c97fa0b2ab0456"
+    },
+    {
+      "path": "rules/kokoro-product-voices.json",
+      "sha256": "ba053202a0ab64b632138a394f3a0fcd8f4101a86437844a99b8662679ef6fb6"
+    },
+    {
+      "path": "rules/bilingual-vowel-lenses.json",
+      "sha256": "654e42328c4825a0da9b92d0b84aa301ccee9d46c4a9dd0c2c0baac980b41a0f"
+    },
+    {
+      "path": "rules/bilingual-listener-lenses-v2.json",
+      "sha256": "23fa4cb220098e19ceec8945b2b431e976dc0f4f41c8bd8e3481a5efb3352107"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "state_version": "bilingual-product-isolated-audio-state-v1",
+  "matrix_version": "bilingual-product-matrix-v1",
+  "matrix_sha256": "171ba086e2641542a57895805dac84fadb967a4d8ab357c9d961873e20057ac5",
+  "protocol_binding": {
+    "path": "rules/bilingual-product-isolated-audio-screen-v1.json",
+    "sha256": "b8b391bd1b1f87f9d18290839aa3eb0696e15f8bd01e5bbca69fa87aafa72127",
+    "protocol_version": "bilingual-product-isolated-audio-screen-v1"
+  },
+  "result_binding": {
+    "path": "artifacts/product-matrix/20260717-bilingual-product-isolated-audio-screen-v1/results.json",
+    "sha256": "cfd32f86397fa53373caa1d574577d8cb0d1bc0a283560c7b691608ac1539db6",
+    "record_sha256": "65ba818e23ad5d073a13f110912335bbbadc5310c452d5569f4e3430f60e6f2e"
+  },
+  "classification": "all_isolated_slots_universal_integrity_pass_family_acoustics_pending",
+  "slot_count": 280,
+  "isolated_universal_integrity_pass_count": 280,
+  "isolated_universal_integrity_fail_count": 0,
+  "isolated_universal_integrity_yield": 1.0,
+  "family_counts": {
+    "vowel": 240,
+    "consonant": 32,
+    "insertion": 4,
+    "prosody": 4
+  },
+  "voice_counts": {
+    "af_heart": 66,
+    "am_michael": 66,
+    "pm_alex": 74,
+    "pf_dora": 74
+  },
+  "api_calls_made": 0,
+  "audio_render_sets_made": 280,
+  "family_acoustic_validation_status": "pending",
+  "human_validation_status": "pending_automatic_family_acoustics",
+  "production_enabled": false
+}

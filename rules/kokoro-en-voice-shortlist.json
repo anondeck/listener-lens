@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "creator_selected_defaults_pending_rule_qc",
+  "source_screen": {
+    "run_id": "20260717-kokoro-bilingual-voice-screen-v1",
+    "summary_sha256": "0b198eb28afc534c059ce051c306312e2605765d4cd7554c4f126548f241def1",
+    "public_manifest_sha256": "02fa3a39ebfa458a2830bbe462c05340db197c9895afbcbddb34e6a13e07d624"
+  },
+  "selected_defaults": {
+    "female_voice_id": "af_heart",
+    "male_voice_id": "am_michael"
+  },
+  "selection_basis": {
+    "decision_basis": "creator_paired_real_and_opaque_listening_qc",
+    "female_reason_tags": [
+      "strong_american_english_accent",
+      "solid_delivery",
+      "high_pitch_noted"
+    ],
+    "male_reason_tags": [
+      "best_general_purpose_fit_among_screened_male_options",
+      "mature_timbre_noted"
+    ],
+    "scope": "product_voice_preference_pending_independent_rule_and_prosody_qc"
+  },
+  "deferred_stylistic_alternates": [
+    {
+      "voice_id": "am_puck",
+      "reason_tag": "stylized_theatrical_delivery_not_default"
+    }
+  ],
+  "eliminated_voices": [
+    {
+      "voice_id": "af_nicole",
+      "reason_tag": "whispering_delivery"
+    },
+    {
+      "voice_id": "af_bella",
+      "reason_tag": "delivery_too_soft"
+    },
+    {
+      "voice_id": "am_fenrir",
+      "reason_tag": "strongly_stylized_delivery_not_default"
+    }
+  ],
+  "production_candidate_enabled": false,
+  "interpretation": "Creator paired listening selects af_heart and am_michael as the female and male English defaults. The existing af_heart transformation evidence does not transfer to am_michael: each voice must independently pass every enabled vowel, consonant, opaque-flow, and prosody gate. The frozen six-voice screen remains unchanged."
+}
